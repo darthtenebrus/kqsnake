@@ -7,6 +7,7 @@
 
 
 #include <QList>
+#include <QBrush>
 #include "gameobject.h"
 
 class Snake {
@@ -14,10 +15,12 @@ class Snake {
 public:
     Snake(int, int);
     virtual ~Snake();
-    QList<GameObject> *getParts(void);
+    QBrush colorize(int x, int y);
 
 private:
     QList<GameObject> *mSnakeParts;
+    QList<GameObject> *getParts(void);
+
 };
 
 

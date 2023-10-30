@@ -69,13 +69,8 @@ void SnakeGame::actualDoRePaint() {
         for (int x = 0; x < m_ScrCellsX; ++x) {
             QBrush color;
 
-            color = QBrush("#000000");
-            for (GameObject &obj : *mSnake->getParts()) {
-                if (obj.intersects(x, y)) {
-                    color = QBrush("#00FF00");
-                    break;
-                }
-            }
+            color = mSnake->colorize(x, y);
+
             painter.fillRect(QRect(x * (MIN_CELL_SIZE + SPACE), y * (MIN_CELL_SIZE + SPACE),
                                    MIN_CELL_SIZE, MIN_CELL_SIZE), color);
 
