@@ -6,10 +6,10 @@
 #include "snake.h"
 #include <QBrush>
 
-Snake::Snake(int x, int y) {
-    mSnakeParts = new QList<GameObject>();
-    for (int i = 0; i < 3; i++) {
-        mSnakeParts->append(GameObject(x + i, y));
+Snake::Snake(int x, int y, QBrush &empty, QBrush &body) : mEmpty(empty), mBody(body) {
+    mSnakeParts = new QQueue<GameObject>();
+    for (int i = 2; i >= 0; i--) {
+        mSnakeParts->enqueue(GameObject(x + i, y));
     }
 }
 
@@ -17,15 +17,11 @@ Snake::~Snake() {
     delete mSnakeParts;
 }
 
-QList<GameObject> *Snake::getParts(void) {
-    return mSnakeParts;
-}
-
-QBrush Snake::colorize(int x, int y) {
+QBrush &Snake::colorize(int x, int y) {
     for (GameObject &obj : *mSnakeParts) {
         if (obj.intersects(x, y)) {
-            return { "#00FF00" };
+            return mBody;
         }
     }
-    return {"#000000"};
+    return mEmpty;
 }

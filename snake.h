@@ -6,21 +6,22 @@
 #define KQSNAKE_SNAKE_H
 
 
-#include <QList>
 #include <QBrush>
+#include <QQueue>
 #include "gameobject.h"
 
 class Snake {
 
 public:
-    Snake(int, int);
+    Snake(int, int, QBrush &, QBrush &);
     virtual ~Snake();
-    QBrush colorize(int x, int y);
+    QBrush &colorize(int x, int y);
 
 private:
-    QList<GameObject> *mSnakeParts;
-    QList<GameObject> *getParts(void);
+    QQueue<GameObject> *mSnakeParts;
 
+    QBrush &mEmpty;
+    QBrush &mBody;
 };
 
 

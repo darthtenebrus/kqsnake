@@ -28,6 +28,8 @@ private:
     int m_cellsX;
     int m_cellsY;
     Snake *mSnake;
+    QBrush mEmpty;
+    QBrush mBody;
 
     void actualDoRePaint();
     void recalcScreenCells();

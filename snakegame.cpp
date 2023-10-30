@@ -14,7 +14,8 @@
 #endif
 
 
-SnakeGame::SnakeGame(QWidget *parent) : QWidget(parent) {
+SnakeGame::SnakeGame(QWidget *parent) : QWidget(parent),
+        mEmpty("#000000"), mBody("#00FF00") {
     initTotalCells();
     renewGame();
 }
@@ -60,7 +61,6 @@ QPoint SnakeGame::getMainOffset() const {
 void SnakeGame::actualDoRePaint() {
 
     QPainter painter(this);
-
     painter.setBackground(QBrush("#232323"));
 
     const QPoint &mainOffset = getMainOffset();
@@ -85,7 +85,7 @@ void SnakeGame::renewGame() {
         delete mSnake;
     }
 
-    mSnake = new Snake(m_cellsX / 2, m_cellsY / 2);
+    mSnake = new Snake(m_cellsX / 2, m_cellsY / 2, mEmpty, mBody);
 
 }
 
