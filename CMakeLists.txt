@@ -25,7 +25,7 @@ configure_file(translations.qrc ${CMAKE_BINARY_DIR} COPYONLY)
 
 set(RES_FILES ${CMAKE_BINARY_DIR}/translations.qrc images.qrc)
 
-add_executable(kqsnake main.cpp mainwindow.cpp mainwindow.h mainwindow.ui snakegame.cpp snakegame.h gameobject.cpp gameobject.h snake.cpp snake.h)
+add_executable(kqsnake main.cpp mainwindow.cpp mainwindow.h mainwindow.ui snakegame.cpp snakegame.h gameobject.cpp gameobject.h snake.cpp snake.h constants.h)
 target_link_libraries(${PROJECT_NAME}
 
         Qt5::Core

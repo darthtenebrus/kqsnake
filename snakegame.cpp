@@ -6,16 +6,17 @@
 #include <QDesktopWidget>
 #include <QApplication>
 #include "snakegame.h"
-#define FIELD_OFFSET 1
-#define SPACE 1
-#define MIN_CELL_SIZE 16
+#include "constants.h"
+
 #ifdef _DEBUG
+
 #include <QDebug>
+
 #endif
 
 
 SnakeGame::SnakeGame(QWidget *parent) : QWidget(parent),
-        mEmpty("#000000"), mBody("#00FF00") {
+                                        mEmpty("#000000"), mBody("#00FF00") {
     initTotalCells();
     renewGame();
 }
@@ -41,7 +42,6 @@ void SnakeGame::recalcScreenCells() {
     m_remScrY = (fd.y() - (MIN_CELL_SIZE + SPACE) * m_ScrCellsY) / 2;
 
 
-
 }
 
 QPoint SnakeGame::getStandardFieldDefs(int &x, int &y) const {
@@ -65,18 +65,16 @@ void SnakeGame::actualDoRePaint() {
 
     const QPoint &mainOffset = getMainOffset();
     painter.translate(mainOffset.x(), mainOffset.y());
+
     for (int y = 0; y < m_ScrCellsY; ++y) {
         for (int x = 0; x < m_ScrCellsX; ++x) {
-            QBrush color;
-
-            color = mSnake->colorize(x, y);
-
             painter.fillRect(QRect(x * (MIN_CELL_SIZE + SPACE), y * (MIN_CELL_SIZE + SPACE),
-                                   MIN_CELL_SIZE, MIN_CELL_SIZE), color);
+                                   MIN_CELL_SIZE, MIN_CELL_SIZE), mEmpty);
 
         }
-
     }
+    mSnake->drawInitial(painter);
+
 }
 
 void SnakeGame::renewGame() {
@@ -85,7 +83,7 @@ void SnakeGame::renewGame() {
         delete mSnake;
     }
 
-    mSnake = new Snake(m_cellsX / 2, m_cellsY / 2, mEmpty, mBody);
+    mSnake = new Snake(m_cellsX / 2, m_cellsY / 2, mBody);
 
 }
 

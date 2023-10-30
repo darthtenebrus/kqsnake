@@ -13,15 +13,13 @@
 class Snake {
 
 public:
-    Snake(int, int, QBrush &, QBrush &);
+    Snake(int, int, QBrush &);
     virtual ~Snake();
-    QBrush &colorize(int x, int y);
+    void drawInitial(QPainter &);
+
 
 private:
     QQueue<GameObject> *mSnakeParts;
-
-    QBrush &mEmpty;
-    QBrush &mBody;
 };
 
 

@@ -7,16 +7,19 @@
 
 
 #include <QPoint>
+#include <QBrush>
 
 class GameObject : public QPoint {
 
 public:
-    GameObject(int xpos, int ypos);
+    GameObject(int, int, QBrush &);
 
     bool intersects(GameObject &);
     bool intersects(int, int);
+    QBrush &getColor(void);
 
-
+private:
+    QBrush mColor;
 };
 
 
