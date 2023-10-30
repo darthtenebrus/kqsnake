@@ -3,6 +3,7 @@
 //
 
 #include <QPainter>
+#include <QDesktopWidget>
 #include <QApplication>
 #include "snakegame.h"
 #define FIELD_OFFSET 1
@@ -10,8 +11,6 @@
 #define MIN_CELL_SIZE 16
 #ifdef _DEBUG
 #include <QDebug>
-#include <QDesktopWidget>
-
 #endif
 
 
