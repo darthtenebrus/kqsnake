@@ -19,7 +19,7 @@ Snake::Snake(int x, int y, QBrush &color)  : QQueue<GameObject>() {
 
 void Snake::drawInitial(QPainter &painter) {
     for(GameObject &obj : *this) {
-        painter.fillRect(QRect(obj.x() * (MIN_CELL_SIZE + SPACE), obj.y() * (MIN_CELL_SIZE + SPACE),
+        painter.fillRect(QRect(obj.x() * (MIN_CELL_SIZE), obj.y() * (MIN_CELL_SIZE),
                                MIN_CELL_SIZE, MIN_CELL_SIZE), obj.getColor());
     }
 }
@@ -82,7 +82,9 @@ GameObject Snake::createNewHead()  {
 }
 
 void Snake::removeTail() {
-    removeFirst();
+    if (!isEmpty()) {
+        removeFirst();
+    }
 }
 
 void Snake::move(SnakeGame &game) {

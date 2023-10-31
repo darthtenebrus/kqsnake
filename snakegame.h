@@ -48,7 +48,7 @@ private:
 
     QPoint getStandardFieldDefs(int &x, int &y) const;
 
-    QPoint getMainOffset() const;
+    [[nodiscard]] QPoint getMainOffset() const;
 
 
 
@@ -57,6 +57,8 @@ private:
     void drawApples( QPainter &);
 
     int localRand(int);
+
+    bool collizedApple(int x, int y);
 };
 
 

@@ -36,10 +36,10 @@ void SnakeGame::recalcScreenCells() {
     int w = width();
     QPoint fd = getStandardFieldDefs(w, h);
 
-    m_ScrCellsX = fd.x() / (MIN_CELL_SIZE + SPACE);
-    m_ScrCellsY = fd.y() / (MIN_CELL_SIZE + SPACE);
-    m_remScrX = (fd.x() - (MIN_CELL_SIZE + SPACE) * m_ScrCellsX) / 2;
-    m_remScrY = (fd.y() - (MIN_CELL_SIZE + SPACE) * m_ScrCellsY) / 2;
+    m_ScrCellsX = fd.x() / (MIN_CELL_SIZE);
+    m_ScrCellsY = fd.y() / (MIN_CELL_SIZE);
+    m_remScrX = (fd.x() - (MIN_CELL_SIZE) * m_ScrCellsX) / 2;
+    m_remScrY = (fd.y() - (MIN_CELL_SIZE) * m_ScrCellsY) / 2;
 
 
 }
@@ -68,7 +68,7 @@ void SnakeGame::actualDoRePaint() {
 
     for (int y = 0; y < m_ScrCellsY; ++y) {
         for (int x = 0; x < m_ScrCellsX; ++x) {
-            painter.fillRect(QRect(x * (MIN_CELL_SIZE + SPACE), y * (MIN_CELL_SIZE + SPACE),
+            painter.fillRect(QRect(x * (MIN_CELL_SIZE), y * (MIN_CELL_SIZE),
                                    MIN_CELL_SIZE, MIN_CELL_SIZE), mEmpty);
 
         }
@@ -106,8 +106,8 @@ void SnakeGame::initTotalCells() {
     int dh = desktopwidget->height();
     QPoint fd = getStandardFieldDefs(dw, dh);
 
-    m_cellsX = fd.x() / (MIN_CELL_SIZE + SPACE);
-    m_cellsY = fd.y() / (MIN_CELL_SIZE + SPACE);
+    m_cellsX = fd.x() / (MIN_CELL_SIZE);
+    m_cellsY = fd.y() / (MIN_CELL_SIZE);
 
 }
 
@@ -132,11 +132,19 @@ void SnakeGame::createNewApple(bool fromScreen) {
     int randY;
     int cellsX = fromScreen ? getScreenCellsX() : getMemCellsX();
     int cellsY = fromScreen ? getScreenCellsY() : getMemCellsY();
+#ifdef _DEBUG
+    qDebug() << "cellsX = " << cellsX;
+    qDebug() << "cellsY = " << cellsY;
+#endif
     do {
         randX = localRand(cellsX - 1);
         randY = localRand(cellsY - 1);
 
-    } while (mSnake->checkCollision(randX, randY));
+    } while (mSnake->checkCollision(randX, randY) || collizedApple(randX, randY));
+#ifdef _DEBUG
+    qDebug() << "randX = " << randX;
+    qDebug() << "randY = " << randY;
+#endif
     mApples->append(GameObject(randX, randY, mAppleColor));
 }
 
@@ -146,7 +154,7 @@ QList<GameObject> *SnakeGame::getApples() {
 
 void SnakeGame::drawApples(QPainter &painter) {
     for(GameObject &g : *mApples) {
-        painter.fillRect(QRect(g.x() * (MIN_CELL_SIZE + SPACE), g.y() * (MIN_CELL_SIZE + SPACE),
+        painter.fillRect(QRect(g.x() * (MIN_CELL_SIZE), g.y() * (MIN_CELL_SIZE),
                                MIN_CELL_SIZE, MIN_CELL_SIZE), g.getColor());
     }
 
@@ -159,6 +167,12 @@ int SnakeGame::localRand(int max) {
     int ret = abs(dist(mt));
 
     return ret;
+}
+
+bool SnakeGame::collizedApple(int x, int y) {
+    return std::any_of(mApples->begin(), mApples->end(), [&](GameObject &c){
+        return c.intersects(x,y);
+    });
 }
 
 
