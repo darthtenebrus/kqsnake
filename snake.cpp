@@ -10,6 +10,7 @@ Snake::Snake(int x, int y, QBrush &color)  : QQueue<GameObject>() {
     for (int i = 2; i >= 0; i--) {
         enqueue(GameObject(x + i, y, color));
     }
+    mDir = LEFT;
 }
 
 
