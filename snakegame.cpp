@@ -100,4 +100,12 @@ void SnakeGame::initTotalCells() {
 
 }
 
+int SnakeGame::getScreenCellsX() {
+    return m_ScrCellsX;
+}
+
+int SnakeGame::getScreenCellsY() {
+    return m_ScrCellsY;
+}
+
 

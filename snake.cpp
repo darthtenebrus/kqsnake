@@ -5,6 +5,7 @@
 #include <QPainter>
 #include "snake.h"
 #include "constants.h"
+#include "snakegame.h"
 
 Snake::Snake(int x, int y, QBrush &color)  : QQueue<GameObject>() {
     for (int i = 2; i >= 0; i--) {
@@ -12,6 +13,7 @@ Snake::Snake(int x, int y, QBrush &color)  : QQueue<GameObject>() {
     }
     mDir = LEFT;
     mColor = color;
+    mIsAlive = true;
 }
 
 
@@ -76,4 +78,22 @@ void Snake::removeTail() {
     dequeue();
 }
 
+void Snake::move(SnakeGame &game) {
+    GameObject newHead = createNewHead();
+    int newHeadX = newHead.x();
+    int newHeadY = newHead.y();
+    if (newHeadX < 0 ||
+        newHeadX >= game.getScreenCellsX() ||
+        newHeadY < 0 ||
+        newHeadY >= game.getScreenCellsY() ||
+        checkCollision(newHead)) {
+        mIsAlive = false;
+    } else {
+        enqueue(newHead);
+    }
 
+}
+
+bool Snake::isAlive() {
+    return mIsAlive;
+}

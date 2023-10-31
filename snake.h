@@ -10,7 +10,7 @@
 #include <QQueue>
 #include "gameobject.h"
 
-
+class SnakeGame;
 class Snake : public QQueue<GameObject> {
 
 
@@ -27,16 +27,20 @@ public:
 
     GameObject createNewHead();
     void removeTail();
+    void move(SnakeGame &);
 
     [[nodiscard]]
     bool isOpposed(const Direction &, const Direction &) const;
 
     [[nodiscard]]
     bool checkCollision(const GameObject &);
+    bool isAlive();
 
 private:
     Direction mDir;
     QBrush mColor;
+    bool mIsAlive;
+
 
 };
 

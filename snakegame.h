@@ -15,6 +15,9 @@ public:
     SnakeGame(QWidget *parent = nullptr);
     ~SnakeGame() override;
 
+    int getScreenCellsX();
+    int getScreenCellsY();
+
 protected:
     void paintEvent(QPaintEvent *e);
     void resizeEvent(QResizeEvent *event);
