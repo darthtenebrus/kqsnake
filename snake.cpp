@@ -43,4 +43,13 @@ bool Snake::isOpposed(const Direction &current, const Direction &candidate) cons
 
 }
 
+bool Snake::checkCollision(const GameObject &other) {
+    for (GameObject &curr : *this) {
+        if (curr.intersects(other)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 

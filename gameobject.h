@@ -14,9 +14,9 @@ class GameObject : public QPoint {
 public:
     GameObject(int, int, QBrush &);
 
-    bool intersects(GameObject &);
-    bool intersects(int, int);
-    QBrush &getColor(void);
+    bool intersects(const GameObject &) const;
+    bool intersects(int, int) const;
+    QBrush &getColor();
 
 private:
     QBrush mColor;

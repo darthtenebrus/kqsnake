@@ -28,6 +28,9 @@ public:
     [[nodiscard]]
     bool isOpposed(const Direction &, const Direction &) const;
 
+    [[nodiscard]]
+    bool checkCollision(const GameObject &);
+
 private:
     Direction mDir;
 

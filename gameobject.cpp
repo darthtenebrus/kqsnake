@@ -10,14 +10,14 @@ GameObject::GameObject(int xpos, int ypos, QBrush &color) :
 
 }
 
-bool GameObject::intersects(GameObject &other) {
+bool GameObject::intersects(const GameObject &other) const {
     return this->intersects(other.x(), other.y());
 }
 
-bool GameObject::intersects(int cx, int cy) {
+bool GameObject::intersects(int cx, int cy) const {
     return (this->x() == cx && this->y() == cy);
 }
 
-QBrush &GameObject::getColor(void) {
+QBrush &GameObject::getColor() {
     return mColor;
 }
