@@ -10,16 +10,11 @@
 #include <QQueue>
 #include "gameobject.h"
 
-class Snake {
+class Snake : public QQueue<GameObject> {
 
 public:
     Snake(int, int, QBrush &);
-    virtual ~Snake();
     void drawInitial(QPainter &);
-
-
-private:
-    QQueue<GameObject> *mSnakeParts;
 };
 
 
