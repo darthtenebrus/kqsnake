@@ -11,6 +11,7 @@ Snake::Snake(int x, int y, QBrush &color)  : QQueue<GameObject>() {
         enqueue(GameObject(x + i, y, color));
     }
     mDir = LEFT;
+    mColor = color;
 }
 
 
@@ -44,12 +45,35 @@ bool Snake::isOpposed(const Direction &current, const Direction &candidate) cons
 }
 
 bool Snake::checkCollision(const GameObject &other) {
-    for (GameObject &curr : *this) {
-        if (curr.intersects(other)) {
-            return true;
-        }
+    return std::any_of(begin(), end(), [&](const GameObject &g) {
+        return g.intersects(other);
+    });
+}
+
+GameObject Snake::createNewHead()  {
+    GameObject oldHead = last();
+    int newHeadX = oldHead.x();
+    int newHeadY = oldHead.y();
+    switch (mDir) {
+        case LEFT:
+            newHeadX--;
+            break;
+        case DOWN:
+            newHeadY++;
+            break;
+        case RIGHT:
+            newHeadX++;
+            break;
+        case UP:
+            newHeadY--;
+            break;
     }
-    return false;
+
+    return { newHeadX, newHeadY, mColor };
+}
+
+void Snake::removeTail() {
+    dequeue();
 }
 
 

@@ -25,6 +25,9 @@ public:
     void drawInitial(QPainter &);
     void setDirection(Direction d);
 
+    GameObject createNewHead();
+    void removeTail();
+
     [[nodiscard]]
     bool isOpposed(const Direction &, const Direction &) const;
 
@@ -33,6 +36,7 @@ public:
 
 private:
     Direction mDir;
+    QBrush mColor;
 
 };
 
