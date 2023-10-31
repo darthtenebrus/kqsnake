@@ -17,7 +17,7 @@
 SnakeGame::SnakeGame(QWidget *parent) : QWidget(parent), mAppleColor("#FF0000"),
                                         mEmpty("#000000"), mBody("#00FF00") {
     initTotalCells();
-    renewGame();
+    renewGame(false);
 }
 
 SnakeGame::~SnakeGame() {
@@ -78,7 +78,7 @@ void SnakeGame::actualDoRePaint() {
 
 }
 
-void SnakeGame::renewGame() {
+void SnakeGame::renewGame(bool fromScreen) {
 
     if (mApples) {
         mApples->clear();
@@ -92,7 +92,7 @@ void SnakeGame::renewGame() {
 
     mSnake = new Snake(m_cellsX / 2, m_cellsY / 2, mBody);
     for (int i = 0; i <= 2; i++) {
-        createNewApple(false);
+        createNewApple(fromScreen);
     }
 
 
@@ -152,11 +152,11 @@ void SnakeGame::drawApples(QPainter &painter) {
 
 }
 
-double SnakeGame::localRand(int max) {
+int SnakeGame::localRand(int max) {
     std::random_device rd;
     std::mt19937 mt(rd());
-    std::uniform_real_distribution<double> dist(0, max);
-    double ret = abs(dist(mt));
+    std::uniform_int_distribution<int> dist(0, max);
+    int ret = abs(dist(mt));
 
     return ret;
 }

@@ -52,11 +52,11 @@ private:
 
 
 
-    void renewGame();
+    void renewGame(bool);
     void initTotalCells();
     void drawApples( QPainter &);
 
-    double localRand(int);
+    int localRand(int);
 };
 
 
