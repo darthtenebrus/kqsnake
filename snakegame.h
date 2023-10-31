@@ -18,6 +18,11 @@ public:
     int getScreenCellsX();
     int getScreenCellsY();
 
+    int getMemCellsX();
+    int getMemCellsY();
+
+    QList<GameObject> *getApples();
+
 protected:
     void paintEvent(QPaintEvent *e);
     void resizeEvent(QResizeEvent *event);
@@ -30,12 +35,15 @@ private:
     int m_remScrY;
     int m_cellsX;
     int m_cellsY;
-    Snake *mSnake;
+    Snake *mSnake = nullptr;
+    QList<GameObject> *mApples = nullptr;
     QBrush mEmpty;
     QBrush mBody;
+    QBrush mAppleColor;
 
     void actualDoRePaint();
     void recalcScreenCells();
+    void createNewApple(bool);
 
 
     QPoint getStandardFieldDefs(int &x, int &y) const;
@@ -46,7 +54,9 @@ private:
 
     void renewGame();
     void initTotalCells();
+    void drawApples( QPainter &);
 
+    double localRand(int);
 };
 
 

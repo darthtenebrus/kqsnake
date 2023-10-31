@@ -3,25 +3,25 @@
 //
 
 #include <QPainter>
+#include <random>
 #include <QDesktopWidget>
 #include <QApplication>
 #include "snakegame.h"
 #include "constants.h"
 
 #ifdef _DEBUG
-
 #include <QDebug>
-
 #endif
 
 
-SnakeGame::SnakeGame(QWidget *parent) : QWidget(parent),
+SnakeGame::SnakeGame(QWidget *parent) : QWidget(parent), mAppleColor("#FF0000"),
                                         mEmpty("#000000"), mBody("#00FF00") {
     initTotalCells();
     renewGame();
 }
 
 SnakeGame::~SnakeGame() {
+    delete mApples;
     delete mSnake;
 }
 
@@ -73,17 +73,28 @@ void SnakeGame::actualDoRePaint() {
 
         }
     }
+    drawApples(painter);
     mSnake->drawInitial(painter);
 
 }
 
 void SnakeGame::renewGame() {
 
-    if (!mSnake) {
+    if (mApples) {
+        mApples->clear();
+    } else {
+        mApples = new QList<GameObject>();
+    }
+
+    if (mSnake) {
         delete mSnake;
     }
 
     mSnake = new Snake(m_cellsX / 2, m_cellsY / 2, mBody);
+    for (int i = 0; i <= 2; i++) {
+        createNewApple(false);
+    }
+
 
 }
 
@@ -106,6 +117,48 @@ int SnakeGame::getScreenCellsX() {
 
 int SnakeGame::getScreenCellsY() {
     return m_ScrCellsY;
+}
+
+int SnakeGame::getMemCellsX() {
+    return m_cellsX;
+}
+
+int SnakeGame::getMemCellsY() {
+    return m_cellsY;
+}
+
+void SnakeGame::createNewApple(bool fromScreen) {
+    int randX;
+    int randY;
+    int cellsX = fromScreen ? getScreenCellsX() : getMemCellsX();
+    int cellsY = fromScreen ? getScreenCellsY() : getMemCellsY();
+    do {
+        randX = localRand(cellsX - 1);
+        randY = localRand(cellsY - 1);
+
+    } while (mSnake->checkCollision(randX, randY));
+    mApples->append(GameObject(randX, randY, mAppleColor));
+}
+
+QList<GameObject> *SnakeGame::getApples() {
+    return mApples;
+}
+
+void SnakeGame::drawApples(QPainter &painter) {
+    for(GameObject &g : *mApples) {
+        painter.fillRect(QRect(g.x() * (MIN_CELL_SIZE + SPACE), g.y() * (MIN_CELL_SIZE + SPACE),
+                               MIN_CELL_SIZE, MIN_CELL_SIZE), g.getColor());
+    }
+
+}
+
+double SnakeGame::localRand(int max) {
+    std::random_device rd;
+    std::mt19937 mt(rd());
+    std::uniform_real_distribution<double> dist(0, max);
+    double ret = abs(dist(mt));
+
+    return ret;
 }
 
 

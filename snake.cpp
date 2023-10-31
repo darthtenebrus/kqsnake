@@ -52,6 +52,13 @@ bool Snake::checkCollision(const GameObject &other) {
     });
 }
 
+
+bool Snake::checkCollision(int x, int y) {
+    return std::any_of(begin(), end(), [&](const GameObject &g) {
+        return g.intersects(x, y);
+    });
+}
+
 GameObject Snake::createNewHead()  {
     GameObject oldHead = last();
     int newHeadX = oldHead.x();
@@ -75,7 +82,7 @@ GameObject Snake::createNewHead()  {
 }
 
 void Snake::removeTail() {
-    dequeue();
+    removeFirst();
 }
 
 void Snake::move(SnakeGame &game) {
@@ -90,6 +97,16 @@ void Snake::move(SnakeGame &game) {
         mIsAlive = false;
     } else {
         enqueue(newHead);
+        QList<GameObject> *apples = game.getApples();
+        int i;
+        if (std::any_of(apples->begin(), apples->end(), [&](GameObject &apple) {
+            i = apples->indexOf(apple);
+            return apple.intersects(newHead);
+        })) {
+            apples->removeAt(i);
+        } else {
+            removeTail();
+        }
     }
 
 }
@@ -97,3 +114,4 @@ void Snake::move(SnakeGame &game) {
 bool Snake::isAlive() {
     return mIsAlive;
 }
+

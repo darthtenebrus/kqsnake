@@ -34,6 +34,7 @@ public:
 
     [[nodiscard]]
     bool checkCollision(const GameObject &);
+    bool checkCollision(int, int);
     bool isAlive();
 
 private:
