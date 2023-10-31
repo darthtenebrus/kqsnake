@@ -20,4 +20,26 @@ void Snake::drawInitial(QPainter &painter) {
     }
 }
 
+void Snake::setDirection(Direction d) {
+    if (!isOpposed(mDir, d)) {
+        mDir = d;
+    }
+}
+
+bool Snake::isOpposed(const Direction &current, const Direction &candidate) const {
+
+    switch (current) {
+        case UP:
+            return candidate == DOWN;
+        case DOWN:
+            return candidate == UP;
+        case LEFT:
+            return candidate == RIGHT;
+        case RIGHT:
+            return candidate == LEFT;
+    }
+    return false;
+
+}
+
 
