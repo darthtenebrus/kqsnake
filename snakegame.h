@@ -24,8 +24,9 @@ public:
     QList<GameObject> *getApples();
 
 protected:
-    void paintEvent(QPaintEvent *e);
-    void resizeEvent(QResizeEvent *event);
+    void paintEvent(QPaintEvent *e) override;
+    void resizeEvent(QResizeEvent *event) override;
+    void keyPressEvent(QKeyEvent *event) override;
 
 private:
 
@@ -35,8 +36,12 @@ private:
     int m_remScrY;
     int m_cellsX;
     int m_cellsY;
+    int maxTurnsBefore = 0;
+    int m_TimerInterval;
     Snake *mSnake = nullptr;
     QList<GameObject> *mApples = nullptr;
+    QTimer *mTimer = nullptr;
+
     QBrush mEmpty;
     QBrush mBody;
     QBrush mAppleColor;
@@ -57,8 +62,12 @@ private:
     void drawApples( QPainter &);
 
     int localRand(int);
-
     bool collizedApple(int x, int y);
+    void cancelTimerInstantly();
+    void startGame();
+
+private slots:
+    void nextMove(void);
 };
 
 

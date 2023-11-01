@@ -3,6 +3,9 @@
 //
 
 #include <QPainter>
+#include <QKeyEvent>
+#include <QMessageBox>
+#include <QTimer>
 #include <random>
 #include <QDesktopWidget>
 #include <QApplication>
@@ -14,13 +17,17 @@
 #endif
 
 
-SnakeGame::SnakeGame(QWidget *parent) : QWidget(parent), mAppleColor("#FF0000"),
+SnakeGame::SnakeGame(QWidget *parent) : QWidget(parent), mTimer(new QTimer()), mAppleColor("#FF0000"),
                                         mEmpty("#000000"), mBody("#00FF00") {
+    m_TimerInterval = 1000;
     initTotalCells();
     renewGame(false);
+    connect(mTimer, &QTimer::timeout, this, &SnakeGame::nextMove);
+
 }
 
 SnakeGame::~SnakeGame() {
+    delete mTimer;
     delete mApples;
     delete mSnake;
 }
@@ -132,19 +139,13 @@ void SnakeGame::createNewApple(bool fromScreen) {
     int randY;
     int cellsX = fromScreen ? getScreenCellsX() : getMemCellsX();
     int cellsY = fromScreen ? getScreenCellsY() : getMemCellsY();
-#ifdef _DEBUG
-    qDebug() << "cellsX = " << cellsX;
-    qDebug() << "cellsY = " << cellsY;
-#endif
+
     do {
         randX = localRand(cellsX - 1);
         randY = localRand(cellsY - 1);
 
     } while (mSnake->checkCollision(randX, randY) || collizedApple(randX, randY));
-#ifdef _DEBUG
-    qDebug() << "randX = " << randX;
-    qDebug() << "randY = " << randY;
-#endif
+
     mApples->append(GameObject(randX, randY, mAppleColor));
 }
 
@@ -173,6 +174,56 @@ bool SnakeGame::collizedApple(int x, int y) {
     return std::any_of(mApples->begin(), mApples->end(), [&](GameObject &c){
         return c.intersects(x,y);
     });
+}
+
+void SnakeGame::startGame() {
+    if (!mTimer->isActive()) {
+        mTimer->start(m_TimerInterval);
+
+    }
+}
+
+void SnakeGame::cancelTimerInstantly() {
+    if (mTimer->isActive()) {
+        mTimer->stop();
+    }
+
+}
+
+
+void SnakeGame::nextMove(void) {
+
+    mSnake->move(this);
+    repaint();
+    if (!mSnake->isAlive()) {
+        cancelTimerInstantly();
+        QMessageBox::critical(this, QObject::tr("You lost"), QObject::tr("Sorry, you lost"));
+    } else {
+        maxTurnsBefore++;
+        if (maxTurnsBefore == 2) {
+            createNewApple(true);
+            maxTurnsBefore = 0;
+        }
+    }
+}
+
+void SnakeGame::keyPressEvent(QKeyEvent *event) {
+    switch (event->key()) {
+        case Qt::Key_Up:
+            mSnake->setDirection(Snake::UP);
+            break;
+        case Qt::Key_Down:
+            mSnake->setDirection(Snake::DOWN);
+            break;
+        case Qt::Key_Left:
+            mSnake->setDirection(Snake::LEFT);
+            break;
+        case Qt::Key_Right:
+            mSnake->setDirection(Snake::RIGHT);
+            break;
+        case Qt::Key_Space:
+            startGame();
+    }
 }
 
 

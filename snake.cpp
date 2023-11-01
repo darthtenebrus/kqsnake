@@ -87,19 +87,19 @@ void Snake::removeTail() {
     }
 }
 
-void Snake::move(SnakeGame &game) {
+void Snake::move(SnakeGame *game) {
     GameObject newHead = createNewHead();
     int newHeadX = newHead.x();
     int newHeadY = newHead.y();
     if (newHeadX < 0 ||
-        newHeadX >= game.getScreenCellsX() ||
+        newHeadX >= game->getScreenCellsX() ||
         newHeadY < 0 ||
-        newHeadY >= game.getScreenCellsY() ||
+        newHeadY >= game->getScreenCellsY() ||
         checkCollision(newHead)) {
         mIsAlive = false;
     } else {
         enqueue(newHead);
-        QList<GameObject> *apples = game.getApples();
+        QList<GameObject> *apples = game->getApples();
         int i;
         if (std::any_of(apples->begin(), apples->end(), [&](GameObject &apple) {
             i = apples->indexOf(apple);

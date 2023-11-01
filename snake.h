@@ -27,7 +27,7 @@ public:
 
     GameObject createNewHead();
     void removeTail();
-    void move(SnakeGame &);
+    void move(SnakeGame *);
 
     [[nodiscard]]
     bool isOpposed(const Direction &, const Direction &) const;

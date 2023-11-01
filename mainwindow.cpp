@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     gameField->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
 
     ui->centralwidget->layout()->addWidget(gameField);
+    gameField->setFocusPolicy(Qt::StrongFocus);
 
 
 }
