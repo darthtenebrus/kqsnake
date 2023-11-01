@@ -194,7 +194,6 @@ void SnakeGame::cancelTimerInstantly() {
 void SnakeGame::nextMove(void) {
 
     mSnake->move(this);
-    repaint();
     if (!mSnake->isAlive()) {
         cancelTimerInstantly();
         QMessageBox::critical(this, QObject::tr("You lost"), QObject::tr("Sorry, you lost"));
@@ -204,6 +203,7 @@ void SnakeGame::nextMove(void) {
             createNewApple(true);
             maxTurnsBefore = 0;
         }
+        repaint();
     }
 }
 
