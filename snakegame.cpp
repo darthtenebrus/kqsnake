@@ -208,20 +208,18 @@ void SnakeGame::nextMove(void) {
 }
 
 void SnakeGame::keyPressEvent(QKeyEvent *event) {
+    Snake::Direction &cDir = mSnake->getDirection();
     switch (event->key()) {
-        case Qt::Key_Up:
-            mSnake->setDirection(Snake::UP);
-            break;
-        case Qt::Key_Down:
-            mSnake->setDirection(Snake::DOWN);
-            break;
         case Qt::Key_Left:
-            mSnake->setDirection(Snake::LEFT);
+        case Qt::Key_A:
+            --cDir;
             break;
         case Qt::Key_Right:
-            mSnake->setDirection(Snake::RIGHT);
+        case Qt::Key_D:
+            ++cDir;
             break;
-        case Qt::Key_Space:
+        case Qt::Key_Up:
+        case Qt::Key_W:
             startGame();
     }
 }
@@ -230,6 +228,21 @@ void SnakeGame::newGameTrigger(bool b) {
     cancelTimerInstantly();
     renewGame(true);
     repaint();
+}
+
+void SnakeGame::mousePressEvent(QMouseEvent *event) {
+    Snake::Direction &cDir = mSnake->getDirection();
+    switch (event->button()) {
+        case Qt::LeftButton:
+            --cDir;
+            break;
+        case Qt::RightButton:
+            ++cDir;
+            break;
+        default:
+            break;
+
+    }
 }
 
 

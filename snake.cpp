@@ -24,28 +24,6 @@ void Snake::drawInitial(QPainter &painter) {
     }
 }
 
-void Snake::setDirection(Direction d) {
-    if (!isOpposed(mDir, d)) {
-        mDir = d;
-    }
-}
-
-bool Snake::isOpposed(const Direction &current, const Direction &candidate) const {
-
-    switch (current) {
-        case UP:
-            return candidate == DOWN;
-        case DOWN:
-            return candidate == UP;
-        case LEFT:
-            return candidate == RIGHT;
-        case RIGHT:
-            return candidate == LEFT;
-    }
-    return false;
-
-}
-
 bool Snake::checkCollision(const GameObject &other) {
     return std::any_of(begin(), end(), [&](const GameObject &g) {
         return g.intersects(other);
@@ -117,3 +95,45 @@ bool Snake::isAlive() {
     return mIsAlive;
 }
 
+Snake::Direction &Snake::getDirection() {
+    return mDir;
+}
+
+Snake::Direction & operator++(Snake::Direction &curr) {
+    switch (curr) {
+        case Snake::Direction::UP:
+            curr =  Snake::Direction::RIGHT;
+            break;
+        case Snake::Direction::RIGHT:
+            curr =  Snake::Direction::DOWN;
+            break;
+        case Snake::Direction::DOWN:
+            curr =  Snake::Direction::LEFT;
+            break;
+        case Snake::Direction::LEFT:
+            curr =  Snake::Direction::UP;
+            break;
+
+    }
+    return curr;
+}
+
+
+Snake::Direction & operator--(Snake::Direction &curr) {
+    switch (curr) {
+        case Snake::Direction::UP:
+            curr =  Snake::Direction::LEFT;
+            break;
+        case Snake::Direction::LEFT:
+            curr =  Snake::Direction::DOWN;
+            break;
+        case Snake::Direction::DOWN:
+            curr =  Snake::Direction::RIGHT;
+            break;
+        case Snake::Direction::RIGHT:
+            curr =  Snake::Direction::UP;
+            break;
+
+    }
+    return curr;
+}

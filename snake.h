@@ -23,14 +23,11 @@ public:
     };
     Snake(int, int, QBrush &);
     void drawInitial(QPainter &);
-    void setDirection(Direction d);
+    Direction &getDirection();
 
     GameObject createNewHead();
     void removeTail();
     void move(SnakeGame *);
-
-    [[nodiscard]]
-    bool isOpposed(const Direction &, const Direction &) const;
 
     [[nodiscard]]
     bool checkCollision(const GameObject &);
@@ -45,5 +42,7 @@ private:
 
 };
 
+Snake::Direction & operator--(Snake::Direction &);
+Snake::Direction & operator++(Snake::Direction &);
 
 #endif //KQSNAKE_SNAKE_H
