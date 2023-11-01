@@ -66,6 +66,8 @@ private:
     void cancelTimerInstantly();
     void startGame();
 
+public slots:
+    void newGameTrigger(bool);
 private slots:
     void nextMove(void);
 };

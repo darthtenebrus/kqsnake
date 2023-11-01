@@ -226,4 +226,10 @@ void SnakeGame::keyPressEvent(QKeyEvent *event) {
     }
 }
 
+void SnakeGame::newGameTrigger(bool b) {
+    cancelTimerInstantly();
+    renewGame(true);
+    repaint();
+}
+
 

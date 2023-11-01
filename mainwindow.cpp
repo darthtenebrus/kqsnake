@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->centralwidget->layout()->addWidget(gameField);
     gameField->setFocusPolicy(Qt::StrongFocus);
+    connect(ui->actionNewGame, &QAction::triggered, gameField, &SnakeGame::newGameTrigger);
 
 
 }
