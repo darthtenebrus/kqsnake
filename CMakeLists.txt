@@ -36,7 +36,9 @@ add_executable(kqsnake
                 gameobject.h
                 snake.cpp
                 snake.h
-                constants.h)
+                constants.h
+                ${RES_FILES}
+                ${QM_FILES})
 
 target_link_libraries(${PROJECT_NAME}
         Qt5::Core

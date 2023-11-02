@@ -21,7 +21,7 @@ public:
         DOWN,
         LEFT
     };
-    Snake(int, int, QBrush &);
+    Snake(int, int);
     void drawInitial(QPainter &);
     Direction &getDirection();
 
@@ -36,10 +36,8 @@ public:
 
 private:
     Direction mDir;
-    QBrush mColor;
     bool mIsAlive;
-
-
+    QPixmap mBody;
 };
 
 Snake::Direction & operator--(Snake::Direction &);

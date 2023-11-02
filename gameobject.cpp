@@ -4,9 +4,9 @@
 
 #include "gameobject.h"
 
-GameObject::GameObject(int xpos, int ypos, QBrush &color) :
+GameObject::GameObject(int xpos, int ypos, QPixmap &image) :
                         QPoint(xpos, ypos) {
-    mColor = color;
+    mImg = image;
 
 }
 
@@ -18,6 +18,6 @@ bool GameObject::intersects(int cx, int cy) const {
     return (this->x() == cx && this->y() == cy);
 }
 
-QBrush &GameObject::getColor() {
-    return mColor;
+QPixmap &GameObject::getImg() {
+    return mImg;
 }

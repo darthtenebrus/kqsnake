@@ -12,14 +12,14 @@
 class GameObject : public QPoint {
 
 public:
-    GameObject(int, int, QBrush &);
+    GameObject(int, int, QPixmap &);
 
     bool intersects(const GameObject &) const;
     bool intersects(int, int) const;
-    QBrush &getColor();
+    QPixmap &getImg();
 
 private:
-    QBrush mColor;
+    QPixmap mImg;
 };
 
 

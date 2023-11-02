@@ -17,8 +17,7 @@
 #endif
 
 
-SnakeGame::SnakeGame(QWidget *parent) : QWidget(parent), mTimer(new QTimer()), mAppleColor("#FF0000"),
-                                        mEmpty("#000000"), mBody("#00FF00") {
+SnakeGame::SnakeGame(QWidget *parent) : QWidget(parent), mTimer(new QTimer()), mAppleImg(":/images/apple.png") {
     m_TimerInterval = 1000;
     initTotalCells();
     renewGame(false);
@@ -76,7 +75,7 @@ void SnakeGame::actualDoRePaint() {
     for (int y = 0; y < m_ScrCellsY; ++y) {
         for (int x = 0; x < m_ScrCellsX; ++x) {
             painter.fillRect(QRect(x * (MIN_CELL_SIZE), y * (MIN_CELL_SIZE),
-                                   MIN_CELL_SIZE, MIN_CELL_SIZE), mEmpty);
+                                   MIN_CELL_SIZE, MIN_CELL_SIZE), QBrush("#000000"));
 
         }
     }
@@ -97,7 +96,7 @@ void SnakeGame::renewGame(bool fromScreen) {
         delete mSnake;
     }
 
-    mSnake = new Snake(m_cellsX / 2, m_cellsY / 2, mBody);
+    mSnake = new Snake(m_cellsX / 2, m_cellsY / 2);
     for (int i = 0; i <= 2; i++) {
         createNewApple(fromScreen);
     }
@@ -146,7 +145,7 @@ void SnakeGame::createNewApple(bool fromScreen) {
 
     } while (mSnake->checkCollision(randX, randY) || collizedApple(randX, randY));
 
-    mApples->append(GameObject(randX, randY, mAppleColor));
+    mApples->append(GameObject(randX, randY, mAppleImg));
 }
 
 QList<GameObject> *SnakeGame::getApples() {
@@ -155,8 +154,8 @@ QList<GameObject> *SnakeGame::getApples() {
 
 void SnakeGame::drawApples(QPainter &painter) {
     for(GameObject &g : *mApples) {
-        painter.fillRect(QRect(g.x() * (MIN_CELL_SIZE), g.y() * (MIN_CELL_SIZE),
-                               MIN_CELL_SIZE, MIN_CELL_SIZE), g.getColor());
+        painter.drawPixmap(QRect(g.x() * (MIN_CELL_SIZE), g.y() * (MIN_CELL_SIZE),
+                               MIN_CELL_SIZE, MIN_CELL_SIZE), g.getImg());
     }
 
 }

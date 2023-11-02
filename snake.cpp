@@ -7,20 +7,20 @@
 #include "constants.h"
 #include "snakegame.h"
 
-Snake::Snake(int x, int y, QBrush &color)  : QQueue<GameObject>() {
+Snake::Snake(int x, int y)  : QQueue<GameObject>() {
+    mBody = QPixmap(":/images/body.png");
     for (int i = 2; i >= 0; i--) {
-        enqueue(GameObject(x + i, y, color));
+        enqueue(GameObject(x + i, y, mBody));
     }
     mDir = LEFT;
-    mColor = color;
     mIsAlive = true;
 }
 
 
 void Snake::drawInitial(QPainter &painter) {
     for(GameObject &obj : *this) {
-        painter.fillRect(QRect(obj.x() * (MIN_CELL_SIZE), obj.y() * (MIN_CELL_SIZE),
-                               MIN_CELL_SIZE, MIN_CELL_SIZE), obj.getColor());
+        painter.drawPixmap(QRect(obj.x() * (MIN_CELL_SIZE), obj.y() * (MIN_CELL_SIZE),
+                               MIN_CELL_SIZE, MIN_CELL_SIZE), obj.getImg());
     }
 }
 
@@ -56,7 +56,7 @@ GameObject Snake::createNewHead()  {
             break;
     }
 
-    return { newHeadX, newHeadY, mColor };
+    return { newHeadX, newHeadY, mBody };
 }
 
 void Snake::removeTail() {
