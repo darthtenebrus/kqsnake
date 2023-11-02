@@ -1,0 +1,8 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="images">
+	<file>apple.png</file>
+	<file>body.png</file>
+    </qresource>
+</RCC>
+
+
