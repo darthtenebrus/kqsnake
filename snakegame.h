@@ -50,7 +50,7 @@ private:
     void createNewApple(bool);
 
 
-    QPoint getStandardFieldDefs(int &x, int &y) const;
+    static QPoint getStandardFieldDefs(int &x, int &y) ;
 
     [[nodiscard]] QPoint getMainOffset() const;
 

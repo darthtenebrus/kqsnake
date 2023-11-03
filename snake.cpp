@@ -34,20 +34,8 @@ void Snake::drawInitial(QPainter &painter) {
         }
 
         QTransform rt;
-        switch (copyDir) {
-            case UP:
-                break;
-            case DOWN:
-                rt.rotate(180);
-                break;
-            case LEFT:
-                rt.rotate(-90);
-                break;
-            case RIGHT:
-                rt.rotate(90);
-                break;
-
-        }
+        int iDir = static_cast<int>(copyDir);
+        rt.rotate(iDir * 90);
         painter.drawPixmap(QRect(obj.x() * (MIN_CELL_SIZE), obj.y() * (MIN_CELL_SIZE),
                                  MIN_CELL_SIZE, MIN_CELL_SIZE), idx == length() - 1 ?
                                  cHead.transformed(rt) : obj.getImg().transformed(rt));

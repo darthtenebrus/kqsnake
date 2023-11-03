@@ -16,7 +16,7 @@ class Snake : public QQueue<GameObject> {
 
 public:
     enum Direction {
-        UP,
+        UP = 0,
         RIGHT,
         DOWN,
         LEFT

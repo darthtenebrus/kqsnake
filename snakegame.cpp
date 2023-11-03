@@ -50,7 +50,7 @@ void SnakeGame::recalcScreenCells() {
 
 }
 
-QPoint SnakeGame::getStandardFieldDefs(int &x, int &y) const {
+QPoint SnakeGame::getStandardFieldDefs(int &x, int &y) {
     return {x - (FIELD_OFFSET + SPACE) * 2, y - (FIELD_OFFSET + SPACE) * 2};
 }
 
