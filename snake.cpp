@@ -7,7 +7,7 @@
 #include "constants.h"
 #include "snakegame.h"
 
-Snake::Snake(int x, int y)  : QQueue<GameObject>() {
+Snake::Snake(int x, int y) : QQueue<GameObject>() {
     mBody = QPixmap(":/images/body.png");
     for (int i = 2; i >= 0; i--) {
         enqueue(GameObject(x + i, y, mBody));
@@ -18,9 +18,39 @@ Snake::Snake(int x, int y)  : QQueue<GameObject>() {
 
 
 void Snake::drawInitial(QPainter &painter) {
-    for(GameObject &obj : *this) {
+    Direction copyDir = getDirection();
+
+    const QPixmap &cHead = QPixmap(":/images/head.png");
+    for (GameObject &obj: *this) {
+        int idx = indexOf(obj);
+        if (idx != length() - 1) {
+            const GameObject &prevObj = at(idx + 1);
+            QPoint delta = obj - prevObj;
+            if ((copyDir == LEFT || copyDir == RIGHT) && delta.y()) {
+                copyDir = delta.y() > 0 ? UP : DOWN;
+            } else if ((copyDir == UP || copyDir == DOWN) && delta.x()) {
+                copyDir = delta.x() > 0 ? LEFT : RIGHT;
+            }
+        }
+
+        QTransform rt;
+        switch (copyDir) {
+            case UP:
+                break;
+            case DOWN:
+                rt.rotate(180);
+                break;
+            case LEFT:
+                rt.rotate(-90);
+                break;
+            case RIGHT:
+                rt.rotate(90);
+                break;
+
+        }
         painter.drawPixmap(QRect(obj.x() * (MIN_CELL_SIZE), obj.y() * (MIN_CELL_SIZE),
-                               MIN_CELL_SIZE, MIN_CELL_SIZE), obj.getImg());
+                                 MIN_CELL_SIZE, MIN_CELL_SIZE), idx == length() - 1 ?
+                                 cHead.transformed(rt) : obj.getImg().transformed(rt));
     }
 }
 
@@ -37,7 +67,7 @@ bool Snake::checkCollision(int x, int y) {
     });
 }
 
-GameObject Snake::createNewHead()  {
+GameObject Snake::createNewHead() {
     GameObject oldHead = last();
     int newHeadX = oldHead.x();
     int newHeadY = oldHead.y();
@@ -56,7 +86,7 @@ GameObject Snake::createNewHead()  {
             break;
     }
 
-    return { newHeadX, newHeadY, mBody };
+    return {newHeadX, newHeadY, mBody};
 }
 
 void Snake::removeTail() {
@@ -99,19 +129,19 @@ Snake::Direction &Snake::getDirection() {
     return mDir;
 }
 
-Snake::Direction & operator++(Snake::Direction &curr) {
+Snake::Direction &operator++(Snake::Direction &curr) {
     switch (curr) {
         case Snake::Direction::UP:
-            curr =  Snake::Direction::RIGHT;
+            curr = Snake::Direction::RIGHT;
             break;
         case Snake::Direction::RIGHT:
-            curr =  Snake::Direction::DOWN;
+            curr = Snake::Direction::DOWN;
             break;
         case Snake::Direction::DOWN:
-            curr =  Snake::Direction::LEFT;
+            curr = Snake::Direction::LEFT;
             break;
         case Snake::Direction::LEFT:
-            curr =  Snake::Direction::UP;
+            curr = Snake::Direction::UP;
             break;
 
     }
@@ -119,19 +149,19 @@ Snake::Direction & operator++(Snake::Direction &curr) {
 }
 
 
-Snake::Direction & operator--(Snake::Direction &curr) {
+Snake::Direction &operator--(Snake::Direction &curr) {
     switch (curr) {
         case Snake::Direction::UP:
-            curr =  Snake::Direction::LEFT;
+            curr = Snake::Direction::LEFT;
             break;
         case Snake::Direction::LEFT:
-            curr =  Snake::Direction::DOWN;
+            curr = Snake::Direction::DOWN;
             break;
         case Snake::Direction::DOWN:
-            curr =  Snake::Direction::RIGHT;
+            curr = Snake::Direction::RIGHT;
             break;
         case Snake::Direction::RIGHT:
-            curr =  Snake::Direction::UP;
+            curr = Snake::Direction::UP;
             break;
 
     }
