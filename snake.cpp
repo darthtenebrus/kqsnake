@@ -46,12 +46,6 @@ void Snake::drawInitial(QPainter &painter) {
         const QPixmap &nCurve = QPixmap(":/images/curve.png");
         const QPixmap &nBody = idx ? QPixmap(":/images/body.png") : QPixmap(":/images/tail.png") ;
         QTransform rt;
-#ifdef _DEBUG
-    qDebug() << "idx = " << idx;
-    qDebug() << "oldDir = " << oldDir;
-    qDebug() << "copyDir = " << copyDir;
-
-#endif
 
         bool notEqual = oldDir != copyDir;
         if(notEqual) {
