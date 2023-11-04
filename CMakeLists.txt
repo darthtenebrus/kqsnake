@@ -38,7 +38,7 @@ add_executable(kqsnake
                 snake.h
                 constants.h
                 ${RES_FILES}
-                ${QM_FILES})
+                ${QM_FILES} version.h)
 
 target_link_libraries(${PROJECT_NAME}
         Qt5::Core
