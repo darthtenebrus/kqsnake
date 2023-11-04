@@ -43,7 +43,6 @@ private:
     QList<GameObject> *mApples = nullptr;
     QTimer *mTimer = nullptr;
 
-    QPixmap mAppleImg;
 
     void actualDoRePaint();
     void recalcScreenCells();

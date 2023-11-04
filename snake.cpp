@@ -10,7 +10,7 @@
 Snake::Snake(int x, int y) : QQueue<GameObject>() {
     mBody = QPixmap(":/images/body.png");
     for (int i = 2; i >= 0; i--) {
-        enqueue(GameObject(x + i, y, mBody));
+        enqueue(GameObject(x + i, y));
     }
     mDir = LEFT;
     mIsAlive = true;
@@ -38,7 +38,7 @@ void Snake::drawInitial(QPainter &painter) {
         rt.rotate(iDir * 90);
         painter.drawPixmap(QRect(obj.x() * (MIN_CELL_SIZE), obj.y() * (MIN_CELL_SIZE),
                                  MIN_CELL_SIZE, MIN_CELL_SIZE), idx == length() - 1 ?
-                                 cHead.transformed(rt) : obj.getImg().transformed(rt));
+                                 cHead.transformed(rt) : QPixmap(":/images/body.png").transformed(rt));
     }
 }
 
@@ -74,7 +74,7 @@ GameObject Snake::createNewHead() {
             break;
     }
 
-    return {newHeadX, newHeadY, mBody};
+    return {newHeadX, newHeadY };
 }
 
 void Snake::removeTail() {

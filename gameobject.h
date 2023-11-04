@@ -12,14 +12,10 @@
 class GameObject : public QPoint {
 
 public:
-    GameObject(int, int, QPixmap &);
+    GameObject(int, int);
 
     bool intersects(const GameObject &) const;
     bool intersects(int, int) const;
-    QPixmap &getImg();
-
-private:
-    QPixmap mImg;
 };
 
 
