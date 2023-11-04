@@ -6,9 +6,11 @@
 #include "snake.h"
 #include "constants.h"
 #include "snakegame.h"
+#ifdef _DEBUG
+#include <QDebug>
+#endif
 
 Snake::Snake(int x, int y) : QQueue<GameObject>() {
-    mBody = QPixmap(":/images/body.png");
     for (int i = 2; i >= 0; i--) {
         enqueue(GameObject(x + i, y));
     }
@@ -16,29 +18,59 @@ Snake::Snake(int x, int y) : QQueue<GameObject>() {
     mIsAlive = true;
 }
 
+bool Snake::compareCurve(const Snake::Direction &oldDir, const Snake::Direction &newDir,
+                         int iOld, int iNew) {
+    int cOld = static_cast<int>(oldDir);
+    int cNew = static_cast<int>(newDir);
+    return (cOld == iOld && cNew == iNew);
+
+}
+
 
 void Snake::drawInitial(QPainter &painter) {
     Direction copyDir = getDirection();
 
     const QPixmap &cHead = QPixmap(":/images/head.png");
-    for (GameObject &obj: *this) {
-        int idx = indexOf(obj);
-        if (idx != length() - 1) {
-            const GameObject &prevObj = at(idx + 1);
-            QPoint delta = obj - prevObj;
+    for (int idx = length() - 1; idx >=0; idx--) {
+        const GameObject &obj = at(idx);
+        Direction oldDir = copyDir;
+        if (idx) {
+            const GameObject &nextObj = at(idx - 1);
+            QPoint delta = nextObj - obj;
             if ((copyDir == LEFT || copyDir == RIGHT) && delta.y()) {
                 copyDir = delta.y() > 0 ? UP : DOWN;
             } else if ((copyDir == UP || copyDir == DOWN) && delta.x()) {
                 copyDir = delta.x() > 0 ? LEFT : RIGHT;
             }
         }
-
+        const QPixmap &nCurve = QPixmap(":/images/curve.png");
+        const QPixmap &nBody = idx ? QPixmap(":/images/body.png") : QPixmap(":/images/tail.png") ;
         QTransform rt;
-        int iDir = static_cast<int>(copyDir);
-        rt.rotate(iDir * 90);
+#ifdef _DEBUG
+    qDebug() << "idx = " << idx;
+    qDebug() << "oldDir = " << oldDir;
+    qDebug() << "copyDir = " << copyDir;
+
+#endif
+
+        bool notEqual = oldDir != copyDir;
+        if(notEqual) {
+            if (compareCurve(oldDir, copyDir, 0, 3) || compareCurve(oldDir, copyDir, 1, 2)) {
+
+            } else if (compareCurve(oldDir, copyDir, 2, 3) || compareCurve(oldDir, copyDir, 1, 0)) {
+                rt.rotate(90);
+            } else if (compareCurve(oldDir, copyDir, 3, 0) || compareCurve(oldDir, copyDir, 2, 1)) {
+                rt.rotate(180);
+            } else if (compareCurve(oldDir, copyDir, 0, 1) || compareCurve(oldDir, copyDir, 3, 2)) {
+                rt.rotate(-90);
+            }
+        } else {
+            int iDir = static_cast<int>(copyDir);
+            rt.rotate(iDir * 90);
+        }
         painter.drawPixmap(QRect(obj.x() * (MIN_CELL_SIZE), obj.y() * (MIN_CELL_SIZE),
                                  MIN_CELL_SIZE, MIN_CELL_SIZE), idx == length() - 1 ?
-                                 cHead.transformed(rt) : QPixmap(":/images/body.png").transformed(rt));
+                                 cHead.transformed(rt) : notEqual ? nCurve.transformed(rt) : nBody.transformed(rt));
     }
 }
 
@@ -116,6 +148,7 @@ bool Snake::isAlive() {
 Snake::Direction &Snake::getDirection() {
     return mDir;
 }
+
 
 Snake::Direction &operator++(Snake::Direction &curr) {
     switch (curr) {

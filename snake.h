@@ -37,7 +37,7 @@ public:
 private:
     Direction mDir;
     bool mIsAlive;
-    QPixmap mBody;
+    bool compareCurve(const Direction &oldDir, const Direction &newDir, int iOld, int iNew);
 };
 
 Snake::Direction & operator--(Snake::Direction &);
