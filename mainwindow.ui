@@ -58,6 +58,7 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionNewGame"/>
+   <addaction name="separator"/>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

@@ -10,17 +10,33 @@
 #include "version.h"
 #include <QLayout>
 #include <QMessageBox>
+#include <QSlider>
 
 
 MainWindow::MainWindow(QWidget *parent) :
-        QMainWindow(parent), ui(new Ui::MainWindow) {
+        QMainWindow(parent), ui(new Ui::MainWindow),
+        timerSlider(new QSlider(Qt::Horizontal, this)) {
     ui->setupUi(this);
 
-    gameField = new SnakeGame(this);
+    timerSlider->setValue(5);
+    timerSlider->setSliderPosition(5);
+    timerSlider->setSingleStep(1);
+    timerSlider->setPageStep(1);
+    timerSlider->setMinimum(1);
+    timerSlider->setMaximum(10);
+    timerSlider->setTracking(true);
+    timerSlider->setToolTip(tr("Snake Movement Speed"));
+    timerSlider->setFixedWidth(200);
+    ui->toolBar->addWidget(timerSlider);
+
+    gameField = new SnakeGame(timerSlider->value(), this);
     gameField->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
 
     ui->centralwidget->layout()->addWidget(gameField);
     gameField->setFocusPolicy(Qt::StrongFocus);
+    gameField->setFocus();
+    connect(timerSlider, &QSlider::valueChanged, gameField, &SnakeGame::timerChanged);
+
     connect(ui->actionNewGame, &QAction::triggered, gameField, &SnakeGame::newGameTrigger);
     connect(ui->actionAboutQt, &QAction::triggered, this, [=]{
         QMessageBox::aboutQt(this);

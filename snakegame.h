@@ -12,7 +12,7 @@
 class SnakeGame : public QWidget {
 Q_OBJECT
 public:
-    SnakeGame(QWidget *parent = nullptr);
+    SnakeGame(int, QWidget *parent = nullptr);
     ~SnakeGame() override;
 
     int getScreenCellsX();
@@ -66,6 +66,7 @@ private:
 
 public slots:
     void newGameTrigger(bool);
+    void timerChanged(int);
 private slots:
     void nextMove(void);
 };

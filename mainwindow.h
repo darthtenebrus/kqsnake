@@ -6,6 +6,7 @@
 #define KQSNAKE_MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QSlider>
 #include "snakegame.h"
 
 
@@ -24,6 +25,7 @@ public:
 private:
     Ui::MainWindow *ui;
     SnakeGame *gameField;
+    QSlider *timerSlider;
 };
 
 

@@ -17,8 +17,9 @@
 #endif
 
 
-SnakeGame::SnakeGame(QWidget *parent) : QWidget(parent), mTimer(new QTimer()) {
-    m_TimerInterval = 1000;
+SnakeGame::SnakeGame(int timerInterval, QWidget *parent) : QWidget(parent), mTimer(new QTimer()) {
+    m_TimerInterval = DIVISOR / timerInterval;
+
     initTotalCells();
     renewGame(false);
     connect(mTimer, &QTimer::timeout, this, &SnakeGame::nextMove);
@@ -230,6 +231,9 @@ void SnakeGame::newGameTrigger(bool b) {
 }
 
 void SnakeGame::mousePressEvent(QMouseEvent *event) {
+    if (!mTimer->isActive()) {
+        return;
+    }
     Snake::Direction &cDir = mSnake->getDirection();
     switch (event->button()) {
         case Qt::LeftButton:
@@ -242,6 +246,15 @@ void SnakeGame::mousePressEvent(QMouseEvent *event) {
             break;
 
     }
+}
+
+void SnakeGame::timerChanged(int timerInterval) {
+    m_TimerInterval = DIVISOR / timerInterval;
+    if (mTimer->isActive()) {
+        mTimer->stop();
+        mTimer->start(m_TimerInterval);
+    }
+
 }
 
 

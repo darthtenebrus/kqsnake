@@ -7,5 +7,5 @@
 #define FIELD_OFFSET 1
 #define SPACE 1
 #define MIN_CELL_SIZE 32
-
+#define DIVISOR 2000
 #endif //KQSNAKE_CONSTANTS_H
