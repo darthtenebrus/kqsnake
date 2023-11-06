@@ -1,0 +1,22 @@
+[Desktop Entry]
+Version=1.0
+Name=Simple Snake Game
+Name[de]=Einfach das Schlangespiel
+Name[en]=Simple Snake Game
+Name[es]=El facil Juego De La Serpiente
+Name[ru]=Простая игра "Змейка"
+Comment=Simple Snake Game realization
+Comment[en]=Simple Snake Game realization
+Comment[de]=Die andere Schlangespielrealisation
+Comment[es]=La otra implementación del Juego De La Serpiente
+Comment[ru]=Простая реализация игры "Змейка"
+Keywords=Games;Snake Game;Snake
+Keywords[de]=Spielung;Schlangespielspiel
+Keywords[es]=Juegos;Juego;Serpiente
+Keywords[ru]=Игры;Змейка;
+Exec=kqsnake
+Icon=kqsnake
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Game;GNOME;KDE;
