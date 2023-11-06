@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>Snake Game</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="images.qrc">
+    <normaloff>:/images/desktop/64x64/kqsnake.png</normaloff>:/images/desktop/64x64/kqsnake.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -125,6 +129,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
  <connections/>
 </ui>
