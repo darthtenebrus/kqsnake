@@ -208,6 +208,9 @@ void SnakeGame::nextMove(void) {
 }
 
 void SnakeGame::keyPressEvent(QKeyEvent *event) {
+    if (!mTimer->isActive()) {
+        return;
+    }
     Snake::Direction &cDir = mSnake->getDirection();
     switch (event->key()) {
         case Qt::Key_Left:
@@ -218,9 +221,6 @@ void SnakeGame::keyPressEvent(QKeyEvent *event) {
         case Qt::Key_D:
             ++cDir;
             break;
-        case Qt::Key_Up:
-        case Qt::Key_W:
-            startGame();
     }
 }
 
@@ -254,6 +254,16 @@ void SnakeGame::timerChanged(int timerInterval) {
         mTimer->stop();
         mTimer->start(m_TimerInterval);
     }
+
+}
+
+void SnakeGame::startStopTrigger(bool) {
+    if (mTimer->isActive()) {
+        mTimer->stop();
+    } else {
+        mTimer->start(m_TimerInterval);
+    }
+    emit changeControls(mTimer->isActive());
 
 }
 

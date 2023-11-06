@@ -38,6 +38,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(timerSlider, &QSlider::valueChanged, gameField, &SnakeGame::timerChanged);
 
     connect(ui->actionNewGame, &QAction::triggered, gameField, &SnakeGame::newGameTrigger);
+    connect(ui->actionStartStopGame, &QAction::triggered, gameField, &SnakeGame::startStopTrigger);
     connect(ui->actionAboutQt, &QAction::triggered, this, [=]{
         QMessageBox::aboutQt(this);
 
@@ -51,11 +52,18 @@ MainWindow::MainWindow(QWidget *parent) :
 
     });
 
-
+    connect(gameField, &SnakeGame::changeControls, this, &MainWindow::controlsChanged);
 
 }
 
 MainWindow::~MainWindow() {
     delete gameField;
     delete ui;
+}
+
+void MainWindow::controlsChanged(bool active) {
+    ui->actionStartStopGame->setIcon(QIcon::fromTheme(
+            active ? "media-playback-pause" : "media-playback-start")
+            );
+
 }

@@ -26,6 +26,9 @@ private:
     Ui::MainWindow *ui;
     SnakeGame *gameField;
     QSlider *timerSlider;
+
+public slots:
+    void controlsChanged(bool);
 };
 
 

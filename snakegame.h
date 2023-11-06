@@ -66,9 +66,12 @@ private:
 
 public slots:
     void newGameTrigger(bool);
+    void startStopTrigger(bool);
     void timerChanged(int);
 private slots:
     void nextMove(void);
+signals:
+    void changeControls(bool);
 };
 
 
