@@ -22,7 +22,7 @@
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="129"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="117"/>
         <source>Game</source>
-        <translation type="unfinished">Игра</translation>
+        <translation>Игра</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="82"/>
@@ -42,7 +42,7 @@
         <location filename="mainwindow.ui" line="102"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="120"/>
         <source>Alt+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="107"/>
