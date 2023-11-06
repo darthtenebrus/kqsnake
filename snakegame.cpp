@@ -199,7 +199,7 @@ void SnakeGame::nextMove(void) {
         QMessageBox::critical(this, QObject::tr("You lost"), QObject::tr("Sorry, you lost"));
     } else {
         maxTurnsBefore++;
-        if (maxTurnsBefore == 2) {
+        if (maxTurnsBefore == 5) {
             createNewApple(true);
             maxTurnsBefore = 0;
         }
