@@ -99,12 +99,12 @@
     <message>
         <location filename="snakegame.cpp" line="211"/>
         <source>You win</source>
-        <translation type="unfinished"></translation>
+        <translation>Gewinn</translation>
     </message>
     <message>
         <location filename="snakegame.cpp" line="211"/>
         <source>You win!</source>
-        <translation type="unfinished"></translation>
+        <translation>Haben Sie gewinnen!</translation>
     </message>
     <message>
         <location filename="main.cpp" line="29"/>
