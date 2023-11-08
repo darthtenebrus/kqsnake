@@ -88,15 +88,25 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="snakegame.cpp" line="199"/>
+        <location filename="snakegame.cpp" line="200"/>
         <source>You lost</source>
         <translatorcomment>Вы проиграли</translatorcomment>
         <translation>Поражение</translation>
     </message>
     <message>
-        <location filename="snakegame.cpp" line="199"/>
+        <location filename="snakegame.cpp" line="200"/>
         <source>Sorry, you lost</source>
         <translation>Вы проиграли</translation>
+    </message>
+    <message>
+        <location filename="snakegame.cpp" line="211"/>
+        <source>You win</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="snakegame.cpp" line="211"/>
+        <source>You win!</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="main.cpp" line="29"/>

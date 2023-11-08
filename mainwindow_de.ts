@@ -87,60 +87,70 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="snakegame.cpp" line="199"/>
+        <location filename="snakegame.cpp" line="200"/>
         <source>You lost</source>
         <translation>Verloren</translation>
     </message>
     <message>
-        <location filename="snakegame.cpp" line="199"/>
+        <location filename="snakegame.cpp" line="200"/>
         <source>Sorry, you lost</source>
         <translation>Sie haben verloren</translation>
+    </message>
+    <message>
+        <location filename="snakegame.cpp" line="211"/>
+        <source>You win</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="snakegame.cpp" line="211"/>
+        <source>You win!</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="main.cpp" line="29"/>
         <source>Simple Snake Game realization</source>
         <oldsource>Simple Game Of Life realization</oldsource>
-        <translation type="unfinished"></translation>
+        <translation>Die einfache Schlangespiel realization</translation>
     </message>
     <message>
         <location filename="main.cpp" line="30"/>
         <source>Created by: </source>
-        <translation type="unfinished"></translation>
+        <translation>Erstellt von: </translation>
     </message>
     <message>
         <location filename="main.cpp" line="34"/>
         <source>Usage %1 [options]</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzen: %1 [Argumente]</translation>
     </message>
     <message>
         <location filename="main.cpp" line="36"/>
         <source>Valid options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Gültige Argumenten:</translation>
     </message>
     <message>
         <location filename="main.cpp" line="37"/>
         <source>show this help</source>
-        <translation type="unfinished"></translation>
+        <translation>diese Hilfe anzeigen</translation>
     </message>
     <message>
         <location filename="main.cpp" line="38"/>
         <source>display version</source>
-        <translation type="unfinished"></translation>
+        <translation>die Version anzeigen</translation>
     </message>
     <message>
         <location filename="main.cpp" line="43"/>
         <source>Unknown option %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Unbekannte Argument %1</translation>
     </message>
     <message>
         <location filename="main.cpp" line="44"/>
         <source>Launch %1 -h or %1 --help for help</source>
-        <translation type="unfinished"></translation>
+        <translation>Starten %1 -h oder %1 --help ,um Hilfe zu erhalten</translation>
     </message>
     <message>
         <location filename="main.cpp" line="48"/>
         <source>Launch this application without any parameters to see its main functional</source>
-        <translation type="unfinished"></translation>
+        <translation>Starten die App ohne Argumente, um die Hauptfunktion zu sehen</translation>
     </message>
 </context>
 </TS>

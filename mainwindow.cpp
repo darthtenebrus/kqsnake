@@ -53,6 +53,7 @@ MainWindow::MainWindow(QWidget *parent) :
     });
 
     connect(gameField, &SnakeGame::changeControls, this, &MainWindow::controlsChanged);
+    connect(gameField, &SnakeGame::enableStart, this, &MainWindow::startEnable);
 
 }
 
@@ -66,4 +67,8 @@ void MainWindow::controlsChanged(bool active) {
             active ? "media-playback-pause" : "media-playback-start")
             );
 
+}
+
+void MainWindow::startEnable(bool e) {
+    ui->actionStartStopGame->setEnabled(e);
 }

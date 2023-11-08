@@ -63,6 +63,7 @@ private:
     bool collizedApple(int x, int y);
     void cancelTimerInstantly();
     void startGame();
+    void stopGame();
 
 public slots:
     void newGameTrigger(bool);
@@ -72,6 +73,7 @@ private slots:
     void nextMove(void);
 signals:
     void changeControls(bool);
+    void enableStart(bool);
 };
 
 

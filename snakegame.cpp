@@ -195,7 +195,8 @@ void SnakeGame::nextMove(void) {
 
     mSnake->move(this);
     if (!mSnake->isAlive()) {
-        cancelTimerInstantly();
+        stopGame();
+        emit enableStart(false);
         QMessageBox::critical(this, QObject::tr("You lost"), QObject::tr("Sorry, you lost"));
     } else {
         maxTurnsBefore++;
@@ -204,6 +205,11 @@ void SnakeGame::nextMove(void) {
             maxTurnsBefore = 0;
         }
         repaint();
+        if (mSnake->length() >= m_ScrCellsX * 2) {
+            stopGame();
+            emit enableStart(false);
+            QMessageBox::information(this, QObject::tr("You win"), QObject::tr("You win!"));
+        }
     }
 }
 
@@ -227,6 +233,8 @@ void SnakeGame::keyPressEvent(QKeyEvent *event) {
 void SnakeGame::newGameTrigger(bool b) {
     cancelTimerInstantly();
     renewGame(true);
+    emit enableStart(true);
+    emit changeControls(false);
     repaint();
 }
 
@@ -259,12 +267,16 @@ void SnakeGame::timerChanged(int timerInterval) {
 
 void SnakeGame::startStopTrigger(bool) {
     if (mTimer->isActive()) {
-        mTimer->stop();
+        stopGame();
     } else {
-        mTimer->start(m_TimerInterval);
+        startGame();
     }
     emit changeControls(mTimer->isActive());
 
+}
+
+void SnakeGame::stopGame() {
+    cancelTimerInstantly();
 }
 
 

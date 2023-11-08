@@ -29,6 +29,7 @@ private:
 
 public slots:
     void controlsChanged(bool);
+    void startEnable(bool);
 };
 
 
