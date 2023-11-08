@@ -31,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     gameField = new SnakeGame(timerSlider->value(), this);
     gameField->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
+    gameField->setStatusTip(QObject::tr("Use right and left arrow keys or A/D keys or mouse buttons to control the snake"));
 
     ui->centralwidget->layout()->addWidget(gameField);
     gameField->setFocusPolicy(Qt::StrongFocus);
