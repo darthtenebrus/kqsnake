@@ -23,11 +23,19 @@ public:
 
     QList<GameObject> *getApples();
 
+    int getMMaxTurnsBetween() const;
+    int getMMaxLength() const;
+
+    void setMMaxTurnsBetween(int mMaxTurnsBetween);
+
+    void setMMaxLength(int mMaxLength);
+
 protected:
     void paintEvent(QPaintEvent *e) override;
     void resizeEvent(QResizeEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
+
 
 private:
 
@@ -39,6 +47,10 @@ private:
     int m_cellsY;
     int maxTurnsBefore = 0;
     int m_TimerInterval;
+
+    int mMaxTurnsBetween = 5;
+    int mMaxLength = 10;
+
     Snake *mSnake = nullptr;
     QList<GameObject> *mApples = nullptr;
     QTimer *mTimer = nullptr;
@@ -74,6 +86,7 @@ private slots:
 signals:
     void changeControls(bool);
     void enableStart(bool);
+
 };
 
 

@@ -8,6 +8,7 @@
 #include "ui_mainwindow.h"
 #include "snakegame.h"
 #include "version.h"
+#include "configdialog.h"
 #include <QLayout>
 #include <QMessageBox>
 #include <QSlider>
@@ -28,10 +29,11 @@ MainWindow::MainWindow(QWidget *parent) :
     timerSlider->setToolTip(tr("Snake Movement Speed"));
     timerSlider->setFixedWidth(200);
     ui->toolBar->addWidget(timerSlider);
+    configDialog = new ConfigDialog(this);
 
     gameField = new SnakeGame(timerSlider->value(), this);
     gameField->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
-    gameField->setStatusTip(QObject::tr("Use right and left arrow keys or A/D keys or mouse buttons to control the snake"));
+    gameField->setStatusTip(tr("Use right and left arrow keys or A/D keys or mouse buttons to control the snake"));
 
     ui->centralwidget->layout()->addWidget(gameField);
     gameField->setFocusPolicy(Qt::StrongFocus);
@@ -40,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->actionNewGame, &QAction::triggered, gameField, &SnakeGame::newGameTrigger);
     connect(ui->actionStartStopGame, &QAction::triggered, gameField, &SnakeGame::startStopTrigger);
+    connect(ui->actionSettings, &QAction::triggered, this, &MainWindow::settingsTriggered);
     connect(ui->actionAboutQt, &QAction::triggered, this, [=]{
         QMessageBox::aboutQt(this);
 
@@ -60,6 +63,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow() {
     delete gameField;
+    delete configDialog;
     delete ui;
 }
 
@@ -72,4 +76,15 @@ void MainWindow::controlsChanged(bool active) {
 
 void MainWindow::startEnable(bool e) {
     ui->actionStartStopGame->setEnabled(e);
+}
+
+void MainWindow::settingsTriggered(bool e) {
+    configDialog->setMaxLength(gameField->getMMaxLength());
+    configDialog->setBetweenMoves(gameField->getMMaxTurnsBetween());
+    configDialog->setModal(true);
+    int res = configDialog->exec();
+    if (res == QDialog::Accepted) {
+        gameField->setMMaxTurnsBetween(configDialog->getBetweenMoves());
+        gameField->setMMaxLength(configDialog->getMaxLength());
+    }
 }

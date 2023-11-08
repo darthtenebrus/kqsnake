@@ -70,6 +70,8 @@
    <addaction name="actionNewGame"/>
    <addaction name="actionStartStopGame"/>
    <addaction name="separator"/>
+   <addaction name="actionSettings"/>
+   <addaction name="separator"/>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -86,6 +88,8 @@
     </property>
     <addaction name="actionNewGame"/>
     <addaction name="actionStartStopGame"/>
+    <addaction name="separator"/>
+    <addaction name="actionSettings"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -132,6 +136,18 @@
    </property>
    <property name="shortcut">
     <string>Alt+S</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="icon">
+    <iconset theme="preferences-system">
+     <normaloff>.</normaloff>.</iconset>
+   </property>
+   <property name="text">
+    <string>Settings</string>
+   </property>
+   <property name="toolTip">
+    <string>Settings</string>
    </property>
   </action>
  </widget>

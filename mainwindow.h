@@ -8,6 +8,7 @@
 #include <QMainWindow>
 #include <QSlider>
 #include "snakegame.h"
+#include "configdialog.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -26,10 +27,14 @@ private:
     Ui::MainWindow *ui;
     SnakeGame *gameField;
     QSlider *timerSlider;
+    ConfigDialog *configDialog;
 
 public slots:
     void controlsChanged(bool);
     void startEnable(bool);
+    void settingsTriggered(bool);
+
+
 };
 
 

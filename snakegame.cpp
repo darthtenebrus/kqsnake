@@ -200,12 +200,12 @@ void SnakeGame::nextMove(void) {
         QMessageBox::critical(this, QObject::tr("You lost"), QObject::tr("Sorry, you lost"));
     } else {
         maxTurnsBefore++;
-        if (maxTurnsBefore == 5) {
+        if (maxTurnsBefore == mMaxTurnsBetween) {
             createNewApple(true);
             maxTurnsBefore = 0;
         }
         repaint();
-        if (mSnake->length() >= m_ScrCellsX * 2) {
+        if (mSnake->length() >= mMaxLength) {
             stopGame();
             emit enableStart(false);
             QMessageBox::information(this, QObject::tr("You win"), QObject::tr("You win!"));
@@ -277,6 +277,22 @@ void SnakeGame::startStopTrigger(bool) {
 
 void SnakeGame::stopGame() {
     cancelTimerInstantly();
+}
+
+int SnakeGame::getMMaxTurnsBetween() const {
+    return mMaxTurnsBetween;
+}
+
+int SnakeGame::getMMaxLength() const {
+    return mMaxLength;
+}
+
+void SnakeGame::setMMaxTurnsBetween(int maxTurnsBetween) {
+    SnakeGame::mMaxTurnsBetween = maxTurnsBetween;
+}
+
+void SnakeGame::setMMaxLength(int maxLength) {
+    SnakeGame::mMaxLength = maxLength;
 }
 
 

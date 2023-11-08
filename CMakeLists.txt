@@ -39,7 +39,7 @@ add_executable(kqsnake
                 snake.h
                 constants.h
                 ${RES_FILES}
-                ${QM_FILES} version.h)
+                ${QM_FILES} version.h configdialog.cpp configdialog.h configdialog.ui)
 
 target_link_libraries(${PROJECT_NAME}
         Qt5::Core
