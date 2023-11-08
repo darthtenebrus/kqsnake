@@ -153,7 +153,7 @@
     <message>
         <location filename="mainwindow.cpp" line="34"/>
         <source>Use right and left arrow keys or A/D keys or mouse buttons to control the snake</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzen Sie Links-und-Rechtspfeiltasten oder A/D-Tasten oder Links-und-Rechtsmausklicke, um die Schlange zu steuern</translation>
     </message>
 </context>
 </TS>
