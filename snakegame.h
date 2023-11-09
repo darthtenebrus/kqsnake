@@ -49,7 +49,7 @@ private:
     int m_TimerInterval;
 
     int mMaxTurnsBetween = 5;
-    int mMaxLength = 10;
+    int mMaxLength = 90;
 
     Snake *mSnake = nullptr;
     QList<GameObject> *mApples = nullptr;
