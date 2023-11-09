@@ -4,5 +4,5 @@
 
 #ifndef KQSNAKE_VERSION_H
 #define KQSNAKE_VERSION_H
-#define APP_VERSION "1.0-1"
+#define APP_VERSION "1.0-2"
 #endif //KQSNAKE_VERSION_H
