@@ -6,18 +6,21 @@
     <message>
         <location filename="configdialog.ui" line="14"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_configdialog.h" line="90"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_configdialog.h" line="90"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
         <location filename="configdialog.ui" line="22"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_configdialog.h" line="91"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_configdialog.h" line="91"/>
         <source>Snake Length To Win</source>
         <translation>Длина для выигрыша</translation>
     </message>
     <message>
         <location filename="configdialog.ui" line="36"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_configdialog.h" line="92"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_configdialog.h" line="92"/>
         <source>Moves Between Apples</source>
         <translation>Ходов перед появлением яблока</translation>
     </message>
@@ -27,68 +30,63 @@
     <message>
         <location filename="mainwindow.ui" line="20"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="138"/>
-        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="121"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="138"/>
         <source>Snake Game</source>
         <translation>Игра &quot;Змейка&quot;</translation>
     </message>
     <message>
-        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="132"/>
-        <source>toolBar</source>
-        <translation>toolBar</translation>
-    </message>
-    <message>
         <location filename="mainwindow.ui" line="87"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="156"/>
-        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="133"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="156"/>
         <source>Game</source>
         <translation>Игра</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="96"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="157"/>
-        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="134"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="157"/>
         <source>Help</source>
         <translation>Помощь</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="113"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="139"/>
-        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="122"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="139"/>
         <source>New Game</source>
         <translation>Новая игра</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="116"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="141"/>
-        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="124"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="141"/>
         <source>Alt+N</source>
         <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="121"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="143"/>
-        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="126"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="143"/>
         <source>About Qt</source>
         <translation>О программе Qt</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="126"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="144"/>
-        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="127"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="144"/>
         <source>About</source>
         <translation>О приложении</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="135"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="145"/>
-        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="128"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="145"/>
         <source>Start/Stop Game</source>
         <translation>Старт/Стоп</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="138"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="147"/>
-        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="130"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="147"/>
         <source>Alt+S</source>
         <translation>Alt+S</translation>
     </message>
@@ -97,6 +95,8 @@
         <location filename="mainwindow.ui" line="150"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="149"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="151"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="149"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="151"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
