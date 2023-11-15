@@ -7,6 +7,9 @@
 
 #include <QMainWindow>
 #include <QSlider>
+#include <KAboutData>
+#include <KHelpMenu>
+#include <KMainWindow>
 
 #include "snakegame.h"
 
@@ -27,6 +30,8 @@ private:
     Ui::MainWindow *ui;
     SnakeGame *gameField;
     QSlider *timerSlider;
+    KHelpMenu *hMenu;
+
 
 private slots:
     void loadSettings(const QString &);
@@ -35,7 +40,6 @@ public slots:
     void controlsChanged(bool);
     void startEnable(bool);
     void settingsTriggered(bool);
-
 
 };
 

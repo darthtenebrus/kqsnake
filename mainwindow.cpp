@@ -15,12 +15,26 @@
 #include <QMessageBox>
 #include <QSlider>
 #include <KConfigDialog>
+#include <KAboutData>
+#include <KHelpMenu>
 
 
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::MainWindow),
         timerSlider(new QSlider(Qt::Horizontal, this)) {
     ui->setupUi(this);
+
+    hMenu = new KHelpMenu(this, KAboutData("KQsnake",
+                                              tr("Snake Game"), APP_VERSION,
+                                              tr("Another Game Of Snake under KDE"),
+                                              KAboutLicense::GPL_V3, "© 2023 E.Sorochinskiy",
+                                              tr("Control the snake and collect as many apples as you can"),
+                                              "https://www.darkguard.net").setTranslator("Eugene E. Sorochinskiy",
+                                                                                         "webmaster@darkguard.net"));
+
+    QAction * sw = hMenu->action(KHelpMenu::menuSwitchLanguage);
+    hMenu->menu()->removeAction(sw);
+    ui->menubar->addMenu(hMenu->menu());
 
     timerSlider->setValue(5);
     timerSlider->setSliderPosition(5);
@@ -49,18 +63,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionNewGame, &QAction::triggered, gameField, &SnakeGame::newGameTrigger);
     connect(ui->actionStartStopGame, &QAction::triggered, gameField, &SnakeGame::startStopTrigger);
     connect(ui->actionSettings, &QAction::triggered, this, &MainWindow::settingsTriggered);
-    connect(ui->actionAboutQt, &QAction::triggered, this, [=]{
-        QMessageBox::aboutQt(this);
 
-    });
-
-    connect(ui->actionAbout, &QAction::triggered, this, [=]{
-        QMessageBox::about(this, "KQsnake",
-                           QString("KQsnake v. %1\n").arg(APP_VERSION) +
-                           tr("A simple Game Of Snake") +
-                           "\n© 2023 E.Sorochinskiy");
-
-    });
 
     connect(gameField, &SnakeGame::changeControls, this, &MainWindow::controlsChanged);
     connect(gameField, &SnakeGame::enableStart, this, &MainWindow::startEnable);
@@ -69,7 +72,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow() {
     delete gameField;
+    delete hMenu;
     delete ui;
+    delete timerSlider;
+
 }
 
 void MainWindow::controlsChanged(bool active) {

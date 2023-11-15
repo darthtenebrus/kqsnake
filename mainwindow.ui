@@ -89,15 +89,6 @@
     <addaction name="actionNewGame"/>
     <addaction name="actionStartStopGame"/>
    </widget>
-   <widget class="QMenu" name="menuHelp">
-    <property name="title">
-     <string>Help</string>
-    </property>
-    <addaction name="separator"/>
-    <addaction name="actionAboutQt"/>
-    <addaction name="separator"/>
-    <addaction name="actionAbout"/>
-   </widget>
    <widget class="QMenu" name="menuSettings">
     <property name="title">
      <string>Settings</string>
@@ -106,7 +97,6 @@
    </widget>
    <addaction name="menuGame"/>
    <addaction name="menuSettings"/>
-   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionNewGame">
@@ -119,16 +109,6 @@
    </property>
    <property name="shortcut">
     <string>Alt+N</string>
-   </property>
-  </action>
-  <action name="actionAboutQt">
-   <property name="text">
-    <string>About Qt</string>
-   </property>
-  </action>
-  <action name="actionAbout">
-   <property name="text">
-    <string>About</string>
    </property>
   </action>
   <action name="actionStartStopGame">

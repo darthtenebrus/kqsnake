@@ -52,6 +52,7 @@ parts:
       - qttools5-dev
       - qttools5-dev-tools
       - libkf5configwidgets-dev
+      - libkf5xmlgui-dev
       - extra-cmake-modules
       - qtchooser
       - libx11-dev

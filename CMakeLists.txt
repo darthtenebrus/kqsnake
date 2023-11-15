@@ -20,6 +20,7 @@ find_package(Qt5 COMPONENTS
 find_package(KF5 COMPONENTS
         Config
         ConfigWidgets
+        XmlGui
         REQUIRED)
 
 
@@ -46,8 +47,11 @@ add_executable(${PROJECT_NAME}
                 configpagefirst.cpp
                 configpagefirst.h
                 configpagefirst.ui
+                configpagesecond.cpp
+                configpagesecond.h
+                configpagesecond.ui
                 ${RES_FILES}
-                ${QM_FILES} configpagesecond.cpp configpagesecond.h configpagesecond.ui)
+                ${QM_FILES})
 
 kconfig_add_kcfg_files(${PROJECT_NAME} kqsnake.kcfgc)
 kconfig_add_kcfg_files(${PROJECT_NAME}_SRCS GENERATE_MOC kqsnake.kcfgc)
@@ -55,6 +59,7 @@ kconfig_add_kcfg_files(${PROJECT_NAME}_SRCS GENERATE_MOC kqsnake.kcfgc)
 target_link_libraries(${PROJECT_NAME}
         KF5::ConfigCore
         KF5::ConfigWidgets
+        KF5::XmlGui
         )
 
 install(TARGETS ${PROJECT_NAME})

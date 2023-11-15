@@ -32,107 +32,107 @@
     <name>MainWindow</name>
     <message>
         <location filename="mainwindow.ui" line="20"/>
-        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="141"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="127"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="141"/>
+        <location filename="mainwindow.cpp" line="28"/>
         <source>Snake Game</source>
         <translation>Игра &quot;Змейка&quot;</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="87"/>
-        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="159"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="143"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="159"/>
         <source>Game</source>
         <translation>Игра</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="94"/>
-        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="160"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="160"/>
         <source>Help</source>
         <translation>Помощь</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="118"/>
-        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="142"/>
+        <location filename="mainwindow.ui" line="108"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="128"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="142"/>
         <source>New Game</source>
         <translation>Новая игра</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="121"/>
-        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="144"/>
+        <location filename="mainwindow.ui" line="111"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="130"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="144"/>
         <source>Alt+N</source>
         <translation>Alt+N</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="126"/>
-        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="146"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="146"/>
         <source>About Qt</source>
         <translation>О программе Qt</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="131"/>
-        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="147"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="147"/>
         <source>About</source>
         <translation>О приложении</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="140"/>
-        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="148"/>
+        <location filename="mainwindow.ui" line="120"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="132"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="148"/>
         <source>Start/Stop Game</source>
         <translation>Старт/Стоп</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="143"/>
-        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="150"/>
+        <location filename="mainwindow.ui" line="123"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="134"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="150"/>
         <source>Alt+S</source>
         <translation>Alt+S</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="152"/>
-        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="152"/>
+        <location filename="mainwindow.ui" line="132"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="136"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="152"/>
         <source>Setup Kqsnake...</source>
         <translation>Настроить Kqsnake...</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="103"/>
-        <location filename="mainwindow.ui" line="155"/>
-        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="154"/>
-        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="161"/>
+        <location filename="mainwindow.ui" line="94"/>
+        <location filename="mainwindow.ui" line="135"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="138"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="144"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="154"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="161"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="32"/>
+        <location filename="mainwindow.cpp" line="29"/>
+        <source>Another Game Of Snake under KDE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="31"/>
+        <source>Control the snake and collect as many apples as you can</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="46"/>
         <source>Snake Movement Speed</source>
         <oldsource>Generation Change Speed</oldsource>
         <translation>Скорость движения</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="42"/>
+        <location filename="mainwindow.cpp" line="56"/>
         <source>Use right and left arrow keys or A/D keys or mouse buttons to control the snake</source>
         <translation>Управляйте змейкой при помощи клавиш &quot;влево&quot; и &quot;вправо&quot;, клавиш A/D или левой и правой кнопок мыши</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="60"/>
-        <source>A simple Game Of Snake</source>
-        <translation>Простая игра &quot;Змейка&quot;</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.cpp" line="93"/>
+        <location filename="mainwindow.cpp" line="99"/>
         <source>General</source>
         <translation>Общие</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="94"/>
+        <location filename="mainwindow.cpp" line="100"/>
         <source>Colors</source>
         <translation>Цвета</translation>
     </message>
