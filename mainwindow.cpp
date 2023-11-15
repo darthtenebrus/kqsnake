@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
         timerSlider(new QSlider(Qt::Horizontal, this)) {
     ui->setupUi(this);
 
-    hMenu = new KHelpMenu(this, KAboutData("KQsnake",
+    hMenu = new KHelpMenu(this, KAboutData(QStringLiteral("KQsnake"),
                                               tr("Snake Game"), APP_VERSION,
                                               tr("Another Game Of Snake under KDE"),
                                               KAboutLicense::GPL_V3, "© 2023 E.Sorochinskiy",
