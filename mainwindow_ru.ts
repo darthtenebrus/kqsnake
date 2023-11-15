@@ -66,6 +66,7 @@
     </message>
     <message>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="146"/>
+        <location filename="mainwindow.cpp" line="39"/>
         <source>About Qt</source>
         <translation>О программе Qt</translation>
     </message>
@@ -128,23 +129,23 @@
         <translation>Управляйте змейкой и соберите как можно больше яблок</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="46"/>
+        <location filename="mainwindow.cpp" line="49"/>
         <source>Snake Movement Speed</source>
         <oldsource>Generation Change Speed</oldsource>
         <translation>Скорость движения</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="56"/>
+        <location filename="mainwindow.cpp" line="59"/>
         <source>Use right and left arrow keys or A/D keys or mouse buttons to control the snake</source>
         <translation>Управляйте змейкой при помощи клавиш &quot;влево&quot; и &quot;вправо&quot;, клавиш A/D или левой и правой кнопок мыши</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="104"/>
+        <location filename="mainwindow.cpp" line="110"/>
         <source>General</source>
         <translation>Общие</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="105"/>
+        <location filename="mainwindow.cpp" line="111"/>
         <source>Colors</source>
         <translation>Цвета</translation>
     </message>

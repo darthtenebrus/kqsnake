@@ -34,6 +34,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QAction * sw = hMenu->action(KHelpMenu::menuSwitchLanguage);
     hMenu->menu()->removeAction(sw);
+    QAction *actionAboutQt;
+    hMenu->menu()->insertAction(hMenu->action(KHelpMenu::menuAboutKDE),
+                                actionAboutQt = new QAction(tr("About Qt"), this));
     ui->menubar->addMenu(hMenu->menu());
 
     timerSlider->setValue(5);
@@ -69,6 +72,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->actionShowStatusBar, &QAction::triggered, this, [=](bool checked) {
         ui->statusbar->setHidden(!checked);
+    });
+    connect(actionAboutQt, &QAction::triggered, this, [=](bool checked) {
+        QMessageBox::aboutQt(this);
     });
     connect(gameField, &SnakeGame::changeControls, this, &MainWindow::controlsChanged);
     connect(gameField, &SnakeGame::enableStart, this, &MainWindow::startEnable);
