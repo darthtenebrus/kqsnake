@@ -66,7 +66,7 @@
     </message>
     <message>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="146"/>
-        <location filename="mainwindow.cpp" line="39"/>
+        <location filename="mainwindow.cpp" line="42"/>
         <source>About Qt</source>
         <translation>Über Qt</translation>
     </message>
@@ -129,22 +129,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="49"/>
+        <location filename="mainwindow.cpp" line="52"/>
         <source>Snake Movement Speed</source>
         <translation>Schlangelaufgeschwindigkeit</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="59"/>
+        <location filename="mainwindow.cpp" line="62"/>
         <source>Use right and left arrow keys or A/D keys or mouse buttons to control the snake</source>
         <translation>Benutzen Sie Links-und-Rechtspfeiltasten oder A/D-Tasten oder Links-und-Rechtsmausklicke, um die Schlange zu steuern</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="110"/>
+        <location filename="mainwindow.cpp" line="113"/>
         <source>General</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="111"/>
+        <location filename="mainwindow.cpp" line="114"/>
         <source>Colors</source>
         <translation type="unfinished"></translation>
     </message>

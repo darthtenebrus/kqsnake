@@ -32,6 +32,9 @@ MainWindow::MainWindow(QWidget *parent) :
                                               "https://www.darkguard.net").setTranslator("Eugene E. Sorochinskiy",
                                                                                          "webmaster@darkguard.net"));
 
+    QIcon icon1;
+    icon1.addFile(QString::fromUtf8(":/images/desktop/64x64/kqsnake.png"), QSize(), QIcon::Normal, QIcon::Off);
+    hMenu->action(KHelpMenu::menuAboutApp)->setIcon(icon1);
     QAction * sw = hMenu->action(KHelpMenu::menuSwitchLanguage);
     hMenu->menu()->removeAction(sw);
     QAction *actionAboutQt;
