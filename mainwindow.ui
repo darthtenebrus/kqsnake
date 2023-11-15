@@ -93,6 +93,9 @@
     <property name="title">
      <string>Settings</string>
     </property>
+    <addaction name="actionShowToolbar"/>
+    <addaction name="actionShowStatusBar"/>
+    <addaction name="separator"/>
     <addaction name="actionSettings"/>
    </widget>
    <addaction name="menuGame"/>
@@ -133,6 +136,28 @@
    </property>
    <property name="toolTip">
     <string>Settings</string>
+   </property>
+  </action>
+  <action name="actionShowToolbar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show toolbar</string>
+   </property>
+  </action>
+  <action name="actionShowStatusBar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show status bar</string>
    </property>
   </action>
  </widget>

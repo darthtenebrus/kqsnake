@@ -63,8 +63,13 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionNewGame, &QAction::triggered, gameField, &SnakeGame::newGameTrigger);
     connect(ui->actionStartStopGame, &QAction::triggered, gameField, &SnakeGame::startStopTrigger);
     connect(ui->actionSettings, &QAction::triggered, this, &MainWindow::settingsTriggered);
+    connect(ui->actionShowToolbar, &QAction::triggered, this, [=](bool checked) {
+        ui->toolBar->setHidden(!checked);
+    });
 
-
+    connect(ui->actionShowStatusBar, &QAction::triggered, this, [=](bool checked) {
+        ui->statusbar->setHidden(!checked);
+    });
     connect(gameField, &SnakeGame::changeControls, this, &MainWindow::controlsChanged);
     connect(gameField, &SnakeGame::enableStart, this, &MainWindow::startEnable);
 
