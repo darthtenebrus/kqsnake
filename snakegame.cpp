@@ -68,7 +68,7 @@ QPoint SnakeGame::getMainOffset() const {
 void SnakeGame::actualDoRePaint() {
 
     QPainter painter(this);
-    painter.setBackground(QBrush("#232323"));
+    painter.setBackground(QBrush(mBackColor));
 
     const QPoint &mainOffset = getMainOffset();
     painter.translate(mainOffset.x(), mainOffset.y());
@@ -76,7 +76,7 @@ void SnakeGame::actualDoRePaint() {
     for (int y = 0; y < m_ScrCellsY; ++y) {
         for (int x = 0; x < m_ScrCellsX; ++x) {
             painter.fillRect(QRect(x * (MIN_CELL_SIZE), y * (MIN_CELL_SIZE),
-                                   MIN_CELL_SIZE, MIN_CELL_SIZE), QBrush("#000000"));
+                                   MIN_CELL_SIZE, MIN_CELL_SIZE), QBrush(mBackColor));
 
         }
     }
@@ -293,6 +293,10 @@ void SnakeGame::setMMaxTurnsBetween(int maxTurnsBetween) {
 
 void SnakeGame::setMMaxLength(int maxLength) {
     SnakeGame::mMaxLength = maxLength;
+}
+
+void SnakeGame::setMBackColor(const QColor &bc) {
+    mBackColor = bc;
 }
 
 

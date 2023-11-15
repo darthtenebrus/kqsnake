@@ -8,10 +8,13 @@
 #include "ui_mainwindow.h"
 #include "snakegame.h"
 #include "version.h"
-#include "configdialog.h"
+#include "kqsnake.h"
+#include "configpagefirst.h"
+#include "configpagesecond.h"
 #include <QLayout>
 #include <QMessageBox>
 #include <QSlider>
+#include <KConfigDialog>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -29,9 +32,12 @@ MainWindow::MainWindow(QWidget *parent) :
     timerSlider->setToolTip(tr("Snake Movement Speed"));
     timerSlider->setFixedWidth(200);
     ui->toolBar->addWidget(timerSlider);
-    configDialog = new ConfigDialog(this);
 
     gameField = new SnakeGame(timerSlider->value(), this);
+    gameField->setMMaxTurnsBetween(Settings::moves());
+    gameField->setMMaxLength(Settings::length());
+    gameField->setMBackColor(Settings::backcolor());
+
     gameField->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
     gameField->setStatusTip(tr("Use right and left arrow keys or A/D keys or mouse buttons to control the snake"));
 
@@ -63,7 +69,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow() {
     delete gameField;
-    delete configDialog;
     delete ui;
 }
 
@@ -79,12 +84,25 @@ void MainWindow::startEnable(bool e) {
 }
 
 void MainWindow::settingsTriggered(bool e) {
-    configDialog->setMaxLength(gameField->getMMaxLength());
-    configDialog->setBetweenMoves(gameField->getMMaxTurnsBetween());
-    configDialog->setModal(true);
-    int res = configDialog->exec();
-    if (res == QDialog::Accepted) {
-        gameField->setMMaxTurnsBetween(configDialog->getBetweenMoves());
-        gameField->setMMaxLength(configDialog->getMaxLength());
+
+    auto *dialog = KConfigDialog::exists(QStringLiteral("Settings"));
+    if (!dialog) {
+        dialog = new KConfigDialog(this, QStringLiteral("Settings"), Settings::self());
+        dialog->setFaceType(KPageDialog::List);
+
+        dialog->addPage(new ConfigPageFirst(this), tr("General"), "preferences-system", tr("General"));
+        dialog->addPage(new ConfigPageSecond(this), tr("Colors"), "colors-luma", tr("Colors"));
+        dialog->setModal(true);
+        connect(dialog, &KConfigDialog::settingsChanged, this, &MainWindow::loadSettings);
     }
+    dialog->show();
 }
+
+void MainWindow::loadSettings(const QString &dName) {
+
+    gameField->setMMaxTurnsBetween(Settings::moves());
+    gameField->setMMaxLength(Settings::length());
+    gameField->setMBackColor(Settings::backcolor());
+    gameField->repaint();
+}
+

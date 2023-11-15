@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <group name="General">
+    <entry name="length" type="Int">
+      <label>Snake length to win.</label>
+      <default>50</default>
+    </entry>
+    <entry name="moves" type="Int">
+      <label>Number of moves between apples.</label>
+      <default>10</default>
+    </entry>
+  </group>
+  <group name="Colors">
+     <entry name="backcolor" type="Color">
+        <label>Background Color</label>
+        <default>#000000</default>
+     </entry>
+  </group>
+</kcfg>

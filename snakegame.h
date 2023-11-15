@@ -27,8 +27,9 @@ public:
     int getMMaxLength() const;
 
     void setMMaxTurnsBetween(int mMaxTurnsBetween);
-
     void setMMaxLength(int mMaxLength);
+
+    void setMBackColor(const QColor &mBackColor);
 
 protected:
     void paintEvent(QPaintEvent *e) override;
@@ -48,8 +49,9 @@ private:
     int maxTurnsBefore = 0;
     int m_TimerInterval;
 
-    int mMaxTurnsBetween = 5;
-    int mMaxLength = 90;
+    int mMaxTurnsBetween;
+    int mMaxLength;
+    QColor mBackColor;
 
     Snake *mSnake = nullptr;
     QList<GameObject> *mApples = nullptr;

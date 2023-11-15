@@ -5,7 +5,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
-
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+find_package(ECM REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${ECM_FIND_MODULE_DIR})
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     add_definitions(-D_DEBUG)
@@ -13,9 +15,11 @@ endif()
 
 find_package(Qt5 COMPONENTS
         Core
-        Gui
-        Widgets
         LinguistTools
+        REQUIRED)
+find_package(KF5 COMPONENTS
+        Config
+        ConfigWidgets
         REQUIRED)
 
 
@@ -26,7 +30,7 @@ configure_file(translations.qrc ${CMAKE_BINARY_DIR} COPYONLY)
 
 set(RES_FILES ${CMAKE_BINARY_DIR}/translations.qrc images.qrc)
 
-add_executable(kqsnake
+add_executable(${PROJECT_NAME}
                 main.cpp
                 mainwindow.cpp
                 mainwindow.h
@@ -38,13 +42,19 @@ add_executable(kqsnake
                 snake.cpp
                 snake.h
                 constants.h
+                version.h
+                configpagefirst.cpp
+                configpagefirst.h
+                configpagefirst.ui
                 ${RES_FILES}
-                ${QM_FILES} version.h configdialog.cpp configdialog.h configdialog.ui)
+                ${QM_FILES} configpagesecond.cpp configpagesecond.h configpagesecond.ui)
+
+kconfig_add_kcfg_files(${PROJECT_NAME} kqsnake.kcfgc)
+kconfig_add_kcfg_files(${PROJECT_NAME}_SRCS GENERATE_MOC kqsnake.kcfgc)
 
 target_link_libraries(${PROJECT_NAME}
-        Qt5::Core
-        Qt5::Gui
-        Qt5::Widgets
+        KF5::ConfigCore
+        KF5::ConfigWidgets
         )
 
 install(TARGETS ${PROJECT_NAME})

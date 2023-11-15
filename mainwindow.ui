@@ -88,8 +88,6 @@
     </property>
     <addaction name="actionNewGame"/>
     <addaction name="actionStartStopGame"/>
-    <addaction name="separator"/>
-    <addaction name="actionSettings"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -100,7 +98,14 @@
     <addaction name="separator"/>
     <addaction name="actionAbout"/>
    </widget>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <addaction name="actionSettings"/>
+   </widget>
    <addaction name="menuGame"/>
+   <addaction name="menuSettings"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -140,11 +145,11 @@
   </action>
   <action name="actionSettings">
    <property name="icon">
-    <iconset theme="preferences-system">
+    <iconset theme="preferences-other">
      <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
-    <string>Settings</string>
+    <string>Setup Kqsnake...</string>
    </property>
    <property name="toolTip">
     <string>Settings</string>
