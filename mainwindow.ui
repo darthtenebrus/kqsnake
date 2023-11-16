@@ -56,10 +56,10 @@
     <string notr="true"/>
    </property>
    <property name="toolTip">
-    <string>Setup Kqsnake</string>
+    <string/>
    </property>
    <property name="whatsThis">
-    <string>Opens Settings dialog</string>
+    <string/>
    </property>
    <property name="toolButtonStyle">
     <enum>Qt::ToolButtonTextBesideIcon</enum>
@@ -145,6 +145,12 @@
    </property>
    <property name="toolTip">
     <string>Settings</string>
+   </property>
+   <property name="statusTip">
+    <string notr="true"/>
+   </property>
+   <property name="whatsThis">
+    <string>Opens Settings dialog</string>
    </property>
    <property name="shortcut">
     <string notr="true"/>
