@@ -81,18 +81,36 @@
         <translation>Schlangespiel</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="87"/>
-        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="167"/>
+        <location filename="mainwindow.ui" line="59"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="171"/>
+        <source>Setup Kqsnake</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="62"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="174"/>
+        <source>Opens Settings dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="90"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="176"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="167"/>
         <source>Game</source>
         <translation>Spiel</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="111"/>
+        <location filename="mainwindow.ui" line="114"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="156"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="156"/>
         <source>New Game</source>
         <translation>Neues Spiel</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="117"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="158"/>
+        <source>Clear the field and start a new game</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="42"/>
@@ -100,38 +118,44 @@
         <translation>Über Qt</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="123"/>
-        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="157"/>
+        <location filename="mainwindow.ui" line="129"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="160"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="157"/>
         <source>Start/Stop Game</source>
         <translation>Start/Stop Spiel</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="135"/>
-        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="158"/>
+        <location filename="mainwindow.ui" line="132"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="162"/>
+        <source>Starts or stops current game</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="144"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="164"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="158"/>
         <source>Setup Kqsnake...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="152"/>
-        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="162"/>
+        <location filename="mainwindow.ui" line="161"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="168"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="162"/>
         <source>Show toolbar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="166"/>
-        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="163"/>
+        <location filename="mainwindow.ui" line="175"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="169"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="163"/>
         <source>Show status bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="94"/>
-        <location filename="mainwindow.ui" line="138"/>
-        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="160"/>
-        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="168"/>
+        <location filename="mainwindow.ui" line="97"/>
+        <location filename="mainwindow.ui" line="147"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="166"/>
+        <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="177"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="160"/>
         <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="168"/>
         <source>Settings</source>
@@ -153,17 +177,23 @@
         <translation>Schlangelaufgeschwindigkeit</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="59"/>
+        <location filename="mainwindow.cpp" line="53"/>
+        <source>Change Snake Movement Speed dynamically</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="60"/>
+        <location filename="mainwindow.cpp" line="61"/>
         <source>Use right and left arrow keys or A/D keys or mouse buttons to control the snake</source>
         <translation>Benutzen Sie Links-und-Rechtspfeiltasten oder A/D-Tasten oder Links-und-Rechtsmausklicke, um die Schlange zu steuern</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="109"/>
+        <location filename="mainwindow.cpp" line="111"/>
         <source>General</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="110"/>
+        <location filename="mainwindow.cpp" line="112"/>
         <source>Colors</source>
         <translation type="unfinished"></translation>
     </message>

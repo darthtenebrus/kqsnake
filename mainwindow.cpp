@@ -50,6 +50,7 @@ MainWindow::MainWindow(QWidget *parent) :
     timerSlider->setMaximum(10);
     timerSlider->setTracking(true);
     timerSlider->setToolTip(tr("Snake Movement Speed"));
+    timerSlider->setWhatsThis(tr("Change Snake Movement Speed dynamically"));
     timerSlider->setFixedWidth(200);
     ui->toolBar->addWidget(timerSlider);
 
@@ -57,6 +58,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     gameField->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
     gameField->setStatusTip(tr("Use right and left arrow keys or A/D keys or mouse buttons to control the snake"));
+    gameField->setWhatsThis(tr("Use right and left arrow keys or A/D keys or mouse buttons to control the snake"));
 
     ui->centralwidget->layout()->addWidget(gameField);
     gameField->setFocusPolicy(Qt::StrongFocus);

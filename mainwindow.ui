@@ -56,7 +56,10 @@
     <string notr="true"/>
    </property>
    <property name="toolTip">
-    <string/>
+    <string>Setup Kqsnake</string>
+   </property>
+   <property name="whatsThis">
+    <string>Opens Settings dialog</string>
    </property>
    <property name="toolButtonStyle">
     <enum>Qt::ToolButtonTextBesideIcon</enum>
@@ -110,6 +113,9 @@
    <property name="text">
     <string>New Game</string>
    </property>
+   <property name="whatsThis">
+    <string>Clear the field and start a new game</string>
+   </property>
    <property name="shortcut">
     <string notr="true">Alt+N</string>
    </property>
@@ -121,6 +127,9 @@
    </property>
    <property name="text">
     <string>Start/Stop Game</string>
+   </property>
+   <property name="whatsThis">
+    <string>Starts or stops current game</string>
    </property>
    <property name="shortcut">
     <string notr="true">Alt+S</string>
