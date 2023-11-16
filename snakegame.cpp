@@ -11,6 +11,7 @@
 #include <QApplication>
 #include "snakegame.h"
 #include "constants.h"
+#include "kqsnake.h"
 
 #ifdef _DEBUG
 #include <QDebug>
@@ -68,7 +69,7 @@ QPoint SnakeGame::getMainOffset() const {
 void SnakeGame::actualDoRePaint() {
 
     QPainter painter(this);
-    painter.setBackground(QBrush(mBackColor));
+    painter.setBackground(QBrush(Settings::backcolor()));
 
     const QPoint &mainOffset = getMainOffset();
     painter.translate(mainOffset.x(), mainOffset.y());
@@ -76,7 +77,7 @@ void SnakeGame::actualDoRePaint() {
     for (int y = 0; y < m_ScrCellsY; ++y) {
         for (int x = 0; x < m_ScrCellsX; ++x) {
             painter.fillRect(QRect(x * (MIN_CELL_SIZE), y * (MIN_CELL_SIZE),
-                                   MIN_CELL_SIZE, MIN_CELL_SIZE), QBrush(mBackColor));
+                                   MIN_CELL_SIZE, MIN_CELL_SIZE), QBrush(Settings::backcolor()));
 
         }
     }
@@ -134,7 +135,7 @@ int SnakeGame::getMemCellsY() {
     return m_cellsY;
 }
 
-void SnakeGame::createNewApple(bool fromScreen) {
+void SnakeGame::createNewApple(bool fromScreen, GameObject::ItemType itemType) {
     int randX;
     int randY;
     int cellsX = fromScreen ? getScreenCellsX() : getMemCellsX();
@@ -146,17 +147,23 @@ void SnakeGame::createNewApple(bool fromScreen) {
 
     } while (mSnake->checkCollision(randX, randY) || collizedApple(randX, randY));
 
-    mApples->append(GameObject(randX, randY));
+    mApples->append(GameObject(randX, randY, itemType));
 }
 
 QList<GameObject> *SnakeGame::getApples() {
     return mApples;
 }
 
+
 void SnakeGame::drawApples(QPainter &painter) {
     for(GameObject &g : *mApples) {
+        GameObject::ItemType iType = g.getItemType();
+        const QPixmap &img =
+                iType == GameObject::ItemApple ? QPixmap(":/images/apple.png") : QPixmap(":/images/malus.png");
+        painter.fillRect(QRect(g.x() * (MIN_CELL_SIZE), g.y() * (MIN_CELL_SIZE),
+                               MIN_CELL_SIZE, MIN_CELL_SIZE), QBrush(Settings::forecolor()));
         painter.drawPixmap(QRect(g.x() * (MIN_CELL_SIZE), g.y() * (MIN_CELL_SIZE),
-                               MIN_CELL_SIZE, MIN_CELL_SIZE), QPixmap(":/images/apple.png"));
+                               MIN_CELL_SIZE, MIN_CELL_SIZE), img);
     }
 
 }
@@ -200,12 +207,19 @@ void SnakeGame::nextMove(void) {
         QMessageBox::critical(this, QObject::tr("You lost"), QObject::tr("Sorry, you lost"));
     } else {
         maxTurnsBefore++;
-        if (maxTurnsBefore == mMaxTurnsBetween) {
+        if (maxTurnsBefore == Settings::moves()) {
             createNewApple(true);
             maxTurnsBefore = 0;
         }
+        if (Settings::showmaluses()) {
+            maxTurnsBeforeMalus++;
+            if (maxTurnsBeforeMalus == Settings::maluses()) {
+                createNewApple(true, GameObject::ItemMalus);
+                maxTurnsBeforeMalus = 0;
+            }
+        }
         repaint();
-        if (mSnake->length() >= mMaxLength) {
+        if (mSnake->length() >= Settings::length()) {
             stopGame();
             emit enableStart(false);
             QMessageBox::information(this, QObject::tr("You win"), QObject::tr("You win!"));
@@ -279,24 +293,5 @@ void SnakeGame::stopGame() {
     cancelTimerInstantly();
 }
 
-int SnakeGame::getMMaxTurnsBetween() const {
-    return mMaxTurnsBetween;
-}
-
-int SnakeGame::getMMaxLength() const {
-    return mMaxLength;
-}
-
-void SnakeGame::setMMaxTurnsBetween(int maxTurnsBetween) {
-    SnakeGame::mMaxTurnsBetween = maxTurnsBetween;
-}
-
-void SnakeGame::setMMaxLength(int maxLength) {
-    SnakeGame::mMaxLength = maxLength;
-}
-
-void SnakeGame::setMBackColor(const QColor &bc) {
-    mBackColor = bc;
-}
 
 

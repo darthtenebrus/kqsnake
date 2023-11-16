@@ -11,11 +11,23 @@
 
 class GameObject : public QPoint {
 
+
 public:
-    GameObject(int, int);
+    enum ItemType {
+        ItemAny = 0,
+        ItemApple,
+        ItemMalus
+    };
+
+    GameObject(int, int, ItemType=ItemAny);
 
     bool intersects(const GameObject &) const;
     bool intersects(int, int) const;
+
+    ItemType getItemType() const;
+
+private:
+    ItemType mItemType;
 };
 
 

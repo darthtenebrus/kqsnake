@@ -57,7 +57,6 @@ int main(int argc, char *argv[]) {
 
     w->showMaximized();
     int res = QApplication::exec();
-    delete w;
     return res;
 
 }

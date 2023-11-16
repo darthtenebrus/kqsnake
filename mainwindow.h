@@ -5,7 +5,6 @@
 #ifndef KQSNAKE_MAINWINDOW_H
 #define KQSNAKE_MAINWINDOW_H
 
-#include <QMainWindow>
 #include <QSlider>
 #include <KAboutData>
 #include <KHelpMenu>
@@ -18,7 +17,7 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow {
+class MainWindow : public KMainWindow {
 Q_OBJECT
 
 public:

@@ -11,6 +11,9 @@
 ConfigPageFirst::ConfigPageFirst(QWidget *parent) :
         QWidget(parent), ui(new Ui::ConfigPageFirst) {
     ui->setupUi(this);
+    connect(ui->kcfg_showmaluses, &QCheckBox::stateChanged, this, [=](int ch) {
+        ui->kcfg_maluses->setEnabled(ch);
+    });
 }
 
 ConfigPageFirst::~ConfigPageFirst() {

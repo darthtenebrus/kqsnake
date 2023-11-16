@@ -111,7 +111,7 @@
     <string>New Game</string>
    </property>
    <property name="shortcut">
-    <string>Alt+N</string>
+    <string notr="true">Alt+N</string>
    </property>
   </action>
   <action name="actionStartStopGame">
@@ -123,7 +123,7 @@
     <string>Start/Stop Game</string>
    </property>
    <property name="shortcut">
-    <string>Alt+S</string>
+    <string notr="true">Alt+S</string>
    </property>
   </action>
   <action name="actionSettings">
@@ -137,6 +137,9 @@
    <property name="toolTip">
     <string>Settings</string>
    </property>
+   <property name="shortcut">
+    <string notr="true"/>
+   </property>
   </action>
   <action name="actionShowToolbar">
    <property name="checkable">
@@ -148,6 +151,9 @@
    <property name="text">
     <string>Show toolbar</string>
    </property>
+   <property name="shortcut">
+    <string notr="true"/>
+   </property>
   </action>
   <action name="actionShowStatusBar">
    <property name="checkable">
@@ -158,6 +164,9 @@
    </property>
    <property name="text">
     <string>Show status bar</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true"/>
    </property>
   </action>
  </widget>

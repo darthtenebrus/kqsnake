@@ -23,13 +23,6 @@ public:
 
     QList<GameObject> *getApples();
 
-    int getMMaxTurnsBetween() const;
-    int getMMaxLength() const;
-
-    void setMMaxTurnsBetween(int mMaxTurnsBetween);
-    void setMMaxLength(int mMaxLength);
-
-    void setMBackColor(const QColor &mBackColor);
 
 protected:
     void paintEvent(QPaintEvent *e) override;
@@ -47,11 +40,8 @@ private:
     int m_cellsX;
     int m_cellsY;
     int maxTurnsBefore = 0;
+    int maxTurnsBeforeMalus = 0;
     int m_TimerInterval;
-
-    int mMaxTurnsBetween;
-    int mMaxLength;
-    QColor mBackColor;
 
     Snake *mSnake = nullptr;
     QList<GameObject> *mApples = nullptr;
@@ -60,7 +50,7 @@ private:
 
     void actualDoRePaint();
     void recalcScreenCells();
-    void createNewApple(bool);
+    void createNewApple(bool, GameObject::ItemType=GameObject::ItemApple);
 
 
     static QPoint getStandardFieldDefs(int &x, int &y) ;

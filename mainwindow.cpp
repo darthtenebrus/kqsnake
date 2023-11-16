@@ -20,7 +20,7 @@
 
 
 MainWindow::MainWindow(QWidget *parent) :
-        QMainWindow(parent), ui(new Ui::MainWindow),
+        KMainWindow(parent), ui(new Ui::MainWindow),
         timerSlider(new QSlider(Qt::Horizontal, this)) {
     ui->setupUi(this);
 
@@ -54,9 +54,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->toolBar->addWidget(timerSlider);
 
     gameField = new SnakeGame(timerSlider->value(), this);
-    gameField->setMMaxTurnsBetween(Settings::moves());
-    gameField->setMMaxLength(Settings::length());
-    gameField->setMBackColor(Settings::backcolor());
 
     gameField->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
     gameField->setStatusTip(tr("Use right and left arrow keys or A/D keys or mouse buttons to control the snake"));
@@ -109,7 +106,6 @@ void MainWindow::settingsTriggered(bool e) {
     if (!dialog) {
         dialog = new KConfigDialog(this, QStringLiteral("Settings"), Settings::self());
         dialog->setFaceType(KPageDialog::List);
-
         dialog->addPage(new ConfigPageFirst(this), tr("General"), "preferences-system", tr("General"));
         dialog->addPage(new ConfigPageSecond(this), tr("Colors"), "colors-luma", tr("Colors"));
         dialog->setModal(true);
@@ -120,9 +116,6 @@ void MainWindow::settingsTriggered(bool e) {
 
 void MainWindow::loadSettings(const QString &dName) {
 
-    gameField->setMMaxTurnsBetween(Settings::moves());
-    gameField->setMMaxLength(Settings::length());
-    gameField->setMBackColor(Settings::backcolor());
     gameField->repaint();
 }
 

@@ -6,6 +6,8 @@
 #include "snake.h"
 #include "constants.h"
 #include "snakegame.h"
+#include "kqsnake.h"
+
 #ifdef _DEBUG
 #include <QDebug>
 #endif
@@ -62,6 +64,8 @@ void Snake::drawInitial(QPainter &painter) {
             int iDir = static_cast<int>(copyDir);
             rt.rotate(iDir * 90);
         }
+        painter.fillRect(QRect(obj.x() * (MIN_CELL_SIZE), obj.y() * (MIN_CELL_SIZE),
+                               MIN_CELL_SIZE, MIN_CELL_SIZE), QBrush(Settings::forecolor()));
         painter.drawPixmap(QRect(obj.x() * (MIN_CELL_SIZE), obj.y() * (MIN_CELL_SIZE),
                                  MIN_CELL_SIZE, MIN_CELL_SIZE), idx == length() - 1 ?
                                  cHead.transformed(rt) : notEqual ? nCurve.transformed(rt) : nBody.transformed(rt));
@@ -127,6 +131,11 @@ void Snake::move(SnakeGame *game) {
             i = apples->indexOf(apple);
             return apple.intersects(newHead);
         })) {
+            const GameObject &obj = apples->at(i);
+            if (obj.getItemType() == GameObject::ItemMalus) {
+                mIsAlive = false;
+                return;
+            }
             apples->removeAt(i);
         } else {
             removeTail();

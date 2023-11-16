@@ -10,11 +10,23 @@
       <label>Number of moves between apples.</label>
       <default>10</default>
     </entry>
+    <entry name="maluses" type="Int">
+      <label>Number of moves between maluses.</label>
+      <default>10</default>
+    </entry>
+    <entry name="showmaluses" type="Bool">
+      <label>Number of moves between maluses.</label>
+      <default>10</default>
+    </entry>
   </group>
   <group name="Colors">
      <entry name="backcolor" type="Color">
         <label>Background Color</label>
         <default>#000000</default>
      </entry>
+      <entry name="forecolor" type="Color">
+         <label>Foreground Color</label>
+         <default>#000000</default>
+      </entry>
   </group>
 </kcfg>
