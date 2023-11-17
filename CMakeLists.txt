@@ -19,6 +19,7 @@ find_package(Qt5 COMPONENTS
         REQUIRED)
 find_package(KF5 COMPONENTS
         Config
+        Crash
         ConfigWidgets
         XmlGui
         REQUIRED)
@@ -59,6 +60,7 @@ kconfig_add_kcfg_files(${PROJECT_NAME}_SRCS GENERATE_MOC kqsnake.kcfgc)
 target_link_libraries(${PROJECT_NAME}
         KF5::ConfigCore
         KF5::ConfigWidgets
+        KF5::Crash
         KF5::XmlGui
         )
 

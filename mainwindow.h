@@ -11,10 +11,11 @@
 #include <KMainWindow>
 
 #include "snakegame.h"
+#include "ui_mainwindow.h"
 
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui { class KQSnake_MainWindow; }
 QT_END_NAMESPACE
 
 class MainWindow : public KMainWindow {
@@ -26,7 +27,7 @@ public:
     ~MainWindow() override;
 
 private:
-    Ui::MainWindow *ui;
+    Ui::KQSnake_MainWindow *ui;
     SnakeGame *gameField;
     QSlider *timerSlider;
     KHelpMenu *hMenu;

@@ -7,7 +7,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "snakegame.h"
-#include "version.h"
+
 #include "kqsnake.h"
 #include "configpagefirst.h"
 #include "configpagesecond.h"
@@ -15,26 +15,17 @@
 #include <QMessageBox>
 #include <QSlider>
 #include <KConfigDialog>
-#include <KAboutData>
+
 #include <KHelpMenu>
 
 
 MainWindow::MainWindow(QWidget *parent) :
-        KMainWindow(parent), ui(new Ui::MainWindow),
+        KMainWindow(parent), ui(new Ui::KQSnake_MainWindow),
         timerSlider(new QSlider(Qt::Horizontal, this)) {
     ui->setupUi(this);
 
-    hMenu = new KHelpMenu(this, KAboutData(QStringLiteral("KQsnake"),
-                                              tr("Snake Game"), APP_VERSION,
-                                              tr("Another Game Of Snake under KDE"),
-                                              KAboutLicense::GPL_V3, "© 2023 E.Sorochinskiy",
-                                              tr("Control the snake and collect as many apples as you can"),
-                                              "https://www.darkguard.net").setTranslator("Eugene E. Sorochinskiy",
-                                                                                         "webmaster@darkguard.net"));
+    hMenu = new KHelpMenu(this);
 
-    QIcon icon1;
-    icon1.addFile(QString::fromUtf8(":/images/desktop/64x64/kqsnake.png"), QSize(), QIcon::Normal, QIcon::Off);
-    hMenu->action(KHelpMenu::menuAboutApp)->setIcon(icon1);
     QAction * sw = hMenu->action(KHelpMenu::menuSwitchLanguage);
     hMenu->menu()->removeAction(sw);
     QAction *actionAboutQt;
