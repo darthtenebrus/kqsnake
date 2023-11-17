@@ -254,58 +254,58 @@
         <translation>Ds Schlange kontrolieren und die Äpfel sammeln</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="59"/>
+        <location filename="main.cpp" line="62"/>
         <source>Simple Snake Game realization</source>
         <oldsource>Simple Game Of Life realization</oldsource>
         <translation>Die einfache Schlangespiel realization</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="61"/>
+        <location filename="main.cpp" line="64"/>
         <source>Created by: </source>
         <translation>Erstellt von: </translation>
     </message>
     <message>
-        <location filename="main.cpp" line="65"/>
+        <location filename="main.cpp" line="68"/>
         <source>Usage %1 [options]</source>
         <translation>Benutzen: %1 [Argumente]</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="67"/>
+        <location filename="main.cpp" line="70"/>
         <source>Valid options:</source>
         <translation>Gültige Argumenten:</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="68"/>
+        <location filename="main.cpp" line="71"/>
         <source>show this help</source>
         <translation>diese Hilfe anzeigen</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="69"/>
+        <location filename="main.cpp" line="72"/>
         <source>display version</source>
         <translation>die Version anzeigen</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="74"/>
+        <location filename="main.cpp" line="77"/>
         <source>Unknown option %1</source>
         <translation>Unbekannte Argument %1</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="75"/>
+        <location filename="main.cpp" line="78"/>
         <source>Launch %1 -h or %1 --help for help</source>
         <translation>Starten %1 -h oder %1 --help ,um Hilfe zu erhalten</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="79"/>
+        <location filename="main.cpp" line="82"/>
         <source>Launch this application without any parameters to see its main functional</source>
         <translation>Starten die App ohne Argumente, um die Hauptfunktion zu sehen</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="126"/>
+        <location filename="main.cpp" line="129"/>
         <source>Already Running</source>
         <translation>Schon gestarten</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="127"/>
+        <location filename="main.cpp" line="130"/>
         <source>Application Already Running</source>
         <translation>Die App ist schon gestarten</translation>
     </message>

@@ -256,59 +256,59 @@
         <translation>Управляйте змейкой и соберите как можно больше яблок</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="59"/>
+        <location filename="main.cpp" line="62"/>
         <source>Simple Snake Game realization</source>
         <oldsource>Simple Game Of Life realization</oldsource>
         <translation>Еще одна реализация игры &quot;Змейка&quot;</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="61"/>
+        <location filename="main.cpp" line="64"/>
         <source>Created by: </source>
         <translation>Автор: </translation>
     </message>
     <message>
-        <location filename="main.cpp" line="65"/>
+        <location filename="main.cpp" line="68"/>
         <source>Usage %1 [options]</source>
         <translation>Использование %1 [параметры]</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="67"/>
+        <location filename="main.cpp" line="70"/>
         <source>Valid options:</source>
         <translation>Параметры:</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="68"/>
+        <location filename="main.cpp" line="71"/>
         <source>show this help</source>
         <translation>показать инструкцию</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="69"/>
+        <location filename="main.cpp" line="72"/>
         <source>display version</source>
         <translation>показать версию</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="74"/>
+        <location filename="main.cpp" line="77"/>
         <source>Unknown option %1</source>
         <translation>Неизвестный параметр %1</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="75"/>
+        <location filename="main.cpp" line="78"/>
         <source>Launch %1 -h or %1 --help for help</source>
         <translation>Запустите %1 -h или %1 --help для получения инструкции</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="79"/>
+        <location filename="main.cpp" line="82"/>
         <source>Launch this application without any parameters to see its main functional</source>
         <translation>Запустите без параметров для использования по прямому назначению</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="126"/>
+        <location filename="main.cpp" line="129"/>
         <source>Already Running</source>
         <translatorcomment>Приложение уже запущено</translatorcomment>
         <translation>Уже запущено</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="127"/>
+        <location filename="main.cpp" line="130"/>
         <source>Application Already Running</source>
         <translation>Приложение уже запущено</translation>
     </message>
