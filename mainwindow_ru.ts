@@ -75,12 +75,14 @@
     <message>
         <location filename="mainwindow.ui" line="20"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="158"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="158"/>
         <source>Snake Game</source>
         <translation>Игра &quot;Змейка&quot;</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="90"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="182"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="182"/>
         <source>Game</source>
         <translation>Игра</translation>
     </message>
@@ -89,54 +91,64 @@
         <location filename="mainwindow.ui" line="147"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="169"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="183"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="169"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="183"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="114"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="159"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="159"/>
         <source>New Game</source>
         <translation>Новая игра</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="117"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="161"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="161"/>
         <source>Clear the field and start a new game</source>
         <translation>Очистить поле и начать новую игру</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="129"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="163"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="163"/>
         <source>Start/Stop Game</source>
         <translation>Старт/Стоп</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="132"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="165"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="165"/>
         <source>Starts or stops current game</source>
         <translation>Продолжить или остановить</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="144"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="167"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="167"/>
         <source>Setup Kqsnake...</source>
         <translation>Настроить Kqsnake...</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="153"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="172"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="172"/>
         <source>Opens Settings dialog</source>
         <translation>Открыть окно настроек</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="167"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="174"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="174"/>
         <source>Show toolbar</source>
         <translation>Показать панель инструментов</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="181"/>
         <location filename="cmake-build-debug/kqsnake_autogen/include/ui_mainwindow.h" line="175"/>
+        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="175"/>
         <source>Show status bar</source>
         <translation>Показать строку состояния</translation>
     </message>
@@ -144,50 +156,9 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="155"/>
-        <source>Snake Game</source>
-        <translation>Игра &quot;Змейка&quot;</translation>
-    </message>
-    <message>
-        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="167"/>
-        <source>Game</source>
-        <translation>Игра</translation>
-    </message>
-    <message>
-        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="156"/>
-        <source>New Game</source>
-        <translation>Новая игра</translation>
-    </message>
-    <message>
         <location filename="mainwindow.cpp" line="33"/>
         <source>About Qt</source>
         <translation>О Qt</translation>
-    </message>
-    <message>
-        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="157"/>
-        <source>Start/Stop Game</source>
-        <translation>Старт/Стоп</translation>
-    </message>
-    <message>
-        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="158"/>
-        <source>Setup Kqsnake...</source>
-        <translation>Настроить Kqsnake...</translation>
-    </message>
-    <message>
-        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="162"/>
-        <source>Show toolbar</source>
-        <translation>Показать панель инструментов</translation>
-    </message>
-    <message>
-        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="163"/>
-        <source>Show status bar</source>
-        <translation>Показать строку состояния</translation>
-    </message>
-    <message>
-        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="160"/>
-        <location filename="cmake-build-release/kqsnake_autogen/include/ui_mainwindow.h" line="168"/>
-        <source>Settings</source>
-        <translation>Настройки</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="43"/>
@@ -241,76 +212,75 @@
         <translation>Вы выиграли!</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="34"/>
+        <location filename="main.cpp" line="102"/>
         <source>Snake Game</source>
         <translation>Игра &quot;Змейка&quot;</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="35"/>
+        <location filename="main.cpp" line="103"/>
         <source>Another Game Of Snake under KDE</source>
         <translation>Еще одна игра &quot;Змейка&quot; под KDE</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="37"/>
+        <location filename="main.cpp" line="105"/>
         <source>Control the snake and collect as many apples as you can</source>
         <translation>Управляйте змейкой и соберите как можно больше яблок</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="62"/>
+        <location filename="main.cpp" line="39"/>
         <source>Simple Snake Game realization</source>
         <oldsource>Simple Game Of Life realization</oldsource>
         <translation>Еще одна реализация игры &quot;Змейка&quot;</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="64"/>
+        <location filename="main.cpp" line="41"/>
         <source>Created by: </source>
         <translation>Автор: </translation>
     </message>
     <message>
-        <location filename="main.cpp" line="68"/>
+        <location filename="main.cpp" line="45"/>
         <source>Usage %1 [options]</source>
         <translation>Использование %1 [параметры]</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="70"/>
+        <location filename="main.cpp" line="47"/>
         <source>Valid options:</source>
         <translation>Параметры:</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="71"/>
+        <location filename="main.cpp" line="48"/>
         <source>show this help</source>
         <translation>показать инструкцию</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="72"/>
+        <location filename="main.cpp" line="49"/>
         <source>display version</source>
         <translation>показать версию</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="77"/>
+        <location filename="main.cpp" line="54"/>
         <source>Unknown option %1</source>
         <translation>Неизвестный параметр %1</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="78"/>
+        <location filename="main.cpp" line="55"/>
         <source>Launch %1 -h or %1 --help for help</source>
         <translation>Запустите %1 -h или %1 --help для получения инструкции</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="82"/>
+        <location filename="main.cpp" line="59"/>
         <source>Launch this application without any parameters to see its main functional</source>
         <translation>Запустите без параметров для использования по прямому назначению</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="129"/>
+        <location filename="main.cpp" line="94"/>
         <source>Already Running</source>
-        <translatorcomment>Приложение уже запущено</translatorcomment>
-        <translation>Уже запущено</translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="main.cpp" line="130"/>
+        <location filename="main.cpp" line="95"/>
         <source>Application Already Running</source>
-        <translation>Приложение уже запущено</translation>
+        <translation></translation>
     </message>
 </context>
 </TS>

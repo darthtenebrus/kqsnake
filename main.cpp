@@ -30,29 +30,6 @@ int main(int argc, char *argv[]) {
         QApplication::installTranslator(&mainTranslator);
     }
 
-    KAboutData aboutData(QStringLiteral("KQsnake"),
-                         QObject::tr("Snake Game"), APP_VERSION,
-                         QObject::tr("Another Game Of Snake under KDE"),
-                         KAboutLicense::GPL_V3, "© 2023 E.Sorochinskiy",
-                         QObject::tr("Control the snake and collect as many apples as you can"),
-                         "https://www.darkguard.net");
-
-    aboutData.addAuthor("Eugene E. Sorochinskiy", "Design & code",
-                        "manager@darkguard.net",
-                        "https://darkguard.net");
-    aboutData.setTranslator("Eugene E. Sorochinskiy",
-                            "webmaster@darkguard.net");
-    KAboutData::setApplicationData(aboutData);
-    QIcon icon;
-    icon.addFile(QString::fromUtf8(":/images/desktop/64x64/kqsnake.png"), QSize(), QIcon::Normal, QIcon::Off);
-    QApplication::setWindowIcon(icon);
-    KCrash::initialize();
-
-    QCommandLineParser parser;
-    aboutData.setupCommandLine(&parser);
-    parser.process(app);
-    aboutData.processCommandLine(&parser);
-
     try {
         const QStringList &cmd_args = QCoreApplication::arguments();
         if (!cmd_args.empty() && cmd_args.size() > 1) {
@@ -87,18 +64,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-        /*
-        if (app.isSessionRestored()) {
-    #ifdef _DEBUG
-            qDebug() << "Restored";
-    #endif
-            kRestoreMainWindows<MainWindow>();
-        } else {
-         */
 
-#ifdef _DEBUG
-    qDebug() << "First";
-#endif
     const QString &semaph_id = "kqsnake_semaphore";
     const QString &shared_id = "kqsnake_shared_mem";
     QSystemSemaphore semaphore(semaph_id, 1);
@@ -117,26 +83,47 @@ int main(int argc, char *argv[]) {
         is_running = true;
     } else {
         sharedMemory.create(1);
-#ifdef _DEBUG
-        qDebug() << "Shared created";
-#endif
     }
     semaphore.release();
 
     if (is_running) {
+
+
         QMessageBox msgBox;
         msgBox.setIcon(QMessageBox::Critical);
         msgBox.setWindowTitle(QObject::tr("Already Running"));
         msgBox.setText(QObject::tr("Application Already Running"));
         msgBox.exec();
         return 1;
+
+    } else {
+
+        KAboutData aboutData(QStringLiteral("KQsnake"),
+                             QObject::tr("Snake Game"), APP_VERSION,
+                             QObject::tr("Another Game Of Snake under KDE"),
+                             KAboutLicense::GPL_V3, "© 2023 E.Sorochinskiy",
+                             QObject::tr("Control the snake and collect as many apples as you can"),
+                             "https://www.darkguard.net");
+
+        aboutData.addAuthor("Eugene E. Sorochinskiy", "Design & code",
+                            "manager@darkguard.net",
+                            "https://darkguard.net");
+        aboutData.setTranslator("Eugene E. Sorochinskiy",
+                                "webmaster@darkguard.net");
+        KAboutData::setApplicationData(aboutData);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/images/desktop/64x64/kqsnake.png"), QSize(), QIcon::Normal, QIcon::Off);
+        QApplication::setWindowIcon(icon);
+        KCrash::initialize();
+
+        QCommandLineParser parser;
+        aboutData.setupCommandLine(&parser);
+        parser.process(app);
+        aboutData.processCommandLine(&parser);
+
+        auto *w(new MainWindow());
+        w->showMaximized();
+        return QApplication::exec();
     }
-
-
-    auto *w(new MainWindow());
-    w->showMaximized();
-
-    return QApplication::exec();
-
 
 }
