@@ -104,7 +104,8 @@ int main(int argc, char *argv[]) {
                              QObject::tr("Control the snake and collect as many apples as you can"),
                              "https://www.darkguard.net");
 
-        aboutData.addAuthor("Eugene E. Sorochinskiy", "Design & code",
+        aboutData.addAuthor("Eugene E. Sorochinskiy",
+                            QObject::tr("Original author"),
                             "manager@darkguard.net",
                             "https://darkguard.net");
         aboutData.setTranslator("Eugene E. Sorochinskiy",

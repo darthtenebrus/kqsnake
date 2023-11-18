@@ -280,5 +280,11 @@
         <source>Application Already Running</source>
         <translation></translation>
     </message>
+    <message>
+        <location filename="main.cpp" line="108"/>
+        <source>Original author</source>
+        <translatorcomment>Der Autor</translatorcomment>
+        <translation></translation>
+    </message>
 </context>
 </TS>
