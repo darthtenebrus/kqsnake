@@ -19,4 +19,5 @@ Icon=kqsnake
 Terminal=false
 Type=Application
 StartupNotify=true
+X-DocPath=kqsnake/index.html
 Categories=Game;GNOME;KDE;

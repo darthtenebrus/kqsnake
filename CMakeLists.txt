@@ -7,7 +7,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 find_package(ECM REQUIRED NO_MODULE)
-set(CMAKE_MODULE_PATH ${ECM_FIND_MODULE_DIR})
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+include(KDEInstallDirs)
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     add_definitions(-D_DEBUG)
@@ -21,6 +22,7 @@ find_package(KF5 COMPONENTS
         Config
         Crash
         ConfigWidgets
+        DocTools
         XmlGui
         REQUIRED)
 
@@ -31,9 +33,7 @@ qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} mainwindow_de.ts OPTIONS ${L
 configure_file(translations.qrc ${CMAKE_BINARY_DIR} COPYONLY)
 
 set(RES_FILES ${CMAKE_BINARY_DIR}/translations.qrc images.qrc)
-
 add_executable(${PROJECT_NAME})
-
 target_sources(${PROJECT_NAME} PRIVATE
                 main.cpp
                 mainwindow.cpp
@@ -67,5 +67,9 @@ target_link_libraries(${PROJECT_NAME}
         )
 
 install(TARGETS ${PROJECT_NAME})
+install(FILES ${PROJECT_NAME}.kcfg  DESTINATION  ${KDE_INSTALL_KCFGDIR})
+
+kdoctools_install(po)
+
 
 
