@@ -32,7 +32,9 @@ configure_file(translations.qrc ${CMAKE_BINARY_DIR} COPYONLY)
 
 set(RES_FILES ${CMAKE_BINARY_DIR}/translations.qrc images.qrc)
 
-add_executable(${PROJECT_NAME}
+add_executable(${PROJECT_NAME})
+
+target_sources(${PROJECT_NAME} PRIVATE
                 main.cpp
                 mainwindow.cpp
                 mainwindow.h

@@ -97,7 +97,6 @@ int main(int argc, char *argv[]) {
         return 1;
 
     } else {
-
         KAboutData aboutData(QStringLiteral("KQsnake"),
                              QObject::tr("Snake Game"), APP_VERSION,
                              QObject::tr("Another Game Of Snake under KDE"),

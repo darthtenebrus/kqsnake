@@ -212,17 +212,17 @@
         <translation>Вы выиграли!</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="102"/>
+        <location filename="main.cpp" line="101"/>
         <source>Snake Game</source>
         <translation>Игра &quot;Змейка&quot;</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="103"/>
+        <location filename="main.cpp" line="102"/>
         <source>Another Game Of Snake under KDE</source>
         <translation>Еще одна игра &quot;Змейка&quot; под KDE</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="105"/>
+        <location filename="main.cpp" line="104"/>
         <source>Control the snake and collect as many apples as you can</source>
         <translation>Управляйте змейкой и соберите как можно больше яблок</translation>
     </message>

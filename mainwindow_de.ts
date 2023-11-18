@@ -210,17 +210,17 @@
         <translation>Haben Sie gewinnen!</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="102"/>
+        <location filename="main.cpp" line="101"/>
         <source>Snake Game</source>
         <translation>Schlangespiel</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="103"/>
+        <location filename="main.cpp" line="102"/>
         <source>Another Game Of Snake under KDE</source>
         <translation>Das andere Schlangespiel mit KDE</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="105"/>
+        <location filename="main.cpp" line="104"/>
         <source>Control the snake and collect as many apples as you can</source>
         <translation>Ds Schlange kontrolieren und die Äpfel sammeln</translation>
     </message>
