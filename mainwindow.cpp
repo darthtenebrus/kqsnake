@@ -11,6 +11,7 @@
 #include "configpagefirst.h"
 #include "configpagesecond.h"
 
+#include <QDesktopWidget>
 #include <QSlider>
 #include <KConfigDialog>
 #include <KToolBar>
@@ -31,15 +32,15 @@ MainWindow::MainWindow(QWidget *parent) :
     timerSlider->setMinimum(1);
     timerSlider->setMaximum(10);
     timerSlider->setTracking(true);
-    timerSlider->setToolTip(tr("Snake Movement Speed"));
-    timerSlider->setWhatsThis(tr("Change Snake Movement Speed dynamically"));
+    timerSlider->setToolTip(i18n("Snake Movement Speed"));
+    timerSlider->setWhatsThis(i18n("Change Snake Movement Speed dynamically"));
     timerSlider->setFixedWidth(200);
 
     gameField = new SnakeGame(timerSlider->value(), this);
 
     gameField->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
-    gameField->setStatusTip(tr("Use right and left arrow keys or A/D keys or mouse buttons to control the snake"));
-    gameField->setWhatsThis(tr("Use right and left arrow keys or A/D keys or mouse buttons to control the snake"));
+    gameField->setStatusTip(i18n("Use right and left arrow keys or A/D keys or mouse buttons to control the snake"));
+    gameField->setWhatsThis(i18n("Use right and left arrow keys or A/D keys or mouse buttons to control the snake"));
 
     setCentralWidget(gameField);
     gameField->setFocusPolicy(Qt::StrongFocus);
@@ -54,22 +55,24 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::setupToolBar() {
     QAction *prefAction = KStandardAction::preferences(this, &MainWindow::settingsTriggered, actionCollection());
-    prefAction->setWhatsThis(tr("Open settings dialog"));
+    prefAction->setWhatsThis(i18n("Open settings dialog"));
     QAction *newGame = actionCollection()->addAction(QStringLiteral("game_new"));
     actionCollection()->setDefaultShortcut(newGame,  Qt::ALT + Qt::Key_N);
-    newGame->setText(tr("New Game"));
+    newGame->setText(i18n("New Game"));
     newGame->setIcon(QIcon::fromTheme("document-new"));
-    newGame->setWhatsThis(tr("Clear the field and begin a new game"));
+    newGame->setWhatsThis(i18n("Clear the field and begin a new game"));
     connect(newGame, &QAction::triggered, gameField, &SnakeGame::newGameTrigger);
 
     QAction *startStopGame = actionCollection()->addAction(QStringLiteral("game_start_stop"));
     actionCollection()->setDefaultShortcut(startStopGame,  Qt::ALT + Qt::Key_S);
-    startStopGame->setText(tr("Start/Stop Game"));
-    startStopGame->setWhatsThis(tr("Start or stop current game"));
+    startStopGame->setText(i18n("Start/Stop Game"));
+    startStopGame->setWhatsThis(i18n("Start or stop current game"));
     startStopGame->setIcon(QIcon::fromTheme("media-playback-start"));
     connect(startStopGame, &QAction::triggered, gameField, &SnakeGame::startStopTrigger);
 
-    setupGUI();
+    const QSize &wsize = QApplication::desktop()->size() * 0.9;
+    setupGUI(wsize);
+    setMinimumSize(wsize);
     toolBar()->addAction(prefAction);
     toolBar()->addSeparator();
     toolBar()->addWidget(timerSlider);
@@ -97,8 +100,8 @@ void MainWindow::settingsTriggered() {
     if (!dialog) {
         dialog = new KConfigDialog(this, QStringLiteral("Settings"), Settings::self());
         dialog->setFaceType(KPageDialog::List);
-        dialog->addPage(new ConfigPageFirst(this), tr("General"), "preferences-system", tr("General"));
-        dialog->addPage(new ConfigPageSecond(this), tr("Colors"), "colors-luma", tr("Colors"));
+        dialog->addPage(new ConfigPageFirst(this), i18n("General"), "preferences-system", i18n("General"));
+        dialog->addPage(new ConfigPageSecond(this), i18n("Colors"), "colors-luma", i18n("Colors"));
         dialog->setModal(true);
         connect(dialog, &KConfigDialog::settingsChanged, this, &MainWindow::loadSettings);
     }

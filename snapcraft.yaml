@@ -55,6 +55,7 @@ parts:
       - libkf5xmlgui-dev
       - libkf5crash-dev
       - libkf5doctools-dev
+      - libkf5i18n-dev
       - extra-cmake-modules
       - qtchooser
       - libx11-dev

@@ -16,23 +16,18 @@ endif()
 
 find_package(Qt5 COMPONENTS
         Core
-        LinguistTools
         REQUIRED)
 find_package(KF5 COMPONENTS
         Config
         Crash
         ConfigWidgets
+        I18n
         DocTools
         XmlGui
         REQUIRED)
 
 
-set(LING_OPTIONS -no-obsolete)
-qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} mainwindow_ru.ts OPTIONS ${LING_OPTIONS})
-qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} mainwindow_de.ts OPTIONS ${LING_OPTIONS})
-configure_file(translations.qrc ${CMAKE_BINARY_DIR} COPYONLY)
-
-set(RES_FILES ${CMAKE_BINARY_DIR}/translations.qrc images.qrc kqsnake.qrc)
+set(RES_FILES images.qrc kqsnake.qrc)
 add_executable(${PROJECT_NAME})
 target_sources(${PROJECT_NAME} PRIVATE
                 main.cpp
@@ -52,15 +47,16 @@ target_sources(${PROJECT_NAME} PRIVATE
                 configpagesecond.cpp
                 configpagesecond.h
                 configpagesecond.ui
-                ${RES_FILES}
-                ${QM_FILES})
+                ${RES_FILES})
 
+set_property(TARGET ${PROJECT_NAME} PROPERTY AUTOUIC_OPTIONS --tr i18n --idbased --include KLocalizedString)
 kconfig_add_kcfg_files(${PROJECT_NAME} kqsnake.kcfgc)
 kconfig_add_kcfg_files(${PROJECT_NAME}_SRCS GENERATE_MOC kqsnake.kcfgc)
 
 target_link_libraries(${PROJECT_NAME}
         KF5::ConfigCore
         KF5::ConfigWidgets
+        KF5::I18n
         KF5::Crash
         KF5::XmlGui
         )

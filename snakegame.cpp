@@ -2,6 +2,7 @@
 // Created by esorochinskiy on 30.10.23.
 //
 
+#include <KLocalizedString>
 #include <QPainter>
 #include <QKeyEvent>
 #include <QMessageBox>
@@ -204,7 +205,7 @@ void SnakeGame::nextMove(void) {
     if (!mSnake->isAlive()) {
         stopGame();
         emit enableStart(false);
-        QMessageBox::critical(this, QObject::tr("You lost"), QObject::tr("Sorry, you lost"));
+        QMessageBox::critical(this, i18n("You lost"), i18n("Sorry, you lost"));
     } else {
         maxTurnsBefore++;
         if (maxTurnsBefore == Settings::moves()) {
@@ -222,7 +223,7 @@ void SnakeGame::nextMove(void) {
         if (mSnake->length() >= Settings::length()) {
             stopGame();
             emit enableStart(false);
-            QMessageBox::information(this, QObject::tr("You win"), QObject::tr("You win!"));
+            QMessageBox::information(this, i18n("You win"), i18n("You win!"));
         }
     }
 }
