@@ -10,9 +10,7 @@
 #include "kqsnake.h"
 #include "configpagefirst.h"
 #include "configpagesecond.h"
-#include <QScreen>
 
-#include <QMessageBox>
 #include <QSlider>
 #include <KConfigDialog>
 #include <KToolBar>
