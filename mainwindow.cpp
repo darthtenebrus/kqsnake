@@ -26,14 +26,6 @@ MainWindow::MainWindow(QWidget *parent) :
         KXmlGuiWindow(parent),
         timerSlider(new QSlider(Qt::Horizontal, this)) {
 
-    /*
-    QAction *actionAboutQt;
-    hMenu =
-    hMenu->menu()->insertAction(hMenu->action(KHelpMenu::menuAboutKDE),
-                                actionAboutQt = new QAction(tr("About Qt"), this));
-    ui->menubar->addMenu(hMenu->menu());
-     */
-
     timerSlider->setValue(5);
     timerSlider->setSliderPosition(5);
     timerSlider->setSingleStep(1);
@@ -44,7 +36,6 @@ MainWindow::MainWindow(QWidget *parent) :
     timerSlider->setToolTip(tr("Snake Movement Speed"));
     timerSlider->setWhatsThis(tr("Change Snake Movement Speed dynamically"));
     timerSlider->setFixedWidth(200);
-    toolBar()->addWidget(timerSlider);
 
     gameField = new SnakeGame(timerSlider->value(), this);
 
@@ -57,23 +48,33 @@ MainWindow::MainWindow(QWidget *parent) :
     gameField->setFocus();
     connect(timerSlider, &QSlider::valueChanged, gameField, &SnakeGame::timerChanged);
 
-
     connect(gameField, &SnakeGame::changeControls, this, &MainWindow::controlsChanged);
     connect(gameField, &SnakeGame::enableStart, this, &MainWindow::startEnable);
-    KStandardAction::preferences(this, &MainWindow::settingsTriggered, actionCollection());
+    setupToolBar();
 
+}
+
+void MainWindow::setupToolBar() {
+    QAction *prefAction = KStandardAction::preferences(this, &MainWindow::settingsTriggered, actionCollection());
+    prefAction->setWhatsThis(tr("Open settings dialog"));
     QAction *newGame = actionCollection()->addAction(QStringLiteral("game_new"));
+    actionCollection()->setDefaultShortcut(newGame,  Qt::ALT + Qt::Key_N);
     newGame->setText(tr("New Game"));
     newGame->setIcon(QIcon::fromTheme("document-new"));
+    newGame->setWhatsThis(tr("Clear the field and begin a new game"));
     connect(newGame, &QAction::triggered, gameField, &SnakeGame::newGameTrigger);
 
     QAction *startStopGame = actionCollection()->addAction(QStringLiteral("game_start_stop"));
+    actionCollection()->setDefaultShortcut(startStopGame,  Qt::ALT + Qt::Key_S);
     startStopGame->setText(tr("Start/Stop Game"));
+    startStopGame->setWhatsThis(tr("Start or stop current game"));
     startStopGame->setIcon(QIcon::fromTheme("media-playback-start"));
     connect(startStopGame, &QAction::triggered, gameField, &SnakeGame::startStopTrigger);
 
     setupGUI();
-
+    toolBar()->addAction(prefAction);
+    toolBar()->addSeparator();
+    toolBar()->addWidget(timerSlider);
 }
 
 MainWindow::~MainWindow() {
@@ -110,4 +111,5 @@ void MainWindow::loadSettings(const QString &dName) {
 
     gameField->repaint();
 }
+
 

@@ -7,28 +7,29 @@
                          http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd">
 
     <MenuBar>
-      <Menu name="game"><text>&amp;Game</text>
-        <Action name="game_new" />
-        <Action name="game_start_stop"/>
-      </Menu>
+        <Menu name="game">
+            <text>&amp;Game</text>
+            <Action name="game_new"/>
+            <Action name="game_start_stop"/>
+        </Menu>
     </MenuBar>
 
-    <ToolBar name="mainToolBar"><text>Main Toolbar</text>
-      <Action name="game_new"/>
-      <Action name="game_start_stop"  append="new_merge" />
-
+    <ToolBar name="mainToolBar">
+        <text>Main Toolbar</text>
+        <Action name="game_new"/>
+        <Action name="game_start_stop"/>
     </ToolBar>
 
     <State name="gameplay_state">
-      <enable>
-        <Action name="game_start_stop"/>
-      </enable>
-    </State>
-     <State name="finished_state">
-          <disable>
+        <enable>
             <Action name="game_start_stop"/>
-          </disable>
-     </State>
+        </enable>
+    </State>
+    <State name="finished_state">
+        <disable>
+            <Action name="game_start_stop"/>
+        </disable>
+    </State>
 
 
 </gui>

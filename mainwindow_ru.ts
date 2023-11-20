@@ -144,39 +144,54 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="mainwindow.cpp" line="66"/>
+        <location filename="mainwindow.cpp" line="62"/>
         <source>New Game</source>
         <translation type="unfinished">Новая игра</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="44"/>
+        <location filename="mainwindow.cpp" line="36"/>
         <source>Snake Movement Speed</source>
         <oldsource>Generation Change Speed</oldsource>
         <translation>Скорость движения</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="45"/>
+        <location filename="mainwindow.cpp" line="37"/>
         <source>Change Snake Movement Speed dynamically</source>
         <translation>Изменить скорость движения во время игры</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="52"/>
-        <location filename="mainwindow.cpp" line="53"/>
+        <location filename="mainwindow.cpp" line="43"/>
+        <location filename="mainwindow.cpp" line="44"/>
         <source>Use right and left arrow keys or A/D keys or mouse buttons to control the snake</source>
         <translation>Управляйте змейкой при помощи клавиш &quot;влево&quot; и &quot;вправо&quot;, клавиш A/D или левой и правой кнопок мыши</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="71"/>
+        <location filename="mainwindow.cpp" line="59"/>
+        <source>Open settings dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="64"/>
+        <source>Clear the field and begin a new game</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="69"/>
         <source>Start/Stop Game</source>
         <translation type="unfinished">Старт/Стоп</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="101"/>
+        <location filename="mainwindow.cpp" line="70"/>
+        <source>Start or stop current game</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="102"/>
         <source>General</source>
         <translation>Общие</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="102"/>
+        <location filename="mainwindow.cpp" line="103"/>
         <source>Colors</source>
         <translation>Цвета</translation>
     </message>

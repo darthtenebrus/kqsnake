@@ -16,12 +16,12 @@ Q_OBJECT
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
-
     ~MainWindow() override;
 
 private:
     SnakeGame *gameField;
     QSlider *timerSlider;
+    void setupToolBar();
 
 private slots:
     void loadSettings(const QString &);

@@ -1,6 +1,6 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
-    <qresource prefix="/kxmlgui5/KQsnake">
-        <file>KQsnakeui.rc</file>
+    <qresource prefix="/kxmlgui5/kqsnake">
+        <file>kqsnakeui.rc</file>
     </qresource>
 </RCC>
