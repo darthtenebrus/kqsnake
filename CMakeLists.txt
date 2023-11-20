@@ -32,13 +32,12 @@ qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} mainwindow_ru.ts OPTIONS ${L
 qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} mainwindow_de.ts OPTIONS ${LING_OPTIONS})
 configure_file(translations.qrc ${CMAKE_BINARY_DIR} COPYONLY)
 
-set(RES_FILES ${CMAKE_BINARY_DIR}/translations.qrc images.qrc)
+set(RES_FILES ${CMAKE_BINARY_DIR}/translations.qrc images.qrc kqsnake.qrc)
 add_executable(${PROJECT_NAME})
 target_sources(${PROJECT_NAME} PRIVATE
                 main.cpp
                 mainwindow.cpp
                 mainwindow.h
-                mainwindow.ui
                 snakegame.cpp
                 snakegame.h
                 gameobject.cpp

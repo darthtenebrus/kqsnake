@@ -6,22 +6,19 @@
 #define KQSNAKE_CONFIGPAGEFIRST_H
 
 #include <QWidget>
+#include "ui_configpagefirst.h"
 
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ConfigPageFirst; }
 QT_END_NAMESPACE
 
-class ConfigPageFirst : public QWidget {
+class ConfigPageFirst : public QWidget, public  Ui::ConfigPageFirst {
 Q_OBJECT
 
 public:
     explicit ConfigPageFirst(QWidget *parent = nullptr);
 
-    ~ConfigPageFirst() override;
-
-private:
-    Ui::ConfigPageFirst *ui;
 };
 
 

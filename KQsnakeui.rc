@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gui name="kqsnake"
+     version="7"
+     xmlns="http://www.kde.org/standards/kxmlgui/1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.kde.org/standards/kxmlgui/1.0
+                         http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd">
+
+    <MenuBar>
+      <Menu name="game"><text>&amp;Game</text>
+        <Action name="game_new" />
+        <Action name="game_start_stop"/>
+      </Menu>
+    </MenuBar>
+
+    <ToolBar name="mainToolBar"><text>Main Toolbar</text>
+      <Action name="game_new"/>
+      <Action name="game_start_stop"  append="new_merge" />
+
+    </ToolBar>
+
+    <State name="gameplay_state">
+      <enable>
+        <Action name="game_start_stop"/>
+      </enable>
+    </State>
+     <State name="finished_state">
+          <disable>
+            <Action name="game_start_stop"/>
+          </disable>
+     </State>
+
+
+</gui>

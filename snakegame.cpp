@@ -244,7 +244,7 @@ void SnakeGame::keyPressEvent(QKeyEvent *event) {
     }
 }
 
-void SnakeGame::newGameTrigger(bool b) {
+void SnakeGame::newGameTrigger(bool e) {
     cancelTimerInstantly();
     renewGame(true);
     emit enableStart(true);

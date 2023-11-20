@@ -3,7 +3,7 @@
         <file>desktop/64x64/kqsnake.png</file>
 	<file>apple.png</file>
         <file>head.png</file>
-	<file>body.png</file>
+	    <file>body.png</file>
         <file>curve.png</file>
         <file>tail.png</file>
         <file>malus.png</file>

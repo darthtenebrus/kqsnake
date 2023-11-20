@@ -5,33 +5,34 @@
 // You may need to build the project (run Qt uic code generator) to get "ui_MainWindow.h" resolved
 
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
 #include "snakegame.h"
 
 #include "kqsnake.h"
 #include "configpagefirst.h"
 #include "configpagesecond.h"
-#include <QLayout>
+#include <QScreen>
+
 #include <QMessageBox>
 #include <QSlider>
 #include <KConfigDialog>
+#include <KToolBar>
 
 #include <KHelpMenu>
+#include <KStandardAction>
+#include <KActionCollection>
 
 
 MainWindow::MainWindow(QWidget *parent) :
-        KMainWindow(parent), ui(new Ui::KQSnake_MainWindow),
+        KXmlGuiWindow(parent),
         timerSlider(new QSlider(Qt::Horizontal, this)) {
-    ui->setupUi(this);
 
-    hMenu = new KHelpMenu(this);
-
-    QAction * sw = hMenu->action(KHelpMenu::menuSwitchLanguage);
-    hMenu->menu()->removeAction(sw);
+    /*
     QAction *actionAboutQt;
+    hMenu =
     hMenu->menu()->insertAction(hMenu->action(KHelpMenu::menuAboutKDE),
                                 actionAboutQt = new QAction(tr("About Qt"), this));
     ui->menubar->addMenu(hMenu->menu());
+     */
 
     timerSlider->setValue(5);
     timerSlider->setSliderPosition(5);
@@ -43,7 +44,7 @@ MainWindow::MainWindow(QWidget *parent) :
     timerSlider->setToolTip(tr("Snake Movement Speed"));
     timerSlider->setWhatsThis(tr("Change Snake Movement Speed dynamically"));
     timerSlider->setFixedWidth(200);
-    ui->toolBar->addWidget(timerSlider);
+    toolBar()->addWidget(timerSlider);
 
     gameField = new SnakeGame(timerSlider->value(), this);
 
@@ -51,49 +52,47 @@ MainWindow::MainWindow(QWidget *parent) :
     gameField->setStatusTip(tr("Use right and left arrow keys or A/D keys or mouse buttons to control the snake"));
     gameField->setWhatsThis(tr("Use right and left arrow keys or A/D keys or mouse buttons to control the snake"));
 
-    ui->centralwidget->layout()->addWidget(gameField);
+    setCentralWidget(gameField);
     gameField->setFocusPolicy(Qt::StrongFocus);
     gameField->setFocus();
     connect(timerSlider, &QSlider::valueChanged, gameField, &SnakeGame::timerChanged);
 
-    connect(ui->actionNewGame, &QAction::triggered, gameField, &SnakeGame::newGameTrigger);
-    connect(ui->actionStartStopGame, &QAction::triggered, gameField, &SnakeGame::startStopTrigger);
-    connect(ui->actionSettings, &QAction::triggered, this, &MainWindow::settingsTriggered);
-    connect(ui->actionShowToolbar, &QAction::triggered, this, [=](bool checked) {
-        ui->toolBar->setHidden(!checked);
-    });
 
-    connect(ui->actionShowStatusBar, &QAction::triggered, this, [=](bool checked) {
-        ui->statusbar->setHidden(!checked);
-    });
-    connect(actionAboutQt, &QAction::triggered, this, [=](bool checked) {
-        QMessageBox::aboutQt(this);
-    });
     connect(gameField, &SnakeGame::changeControls, this, &MainWindow::controlsChanged);
     connect(gameField, &SnakeGame::enableStart, this, &MainWindow::startEnable);
+    KStandardAction::preferences(this, &MainWindow::settingsTriggered, actionCollection());
+
+    QAction *newGame = actionCollection()->addAction(QStringLiteral("game_new"));
+    newGame->setText(tr("New Game"));
+    newGame->setIcon(QIcon::fromTheme("document-new"));
+    connect(newGame, &QAction::triggered, gameField, &SnakeGame::newGameTrigger);
+
+    QAction *startStopGame = actionCollection()->addAction(QStringLiteral("game_start_stop"));
+    startStopGame->setText(tr("Start/Stop Game"));
+    startStopGame->setIcon(QIcon::fromTheme("media-playback-start"));
+    connect(startStopGame, &QAction::triggered, gameField, &SnakeGame::startStopTrigger);
+
+    setupGUI();
 
 }
 
 MainWindow::~MainWindow() {
     delete gameField;
-    delete hMenu;
-    delete ui;
-    delete timerSlider;
-
 }
 
 void MainWindow::controlsChanged(bool active) {
-    ui->actionStartStopGame->setIcon(QIcon::fromTheme(
+    actionCollection()->action(QStringLiteral("game_start_stop"))->setIcon(QIcon::fromTheme(
             active ? "media-playback-pause" : "media-playback-start")
             );
 
 }
 
 void MainWindow::startEnable(bool e) {
-    ui->actionStartStopGame->setEnabled(e);
+    e ? stateChanged(QStringLiteral("gameplay_state")) :
+        stateChanged(QStringLiteral("finished_state"));
 }
 
-void MainWindow::settingsTriggered(bool e) {
+void MainWindow::settingsTriggered() {
 
     auto *dialog = KConfigDialog::exists(QStringLiteral("Settings"));
     if (!dialog) {
