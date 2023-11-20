@@ -32,19 +32,15 @@ MainWindow::MainWindow(QWidget *parent) :
     timerSlider->setMinimum(1);
     timerSlider->setMaximum(10);
     timerSlider->setTracking(true);
-    timerSlider->setToolTip(i18n("Snake Movement Speed"));
-    timerSlider->setWhatsThis(i18n("Change Snake Movement Speed dynamically"));
     timerSlider->setFixedWidth(200);
 
     gameField = new SnakeGame(timerSlider->value(), this);
-
     gameField->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
-    gameField->setStatusTip(i18n("Use right and left arrow keys or A/D keys or mouse buttons to control the snake"));
-    gameField->setWhatsThis(i18n("Use right and left arrow keys or A/D keys or mouse buttons to control the snake"));
 
     setCentralWidget(gameField);
     gameField->setFocusPolicy(Qt::StrongFocus);
     gameField->setFocus();
+    retranslateUi();
     connect(timerSlider, &QSlider::valueChanged, gameField, &SnakeGame::timerChanged);
 
     connect(gameField, &SnakeGame::changeControls, this, &MainWindow::controlsChanged);
@@ -111,6 +107,23 @@ void MainWindow::settingsTriggered() {
 void MainWindow::loadSettings(const QString &dName) {
 
     gameField->repaint();
+}
+
+void MainWindow::retranslateUi() {
+    gameField->setStatusTip(i18n("Use right and left arrow keys or A/D keys or mouse buttons to control the snake"));
+    gameField->setWhatsThis(i18n("Use right and left arrow keys or A/D keys or mouse buttons to control the snake"));
+    timerSlider->setToolTip(i18n("Snake Movement Speed"));
+    timerSlider->setWhatsThis(i18n("Change Snake Movement Speed dynamically"));
+}
+
+void MainWindow::changeEvent(QEvent *event) {
+
+    if (event->type() == QEvent::LanguageChange) {
+        // This will setup the menu, toolbars etc again, using the new language
+        setupGUI(ToolBar | Keys | StatusBar | Create);
+        retranslateUi();
+    }
+    KXmlGuiWindow::changeEvent(event);
 }
 
 

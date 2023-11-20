@@ -14,6 +14,9 @@
 class MainWindow : public KXmlGuiWindow {
 Q_OBJECT
 
+protected:
+    void changeEvent(QEvent *event) override;
+
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
@@ -22,6 +25,7 @@ private:
     SnakeGame *gameField;
     QSlider *timerSlider;
     void setupToolBar();
+    void retranslateUi();
 
 private slots:
     void loadSettings(const QString &);

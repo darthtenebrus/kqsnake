@@ -19,6 +19,9 @@ Q_OBJECT
 public:
     explicit ConfigPageSecond(QWidget *parent = nullptr);
 
+protected:
+    void changeEvent(QEvent *event) override;
+
 };
 
 

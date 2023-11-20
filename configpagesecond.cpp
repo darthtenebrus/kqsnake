@@ -12,4 +12,12 @@ ConfigPageSecond::ConfigPageSecond(QWidget *parent) :
     setupUi(this);
 }
 
+void ConfigPageSecond::changeEvent(QEvent *event) {
+    if (event->type() == QEvent::LanguageChange) {
+        // This will setup the menu, toolbars etc again, using the new language
+        retranslateUi(this);
+    }
+    QWidget::changeEvent(event);
+}
+
 
