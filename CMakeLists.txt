@@ -65,6 +65,7 @@ install(TARGETS ${PROJECT_NAME})
 install(FILES ${PROJECT_NAME}.kcfg  DESTINATION  ${KDE_INSTALL_KCFGDIR})
 
 kdoctools_install(po)
+ki18n_install(po)
 
 
 

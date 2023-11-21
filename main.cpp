@@ -34,8 +34,7 @@ int main(int argc, char *argv[]) {
                     .toStdString() << "Eugene E. Sorochinskiy <manager@darkguard.net>\n\n";
             const QString &optVal = cmd_args.value(1);
             if (optVal.toLower() == "-h" || optVal == "--help") {
-                std::cout << i18n("Usage %1 [options]")
-                        .arg(progName).toStdString() << "\n";
+                std::cout << i18n("Usage %1 [options]", progName).toStdString() << "\n";
                 std::cout << i18n("Valid options:").toStdString() << "\n";
                 std::cout << "-h, -H, --help\t\t" << i18n("show this help").toStdString() << "\n";
                 std::cout << "-v, -V, --version\t" << i18n("display version").toStdString() << "\n\n";
@@ -43,9 +42,8 @@ int main(int argc, char *argv[]) {
             } else if (optVal.toLower() == "-v" || optVal == "--version") {
                 std::cout << progName.toStdString() << " v." << APP_VERSION << "\n\n";
             } else {
-                std::cout << i18n("Unknown option %1").arg(cmd_args.value(1)).toStdString() << "\n";
-                std::cout << i18n("Launch %1 -h or %1 --help for help")
-                        .arg(progName).toStdString() << "\n\n";
+                std::cout << i18n("Unknown option %1", cmd_args.value(1)).toStdString() << "\n";
+                std::cout << i18n("Launch %1 -h or %1 --help for help", progName).toStdString() << "\n\n";
 
             }
             std::cout << i18n("Launch this application without any parameters to see its main functional")
