@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kqsnake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-21 10:20+0300\n"
-"PO-Revision-Date: 2023-11-21 11:45+0300\n"
+"PO-Revision-Date: 2023-11-21 14:36+0300\n"
 "Last-Translator: Eugene Sorochinskiy <webmaster@darkguard.net>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -138,7 +138,8 @@ msgstr "Starten %1 -h oder %1 --help, um Hilfe zu erhalten"
 #, kde-format
 msgid ""
 "Launch this application without any parameters to see its main functional"
-msgstr "Starten die App ohne Argumente, um die Hauptfunktion zu sehen"
+msgstr ""
+"Starten die Anwendung  ohne Argumente, um die Hauptfunktion zu sehen"
 
 #: main.cpp:86
 #, kde-format
@@ -148,7 +149,7 @@ msgstr "Schon gestartet"
 #: main.cpp:87
 #, kde-format
 msgid "Application Already Running"
-msgstr "Die App ist schon gestartet"
+msgstr "Die Anwendung  ist schon gestartet"
 
 #: main.cpp:94
 #, kde-format

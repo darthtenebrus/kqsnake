@@ -21,6 +21,7 @@
 int main(int argc, char *argv[]) {
 
     QApplication app(argc, argv);
+    KLocalizedString::setApplicationDomain("kqsnake");
 
     try {
         const QStringList &cmd_args = QCoreApplication::arguments();
@@ -87,7 +88,6 @@ int main(int argc, char *argv[]) {
         return 1;
 
     } else {
-        KLocalizedString::setApplicationDomain("kqsnake");
         KAboutData aboutData(QStringLiteral("kqsnake"),
                              i18n("Snake Game"), APP_VERSION,
                              i18n("Another Game Of Snake under KDE"),
