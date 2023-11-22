@@ -37,6 +37,8 @@ parts:
       64x64/kqsnake.png: kqsnake.png
     stage: [kqsnake.png, kqsnake.desktop]
   my-part:
+    build-environment:
+      - QT_SELECT: qt5
     build-attributes:
       - enable-patchelf
     # See 'snapcraft plugins'
