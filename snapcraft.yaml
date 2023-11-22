@@ -13,7 +13,7 @@ architectures:
   - build-on: [arm64]
 apps:
   kqsnake:
-    command: bin/kqsnake
+    command: usr/bin/kqsnake
     desktop: kqsnake.desktop
     extensions:
       - kde-neon
@@ -43,6 +43,8 @@ parts:
     plugin: cmake
     cmake-parameters:
       - -DCMAKE_BUILD_TYPE=Release
+      - -DCMAKE_INSTALL_PREFIX=/usr
+      - -DKDE_INSTALL_USE_QT_SYS_PATHS=true
     source: .
     build-packages:
       - gcc
