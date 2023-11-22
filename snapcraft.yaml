@@ -37,8 +37,6 @@ parts:
       64x64/kqsnake.png: kqsnake.png
     stage: [kqsnake.png, kqsnake.desktop]
   my-part:
-    build-environment:
-      - QT_SELECT: qt5
     build-attributes:
       - enable-patchelf
     # See 'snapcraft plugins'
@@ -46,6 +44,7 @@ parts:
     cmake-parameters:
       - -DCMAKE_BUILD_TYPE=Release
       - -DCMAKE_INSTALL_PREFIX=/usr
+      - -DKDE_INSTALL_USE_QT_SYS_PATHS=false
     source: .
     build-packages:
       - gcc
