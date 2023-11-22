@@ -44,12 +44,13 @@ parts:
     cmake-parameters:
       - -DCMAKE_BUILD_TYPE=Release
       - -DCMAKE_INSTALL_PREFIX=/usr
-      - -DQT_INSTALL_PREFIX=/usr
     source: .
     build-packages:
       - gcc
       - cmake
       - qtbase5-dev
+      - qt5-qmake
+      - qt5-qmake-bin
       - qttools5-dev
       - qttools5-dev-tools
       - libkf5configwidgets-dev
