@@ -44,7 +44,7 @@
 <!--Short description of this document. Do not change unless necessary!-->
 <abstract>
 	<para
->В этом документе описывается игра &kappname; версии &kappversion;</para>
+>In this manual &kappname; version &kappversion; is described</para>
 </abstract>
  
 <!--List of relevan keywords-->
@@ -63,8 +63,8 @@
 </keywordset>
 </bookinfo>
 <!--Content begins here: -->
-<chapter id="introduction"><title>Введение</title> <!-- do not change this! -->
-	<note><title>Жанр игры:</title>
+<chapter id="introduction"><title>Introduction</title> <!-- do not change this! -->
+	<note><title>Game genre:</title>
 		<para>Table, arcade</para>
 	</note><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
 	<note>
@@ -93,7 +93,7 @@
 >&kappname; automatically loads a layout, placing apples in random order. As soon as you click start button on the toolbar, the snake begins to move.</para>
 
 	<para>Control the snake with arrow keys or mouse button. You can change the movement speed with the slider on the toolbar</para>
-	<para>Apples and "maluses" appear randomly after a number ov moves which is set in the в <link linkend="configuration">settings dialog</link></para>
+	<para>Apples and "maluses" appear randomly after a number ov moves which is set in the в <link linkend="configuration">configuration dialog</link></para>
 </chapter>
  
 <chapter id="screen"
@@ -210,7 +210,7 @@
 >Yes. To change game design &kappname; use <link linkend="menu"
 >menu</link
 >, to open <link linkend="configuration"
->settings dialog</link
+>configuration dialog</link
 >.</para
 ></answer>
 	</qandaentry>
@@ -230,10 +230,10 @@
 </chapter>
  
 <chapter id="configuration">
-	<title>Настройка игры</title> <!-- do not change this! -->
+	<title>Game settings</title> <!-- do not change this! -->
 <!--This section describes configuration &GUI;. If your game is configured using menubar exclusively, please remove this section.-->
 <screenshot>
-<screeninfo>Settings dialog</screeninfo>
+<screeninfo>Configuration dialog</screeninfo>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="config.png" format="PNG"/>
@@ -244,9 +244,9 @@
 	</mediaobject>
 </screenshot>
 
-<para>Команда <menuchoice><guimenu>Settings</guimenu>
-		<guimenuitem>&kappname; settings…</guimenuitem>
-		</menuchoice> opens <guilabel>&kappname; settings</guilabel>.
+<para>Menu command <menuchoice><guimenu>Settings</guimenu>
+		<guimenuitem>Configure &kappname;...</guimenuitem>
+		</menuchoice> opens <guilabel>&kappname; configuration dialog</guilabel>.
 	</para>
 
 </chapter>
