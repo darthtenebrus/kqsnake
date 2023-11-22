@@ -44,7 +44,7 @@ parts:
     cmake-parameters:
       - -DCMAKE_BUILD_TYPE=Release
       - -DCMAKE_INSTALL_PREFIX=/usr
-      - -DKDE_INSTALL_USE_QT_SYS_PATHS=true
+      - -DQT_INSTALL_PREFIX=/usr
     source: .
     build-packages:
       - gcc
