@@ -8,7 +8,6 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 find_package(ECM REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
-include(KDEInstallDirs)
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     add_definitions(-D_DEBUG)
@@ -17,6 +16,7 @@ endif()
 find_package(Qt5 COMPONENTS
         Core
         REQUIRED)
+
 find_package(KF5 COMPONENTS
         Config
         Crash
@@ -26,7 +26,7 @@ find_package(KF5 COMPONENTS
         XmlGui
         REQUIRED)
 
-
+include(KDEInstallDirs)
 set(RES_FILES images.qrc kqsnake.qrc)
 add_executable(${PROJECT_NAME})
 target_sources(${PROJECT_NAME} PRIVATE
