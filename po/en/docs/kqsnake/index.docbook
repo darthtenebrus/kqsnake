@@ -3,13 +3,13 @@
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
   <!ENTITY kappname "kqsnake"
 > 
-  <!ENTITY gamename "Змейка"
+  <!ENTITY gamename "Snake Game"
 >
   <!ENTITY kappversion "1.0-3"
 ><!--Applicaion version. Use this variable everywhere it's needed.-->
   <!ENTITY package "kdegames"
 >  <!-- do not change this! -->
-  <!ENTITY % Russian "INCLUDE"
+  <!ENTITY % English "INCLUDE"
 > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE"
 > <!-- do not change this! -->
@@ -19,15 +19,15 @@
 > <!-- do not change this! -->
 <bookinfo>
 	<title
->Руководство пользователя &kappname;</title
+>User's manual &kappname;</title
 > <!-- This is the title of this docbook. -->
 <!-- List of immidiate authors begins here. -->
 <!--INPORTANT! - All other contributors: [to be determined] -->
 <authorgroup>
 	<author>
 		<personname>
-			<firstname>Евгений</firstname>
-			<surname>Сорочинский</surname>
+			<firstname>Eugene</firstname>
+			<surname>Sorochinskiy</surname>
 		</personname>
 		<email>webmaster@darkguard.net</email>
 	</author>
@@ -36,7 +36,7 @@
 <legalnotice>&FDLNotice;</legalnotice>
  
 <date
->18 ноября 2023 г.</date
+>18 November 2023.</date
 ><!-- Date of (re)writing, or update.-->
 <releaseinfo>&kappversion; (&kde; 5.92.0)</releaseinfo
 ><!-- Application version number. Use the variable definitions within header to change this value.-->
@@ -50,66 +50,67 @@
 <!--List of relevan keywords-->
 <keywordset>
 	<keyword>KDE</keyword>
-	<keyword>игра</keyword> <!-- do not change this! -->
+	<keyword>game</keyword> <!-- do not change this! -->
 	<keyword>KQsnake</keyword><!--Application name goes here-->
 <!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
-	<keyword>настольная</keyword>
-	<keyword>аркадная</keyword>
-	<keyword>игра "Змейка"</keyword>
-	<keyword>змейка</keyword>
+	<keyword>Table</keyword>
+	<keyword>arcade</keyword>
+	<keyword>Snake Game</keyword>
+	<keyword>sbnake</keyword>
 <!--Number of possible players. It can be: One, Two,..., Multiplayer-->
-	<keyword>один игрок</keyword>
+	<keyword>single player</keyword>
 <!--All other relevant keywords-->
 </keywordset>
 </bookinfo>
 <!--Content begins here: -->
 <chapter id="introduction"><title>Введение</title> <!-- do not change this! -->
 	<note><title>Жанр игры:</title>
-		<para>Настольная, аркадная</para>
+		<para>Table, arcade</para>
 	</note><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
 	<note>
 		<title
->Количество игроков:</title
+>Number of players:</title
 ><para
->Один</para></note><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
-	<para>&gamename; — игра, которая была популярна на первых ПК и которую возможно Вы сами пытались реализовать. Вы управляете змейкой при помощи клавиш-стрелок или кнопок мыши и пытаетесь накормить ее яблоками. Съедая яблоко, змейка уджлинняется. Кусать себя нельзя, это сразу проигрыш.</para>
-	<para>Однако, в отличие от своей начальной версии, данная &gamename; слегка изменена. </para>
-	<para>В данной версии игры  &gamename; присутствуют "бяки", встреча с которыми приводит к проигрышу. </para>
+>Single</para></note><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+	<para>&gamename; — the game was popular on first PC's, maybe you even tried to code it yourself. You control the snake with arrow keys or mouse buttons trying to feed it with apples. Having eaten an apple,
+		the snake becomes longer. Don't byte yourself or you loose.</para>
+	<para>In difference with its first version, this &gamename; is slightly changed. </para>
+	<para>In current version  &gamename; there appear some "maluses". Encounter with them and you loose.</para>
 </chapter>
  
 <chapter id="howto"
 ><title
->Как играть</title
+>How to play</title
 > <!-- do not change this! -->
 <!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
 	<note
 ><title>Цель:</title>
-		<para>Сделать змейку как можно длиннее, не нарвавшись при этом на "бяку".</para>
+		<para>Become as long as possible, don't intersect with "maluses".</para>
 		</note
 ><!--Describe the objective of the game.-->
 <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
 	<para
->&kappname; загружает поле по умолчанию автоматически, в случайном порядке расставляя яблоки. Как только вы нажмете кнопку старта на панели, змейка начнет движение.</para>
+>&kappname; automatically loads a layout, placing apples in random order. As soon as you click start button on the toolbar, the snake begins to move.</para>
 
-	<para>Управляйте ее движением при помощи кнопок стрелок или левой и правой кнопками мыши. Можно регулировать скорость движения при помощи ползунка на панели инструментов</para>
-	<para>Яблоки и "бяки" будут появляться в случайном порядке после количества ходов, указанных в <link linkend="configuration">диалоге настроек</link></para>
+	<para>Control the snake with arrow keys or mouse button. You can change the movement speed with the slider on the toolbar</para>
+	<para>Apples and "maluses" appear randomly after a number ov moves which is set in the в <link linkend="configuration">settings dialog</link></para>
 </chapter>
  
 <chapter id="screen"
 ><title
->Игровой экран</title> <!-- do not change this! -->
+>Game screen</title> <!-- do not change this! -->
 	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
 	<sect1 id="game-screen">
-		<title>Игровой экран</title>
+		<title>Game screen</title>
 		<para>
 			<screenshot>
 				<screeninfo
->Снимок экрана с игрой &gamename;</screeninfo>
+>Screenshot &gamename;</screeninfo>
 				<mediaobject>
 					<imageobject>
 						<imagedata fileref="gamescreen.png" format="PNG"/>
 					</imageobject>
-					<textobject><phrase>Снимок экрана</phrase></textobject>
+					<textobject><phrase>Screenshot</phrase></textobject>
 				</mediaobject>
 			</screenshot>
 		</para>
@@ -118,8 +119,7 @@
  
  <chapter id="interface"
 ><title
->Обзор интерфейса</title
-> <!-- do not change this! -->
+>Interface</title> <!-- do not change this! -->
 <!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist
 > and <varlistentry
 >. Split the chapter into sections using <sect1(2,3)
@@ -127,7 +127,7 @@
 
 <sect1 id="menu">
 <title
->Команды меню</title>
+>Menu commands</title>
 
 		<variablelist>
 			<varlistentry id="game-menu-new">
@@ -140,15 +140,15 @@
 ></keycombo
 ></shortcut
 > <guimenu
->Игра</guimenu
+>Game</guimenu
 > <guimenuitem
->Начать игру</guimenuitem
+>Start game</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
 ><para
 ><action
->Начинает новую игру.</action
+>Begins a new game.</action
 ></para
 ></listitem>
 			</varlistentry>
@@ -162,28 +162,28 @@
 ></keycombo
 ></shortcut
 > <guimenu
->Игра</guimenu
+>Game</guimenu
 > <guimenuitem
->Старт/Стоп</guimenuitem
+>Start/Stop</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
 ><para
 ><action
->Запустить или остановить игру.</action
+>Pause or resume current game.</action
 ></para
 ></listitem>
 			</varlistentry>
 		</variablelist>
 <para
->Кроме того &kappname; имеет стандартные для &kde; меню <guimenu
->Настройка</guimenu
-> и <guimenu
->Справка</guimenu
->, для большей информации о них обратитесь к разделам документации <ulink url="help:/fundamentals/ui.html#menus-settings"
->Меню Настройка</ulink
+>Also &kappname; has standard &kde; menu <guimenu
+>Settings</guimenu
+> and <guimenu
+>Help</guimenu
+>, for more information use <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Settings menu</ulink
 > и <ulink url="help:/fundamentals/ui.html#menus-help"
->Меню Справка</ulink
+>Help menu</ulink
 >. </para>
 
 </sect1>
@@ -193,7 +193,7 @@
  
 <chapter id="faq"
 ><title
->Вопросы и ответы</title
+>FAQ</title
 > <!-- do not change this! -->
 <!--This chapter is for frequently asked questions. Please use <qandaset
 > <qandaentry
@@ -203,25 +203,25 @@
 	<qandaentry>
 		 <question
 ><para
->Я хочу изменить оформление игры. Это возможно? </para
+>I want to change game design. Is that possible? </para
 ></question>
 		 <answer
 ><para
->Да. Для изменения оформления &kappname; воспользуйтесь <link linkend="menu"
->меню</link
->, чтобы открыть <link linkend="configuration"
->диалоговое окно настройки</link
+>Yes. To change game design &kappname; use <link linkend="menu"
+>menu</link
+>, to open <link linkend="configuration"
+>settings dialog</link
 >.</para
 ></answer>
 	</qandaentry>
 	<qandaentry>
 		 <question
 ><para
->Можно ли играть с помощью клавиатуры?</para
+>Can I play from keyboard?</para
 ></question>
 		 <answer
 ><para
->Да. Можно управлять клавишами со стрелками, а также клавишами A и D.</para
+>Yes. You can control with arrow keys and A/D keys.</para
 ></answer>
 	</qandaentry>
 <!--Please add more Q&As if needed-->
@@ -233,39 +233,39 @@
 	<title>Настройка игры</title> <!-- do not change this! -->
 <!--This section describes configuration &GUI;. If your game is configured using menubar exclusively, please remove this section.-->
 <screenshot>
-<screeninfo>Диалог настройки</screeninfo>
+<screeninfo>Settings dialog</screeninfo>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="config.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
-	    <phrase>Диалог настройки</phrase>
+	    <phrase>Congiguration</phrase>
 	  </textobject>
 	</mediaobject>
 </screenshot>
 
-<para>Команда <menuchoice><guimenu>Настройка</guimenu>
-		<guimenuitem>Настроить &kappname;…</guimenuitem>
-		</menuchoice> открывает диалог <guilabel>Настройка &kappname;</guilabel>.
+<para>Команда <menuchoice><guimenu>Settings</guimenu>
+		<guimenuitem>&kappname; settings…</guimenuitem>
+		</menuchoice> opens <guilabel>&kappname; settings</guilabel>.
 	</para>
 
 </chapter>
  
 <chapter id="credits"
 ><title
->Авторы и лицензия</title> <!-- do not change this! -->
+>Credits and license</title> <!-- do not change this! -->
 <!--This chapter is for credits and licenses.-->
-	<para>&kappname; для &kde; </para>
+	<para>&kappname; for &kde; </para>
 
-	<para>Авторские права на программу &copy; 2023
-		<personname><firstname>Евгений</firstname>
-			<surname>Сорочинский</surname>
+	<para>Copyright &copy; 2023
+		<personname><firstname>Eugene</firstname>
+			<surname>Sorochinskiy</surname>
 		</personname>
 		<email>webmaster@darkguard.net</email>
 	</para>
 
 <!-- !!!do not change ANYTHING after this line!!!! -->
-<para>Перевод на русский, английский и немецкий языки: Евгений Сорочинский <email>webmaster@darkguard.net</email></para>
+<para>Russian, English, German translations: Eugene Sorochinskiy <email>webmaster@darkguard.net</email></para>
 &underFDL; &underGPL; </chapter>
  
  

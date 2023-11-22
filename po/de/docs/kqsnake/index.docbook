@@ -3,13 +3,13 @@
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
   <!ENTITY kappname "kqsnake"
 > 
-  <!ENTITY gamename "Змейка"
+  <!ENTITY gamename "Schlangespiel"
 >
   <!ENTITY kappversion "1.0-3"
 ><!--Applicaion version. Use this variable everywhere it's needed.-->
   <!ENTITY package "kdegames"
 >  <!-- do not change this! -->
-  <!ENTITY % Russian "INCLUDE"
+  <!ENTITY % German "INCLUDE"
 > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE"
 > <!-- do not change this! -->
@@ -19,15 +19,15 @@
 > <!-- do not change this! -->
 <bookinfo>
 	<title
->Руководство пользователя &kappname;</title
+>Benutzerhandbuch &kappname;</title
 > <!-- This is the title of this docbook. -->
 <!-- List of immidiate authors begins here. -->
 <!--INPORTANT! - All other contributors: [to be determined] -->
 <authorgroup>
 	<author>
 		<personname>
-			<firstname>Евгений</firstname>
-			<surname>Сорочинский</surname>
+			<firstname>Eugen</firstname>
+			<surname>Soroshchinskii</surname>
 		</personname>
 		<email>webmaster@darkguard.net</email>
 	</author>
@@ -36,7 +36,7 @@
 <legalnotice>&FDLNotice;</legalnotice>
  
 <date
->18 ноября 2023 г.</date
+>18 November 2023 Jahr.</date
 ><!-- Date of (re)writing, or update.-->
 <releaseinfo>&kappversion; (&kde; 5.92.0)</releaseinfo
 ><!-- Application version number. Use the variable definitions within header to change this value.-->
@@ -44,72 +44,71 @@
 <!--Short description of this document. Do not change unless necessary!-->
 <abstract>
 	<para
->В этом документе описывается игра &kappname; версии &kappversion;</para>
+>Beschreibt man mit diesem Handbuch ein Spiel &kappname; Version &kappversion;</para>
 </abstract>
  
 <!--List of relevan keywords-->
 <keywordset>
 	<keyword>KDE</keyword>
-	<keyword>игра</keyword> <!-- do not change this! -->
+	<keyword>Spiel</keyword> <!-- do not change this! -->
 	<keyword>KQsnake</keyword><!--Application name goes here-->
 <!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
-	<keyword>настольная</keyword>
-	<keyword>аркадная</keyword>
-	<keyword>игра "Змейка"</keyword>
-	<keyword>змейка</keyword>
+	<keyword>Tischplatte</keyword>
+	<keyword>Arkade</keyword>
+	<keyword>Schlangespiel</keyword>
+	<keyword>Schlange</keyword>
 <!--Number of possible players. It can be: One, Two,..., Multiplayer-->
-	<keyword>один игрок</keyword>
+	<keyword>Das einzele Spieler</keyword>
 <!--All other relevant keywords-->
 </keywordset>
 </bookinfo>
 <!--Content begins here: -->
-<chapter id="introduction"><title>Введение</title> <!-- do not change this! -->
-	<note><title>Жанр игры:</title>
-		<para>Настольная, аркадная</para>
+<chapter id="introduction"><title>Einführung</title> <!-- do not change this! -->
+	<note><title>Spielgenre:</title>
+		<para>Tischplatte, Arkade</para>
 	</note><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
 	<note>
 		<title
->Количество игроков:</title
+>Spieleranzahl:</title
 ><para
->Один</para></note><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
-	<para>&gamename; — игра, которая была популярна на первых ПК и которую возможно Вы сами пытались реализовать. Вы управляете змейкой при помощи клавиш-стрелок или кнопок мыши и пытаетесь накормить ее яблоками. Съедая яблоко, змейка уджлинняется. Кусать себя нельзя, это сразу проигрыш.</para>
-	<para>Однако, в отличие от своей начальной версии, данная &gamename; слегка изменена. </para>
-	<para>В данной версии игры  &gamename; присутствуют "бяки", встреча с которыми приводит к проигрышу. </para>
+>Einzel</para></note><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+	<para>&gamename; — Ein Spiel, das auf frühen Personalcmputern beliebt war und das Sie vielleicht zu programmieren versuchten. Verwalten sie eine Schlange mit den Pfeiltasten oder Maustasten und versuchen sie mit Äpfeln fütteren. Съедая яблоко, Wenn ein Apfel gegessen ist, verlängert die Schlange sich. Man kann sich nicht beißen, es ist ein Verluss.</para>
+	<para>	Doch ist diese Version der &gamename; leicht modifiziert im Gegensatz zur ersten Version. </para>
+	<para>In dieser Spielversion  &gamename; gibt es Schlechte, mit dem müssen Sie nicht treffen als es zum Verlust führt. </para>
 </chapter>
  
 <chapter id="howto"
 ><title
->Как играть</title
+>Spielweise</title
 > <!-- do not change this! -->
 <!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
 	<note
-><title>Цель:</title>
-		<para>Сделать змейку как можно длиннее, не нарвавшись при этом на "бяку".</para>
+><title>Ziel:</title>
+		<para>verlängern Sie die Schlange und nicht ein Schlechte treffen.</para>
 		</note
 ><!--Describe the objective of the game.-->
 <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
 	<para
->&kappname; загружает поле по умолчанию автоматически, в случайном порядке расставляя яблоки. Как только вы нажмете кнопку старта на панели, змейка начнет движение.</para>
+>&kappname; ladet das Spieleld automatisch ein und platziert die Äpfel zufällig. Wenn Sie die Starttaste drücken, fängt die Schlange eine Bewegung an.</para>
 
-	<para>Управляйте ее движением при помощи кнопок стрелок или левой и правой кнопками мыши. Можно регулировать скорость движения при помощи ползунка на панели инструментов</para>
-	<para>Яблоки и "бяки" будут появляться в случайном порядке после количества ходов, указанных в <link linkend="configuration">диалоге настроек</link></para>
+	<para>Verwalten Sie eine Schlange mit den rechten und linken Pfeiltasten oder rechten und linken Maustasten. Sie können die Bewegungsgeschwindigkeit mit dem Schieberegler in der Symbolleiste anpassen</para>
+	<para>Äpfel und Schlechte wird zufällig nach der angegebenen Anzahl an Zügen auftauchen. Diese Anzahl stellen Sie <link linkend="configuration">hier ein: Einstellungsfenster</link></para>
 </chapter>
  
 <chapter id="screen"
 ><title
->Игровой экран</title> <!-- do not change this! -->
+>Spielbildschirm</title> <!-- do not change this! -->
 	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
 	<sect1 id="game-screen">
-		<title>Игровой экран</title>
+		<title>Spielbildschirm</title>
 		<para>
 			<screenshot>
 				<screeninfo
->Снимок экрана с игрой &gamename;</screeninfo>
+>Spielbildschirm der &gamename;</screeninfo>
 				<mediaobject>
 					<imageobject>
 						<imagedata fileref="gamescreen.png" format="PNG"/>
 					</imageobject>
-					<textobject><phrase>Снимок экрана</phrase></textobject>
 				</mediaobject>
 			</screenshot>
 		</para>
@@ -118,7 +117,7 @@
  
  <chapter id="interface"
 ><title
->Обзор интерфейса</title
+>Schnittstellenübersicht</title
 > <!-- do not change this! -->
 <!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist
 > and <varlistentry
@@ -127,7 +126,7 @@
 
 <sect1 id="menu">
 <title
->Команды меню</title>
+>Menübefehle</title>
 
 		<variablelist>
 			<varlistentry id="game-menu-new">
@@ -140,15 +139,15 @@
 ></keycombo
 ></shortcut
 > <guimenu
->Игра</guimenu
+>Spiel</guimenu
 > <guimenuitem
->Начать игру</guimenuitem
+>ein Spiel anfangen</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
 ><para
 ><action
->Начинает новую игру.</action
+>Fängt man ein Spiel an.</action
 ></para
 ></listitem>
 			</varlistentry>
@@ -164,26 +163,22 @@
 > <guimenu
 >Игра</guimenu
 > <guimenuitem
->Старт/Стоп</guimenuitem
+>Start/Stop</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
 ><para
 ><action
->Запустить или остановить игру.</action
+>Ein Spiel starten oder stoppen.</action
 ></para
 ></listitem>
 			</varlistentry>
 		</variablelist>
-<para
->Кроме того &kappname; имеет стандартные для &kde; меню <guimenu
->Настройка</guimenu
-> и <guimenu
->Справка</guimenu
->, для большей информации о них обратитесь к разделам документации <ulink url="help:/fundamentals/ui.html#menus-settings"
->Меню Настройка</ulink
+<para>Außerdem hat  &kappname; Standardmenu von &kde; <guimenu>Einstellungen</guimenu>
+	<guimenu>Hilfe</guimenu>Weitere Informationen hierzu finden Sie in den Dokumentationsabschnitten <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Einstellungen</ulink
 > и <ulink url="help:/fundamentals/ui.html#menus-help"
->Меню Справка</ulink
+>Hilfe</ulink
 >. </para>
 
 </sect1>
@@ -193,7 +188,7 @@
  
 <chapter id="faq"
 ><title
->Вопросы и ответы</title
+>Frage und Antwörte</title
 > <!-- do not change this! -->
 <!--This chapter is for frequently asked questions. Please use <qandaset
 > <qandaentry
@@ -203,25 +198,25 @@
 	<qandaentry>
 		 <question
 ><para
->Я хочу изменить оформление игры. Это возможно? </para
+>Ich möchte eine Spielgestaltung veränderen. Das ist möglich? </para
 ></question>
 		 <answer
 ><para
->Да. Для изменения оформления &kappname; воспользуйтесь <link linkend="menu"
->меню</link
->, чтобы открыть <link linkend="configuration"
->диалоговое окно настройки</link
->.</para
+>Ja. Um die Spielgestaltung zu veränderen &kappname; benutzen Sie <link linkend="menu"
+>eine Menu</link
+>, die <link linkend="configuration"
+>das Einstellungsfenster</link
+> aufmachen wird.</para
 ></answer>
 	</qandaentry>
 	<qandaentry>
 		 <question
 ><para
->Можно ли играть с помощью клавиатуры?</para
+>Kann ich mit der Tastenleiste spielen?</para
 ></question>
 		 <answer
 ><para
->Да. Можно управлять клавишами со стрелками, а также клавишами A и D.</para
+>Ja. Könnnen Sie Linkpfeiltaste und Rechtpfeiltaste benutzen, als auch A und D Tasten</para
 ></answer>
 	</qandaentry>
 <!--Please add more Q&As if needed-->
@@ -230,42 +225,42 @@
 </chapter>
  
 <chapter id="configuration">
-	<title>Настройка игры</title> <!-- do not change this! -->
+	<title>Spieleinstellungen</title> <!-- do not change this! -->
 <!--This section describes configuration &GUI;. If your game is configured using menubar exclusively, please remove this section.-->
 <screenshot>
-<screeninfo>Диалог настройки</screeninfo>
+<screeninfo>Einstellungsfenster</screeninfo>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="config.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
-	    <phrase>Диалог настройки</phrase>
+	    <phrase>Einstellungsfenster</phrase>
 	  </textobject>
 	</mediaobject>
 </screenshot>
 
-<para>Команда <menuchoice><guimenu>Настройка</guimenu>
-		<guimenuitem>Настроить &kappname;…</guimenuitem>
-		</menuchoice> открывает диалог <guilabel>Настройка &kappname;</guilabel>.
+<para><menuchoice><guimenu>Einstellungen</guimenu>
+		<guimenuitem>&kappname; einrichten…</guimenuitem>
+		</menuchoice>Macht das Einstellungsfenster auf<guilabel>&kappname; einrichten</guilabel>.
 	</para>
 
 </chapter>
  
 <chapter id="credits"
 ><title
->Авторы и лицензия</title> <!-- do not change this! -->
+>Credits und Lizenz</title> <!-- do not change this! -->
 <!--This chapter is for credits and licenses.-->
-	<para>&kappname; для &kde; </para>
+	<para>&kappname; mit &kde; </para>
 
-	<para>Авторские права на программу &copy; 2023
-		<personname><firstname>Евгений</firstname>
-			<surname>Сорочинский</surname>
+	<para>Programmurheberrecht &copy; 2023
+		<personname><firstname>Eugen</firstname>
+			<surname>Soroshchinskii</surname>
 		</personname>
 		<email>webmaster@darkguard.net</email>
 	</para>
 
 <!-- !!!do not change ANYTHING after this line!!!! -->
-<para>Перевод на русский, английский и немецкий языки: Евгений Сорочинский <email>webmaster@darkguard.net</email></para>
+<para>Russisch, Englisch und Deutsch Sprache Übersetzungen: Eugen Soroshchinskii <email>webmaster@darkguard.net</email></para>
 &underFDL; &underGPL; </chapter>
  
  
