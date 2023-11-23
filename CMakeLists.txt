@@ -51,6 +51,8 @@ target_sources(${PROJECT_NAME} PRIVATE
                 configpagesecond.cpp
                 configpagesecond.h
                 configpagesecond.ui
+                myslider.cpp
+                myslider.h
                 ${RES_FILES})
 
 set_property(TARGET ${PROJECT_NAME} PROPERTY AUTOUIC_OPTIONS --tr i18n --idbased --include KLocalizedString)
@@ -67,7 +69,7 @@ target_link_libraries(${PROJECT_NAME}
         KF5::XmlGui
         )
 
-install(TARGETS ${PROJECT_NAME})
+install(TARGETS ${PROJECT_NAME} ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES ${PROJECT_NAME}.kcfg  DESTINATION  ${KDE_INSTALL_KCFGDIR})
 install(FILES ${PROJECT_NAME}ui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/${PROJECT_NAME})
 

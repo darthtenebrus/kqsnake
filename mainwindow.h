@@ -5,11 +5,11 @@
 #ifndef KQSNAKE_MAINWINDOW_H
 #define KQSNAKE_MAINWINDOW_H
 
-#include <QSlider>
 #include <KAboutData>
 #include <KXmlGuiWindow>
 
 #include "snakegame.h"
+#include "myslider.h"
 
 class MainWindow : public KXmlGuiWindow {
 Q_OBJECT
@@ -18,14 +18,20 @@ protected:
     void changeEvent(QEvent *event) override;
 
 public:
+    [[nodiscard]]
+    QStringList customTags() const override;
+
+    QAction *createCustomElement(QWidget *parent, int index, const QDomElement &element) override;
+
+public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
 
 private:
     SnakeGame *gameField;
-    QSlider *timerSlider;
     void setupToolBar();
     void retranslateUi();
+    QString mSliderTagName = "slider";
 
 private slots:
     void loadSettings(const QString &);

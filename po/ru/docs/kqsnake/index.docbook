@@ -19,8 +19,8 @@
 > <!-- do not change this! -->
 <bookinfo>
 	<title
->Руководство пользователя &kappname;</title
-> <!-- This is the title of this docbook. -->
+>Руководство пользователя</title>
+<!-- This is the title of this docbook. -->
 <!-- List of immidiate authors begins here. -->
 <!--INPORTANT! - All other contributors: [to be determined] -->
 <authorgroup>
