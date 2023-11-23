@@ -50,8 +50,6 @@ parts:
       - gcc
       - cmake
       - qtbase5-dev
-      - qt5-qmake
-      - qt5-qmake-bin
       - qttools5-dev
       - qttools5-dev-tools
       - libkf5configwidgets-dev

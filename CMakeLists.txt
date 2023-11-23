@@ -7,8 +7,11 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 find_package(ECM REQUIRED NO_MODULE)
-set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
 include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDECompilerSettings NO_POLICY_SCOPE)
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     add_definitions(-D_DEBUG)
@@ -51,6 +54,8 @@ target_sources(${PROJECT_NAME} PRIVATE
                 ${RES_FILES})
 
 set_property(TARGET ${PROJECT_NAME} PROPERTY AUTOUIC_OPTIONS --tr i18n --idbased --include KLocalizedString)
+kde_target_enable_exceptions(${PROJECT_NAME} PRIVATE)
+
 kconfig_add_kcfg_files(${PROJECT_NAME} kqsnake.kcfgc)
 kconfig_add_kcfg_files(${PROJECT_NAME}_SRCS GENERATE_MOC kqsnake.kcfgc)
 
@@ -64,6 +69,7 @@ target_link_libraries(${PROJECT_NAME}
 
 install(TARGETS ${PROJECT_NAME})
 install(FILES ${PROJECT_NAME}.kcfg  DESTINATION  ${KDE_INSTALL_KCFGDIR})
+install(FILES ${PROJECT_NAME}ui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/${PROJECT_NAME})
 
 kdoctools_install(po)
 ki18n_install(po)

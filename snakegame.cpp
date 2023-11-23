@@ -58,7 +58,7 @@ QPoint SnakeGame::getStandardFieldDefs(int &x, int &y) {
 }
 
 
-void SnakeGame::paintEvent(QPaintEvent *e) {
+void SnakeGame::paintEvent(QPaintEvent *) {
     actualDoRePaint();
 }
 
@@ -245,7 +245,7 @@ void SnakeGame::keyPressEvent(QKeyEvent *event) {
     }
 }
 
-void SnakeGame::newGameTrigger(bool e) {
+void SnakeGame::newGameTrigger(bool) {
     cancelTimerInstantly();
     renewGame(true);
     emit enableStart(true);

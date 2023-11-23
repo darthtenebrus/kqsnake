@@ -51,6 +51,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::setupToolBar() {
     QAction *prefAction = KStandardAction::preferences(this, &MainWindow::settingsTriggered, actionCollection());
+
     prefAction->setWhatsThis(i18n("Open settings dialog"));
     QAction *newGame = actionCollection()->addAction(QStringLiteral("game_new"));
     actionCollection()->setDefaultShortcut(newGame,  Qt::ALT + Qt::Key_N);
@@ -69,8 +70,6 @@ void MainWindow::setupToolBar() {
     const QSize &wsize = QApplication::desktop()->size() * 0.9;
     setupGUI(wsize);
     setMinimumSize(wsize);
-    toolBar()->addAction(prefAction);
-    toolBar()->addSeparator();
     toolBar()->addWidget(timerSlider);
 }
 
@@ -104,7 +103,7 @@ void MainWindow::settingsTriggered() {
     dialog->show();
 }
 
-void MainWindow::loadSettings(const QString &dName) {
+void MainWindow::loadSettings(const QString &) {
 
     gameField->repaint();
 }

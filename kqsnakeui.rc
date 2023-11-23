@@ -14,10 +14,13 @@
         </Menu>
     </MenuBar>
 
-    <ToolBar name="mainToolBar">
+    <ToolBar name="mainToolBar" noMerge="1">
         <text>Main Toolbar</text>
         <Action name="game_new"/>
         <Action name="game_start_stop"/>
+        <Separator />
+        <Action name="options_configure"/>
+        <Separator />
     </ToolBar>
 
     <State name="gameplay_state">
