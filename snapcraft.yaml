@@ -45,6 +45,10 @@ parts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DKDE_INSTALL_USE_QT_SYS_PATHS=false
+      - "-DENABLE_TESTING=OFF"
+      - "-DBUILD_TESTING=OFF"
+      - "-DKDE_SKIP_TEST_SETTINGS=ON"
+
     source: .
     build-packages:
       - gcc
