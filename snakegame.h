@@ -78,7 +78,7 @@ private slots:
     void nextMove(void);
 signals:
     void changeControls(bool);
-    void enableStart(bool);
+    void enableStart(const QString &);
 
 };
 

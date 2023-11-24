@@ -78,9 +78,8 @@ void MainWindow::controlsChanged(bool active) {
 
 }
 
-void MainWindow::startEnable(bool e) {
-    e ? stateChanged(QStringLiteral("gameplay_state")) :
-        stateChanged(QStringLiteral("finished_state"));
+void MainWindow::startEnable(const QString& s) {
+    stateChanged(s);
 }
 
 void MainWindow::settingsTriggered() {
@@ -140,9 +139,6 @@ QAction *MainWindow::createCustomElement(QWidget *parent, int index, const QDomE
             connect(timerSlider, &QSlider::valueChanged, gameField, &SnakeGame::timerChanged);
             gameField->setTimerInterval(timerSlider->value());
             auto *res = bar->insertWidget(before, timerSlider);
-            res->setText("slider");
-            res->setEnabled(true);
-            res->setVisible(true);
             return res;
         }
 

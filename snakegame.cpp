@@ -14,9 +14,6 @@
 #include "constants.h"
 #include "kqsnake.h"
 
-#ifdef _DEBUG
-#include <QDebug>
-#endif
 
 
 SnakeGame::SnakeGame(QWidget *parent) : QWidget(parent), mTimer(new QTimer()) {
@@ -203,7 +200,7 @@ void SnakeGame::nextMove(void) {
     mSnake->move(this);
     if (!mSnake->isAlive()) {
         stopGame();
-        emit enableStart(false);
+        emit enableStart(QStringLiteral("finished_state"));
         QMessageBox::critical(this, i18n("You lost"), i18n("Sorry, you lost"));
     } else {
         maxTurnsBefore++;
@@ -221,7 +218,7 @@ void SnakeGame::nextMove(void) {
         repaint();
         if (mSnake->length() >= Settings::length()) {
             stopGame();
-            emit enableStart(false);
+            emit enableStart(QStringLiteral("finished_state"));
             QMessageBox::information(this, i18n("You win"), i18n("You win!"));
         }
     }
@@ -247,7 +244,7 @@ void SnakeGame::keyPressEvent(QKeyEvent *event) {
 void SnakeGame::newGameTrigger(bool) {
     cancelTimerInstantly();
     renewGame(true);
-    emit enableStart(true);
+    emit enableStart(QStringLiteral("initial_state"));
     emit changeControls(false);
     repaint();
 }
@@ -281,8 +278,10 @@ void SnakeGame::timerChanged(int timerInterval) {
 
 void SnakeGame::startStopTrigger(bool) {
     if (mTimer->isActive()) {
+        emit enableStart(QStringLiteral("initial_state"));
         stopGame();
     } else {
+        emit enableStart(QStringLiteral("gameplay_state"));
         startGame();
     }
     emit changeControls(mTimer->isActive());

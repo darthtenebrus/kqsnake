@@ -38,7 +38,7 @@ private slots:
 
 public slots:
     void controlsChanged(bool);
-    void startEnable(bool);
+    void startEnable(const QString &);
     void settingsTriggered();
 
 };

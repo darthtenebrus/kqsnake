@@ -24,12 +24,28 @@
         <Slider />
     </ToolBar>
 
+    <State name="initial_state">
+        <enable>
+            <Action name="game_start_stop"/>
+            <Action name="game_new"/>
+            <Action name="options_configure"/>
+        </enable>
+    </State>
+
     <State name="gameplay_state">
         <enable>
             <Action name="game_start_stop"/>
         </enable>
+        <disable>
+            <Action name="game_new"/>
+            <Action name="options_configure"/>
+        </disable>
     </State>
     <State name="finished_state">
+        <enable>
+            <Action name="game_new"/>
+            <Action name="options_configure"/>
+        </enable>
         <disable>
             <Action name="game_start_stop"/>
         </disable>
