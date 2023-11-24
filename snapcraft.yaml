@@ -13,8 +13,9 @@ architectures:
   - build-on: [arm64]
 apps:
   kqsnake:
+    common-id: org.kde.kqsnake.desktop
     command: usr/bin/kqsnake
-    desktop: kqsnake.desktop
+    desktop: org.kde.kqsnake.desktop
     extensions:
       - kde-neon
     plugs:
@@ -32,10 +33,10 @@ parts:
       craftctl default
 
       # Point icon to the correct location
-      sed -i -e 's|Icon=kqsnake|Icon=kqsnake.png|g' $CRAFT_STAGE/kqsnake.desktop
+      sed -i -e 's|Icon=kqsnake|Icon=kqsnake.png|g' $CRAFT_STAGE/org.kde.kqsnake.desktop
     organize:
       64x64/kqsnake.png: kqsnake.png
-    stage: [kqsnake.png, kqsnake.desktop]
+    stage: [kqsnake.png, org.kde.kqsnake.desktop]
   my-part:
     build-attributes:
       - enable-patchelf

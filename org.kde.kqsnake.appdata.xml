@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop">
+  <id>org.kde.kqsnake.desktop</id>
+  <project_license>GPL-3.0+</project_license>
+  <name>Kqsnake</name>
+
+  <name xml:lang="de">Kqsnake</name>
+  <name xml:lang="en-GB">Kqsnake</name>
+  <name xml:lang="ru">Kqsnake</name>
+
+  <summary>Snake Game</summary>
+  <summary xml:lang="de">Schlangespiel</summary>
+  <summary xml:lang="ru">Игра Змейка</summary>
+  <description>
+    <p>
+      Another Snake realization.
+    </p>
+
+    <p xml:lang="de">Die andere Schlangespielrealisation.</p>
+    <p xml:lang="en-GB">Just another Snake realization.</p>
+    <p xml:lang="ru">Еще одна реализация Змейки.</p>
+  </description>
+  <url type="homepage">https://apps.kde.org/kqsnake</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kqsnake</url>
+  <url type="help">https://docs.kde.org/?application=kqsnake</url>
+  <url type="donation">https://www.kde.org/community/donations/?app=kqsnake&amp;source=appdata</url>
+  <content_rating type="oars-1.1"/>
+
+  <project_group>KDE</project_group>
+  <launchable type="desktop-id">org.kde.kqsnake.desktop</launchable>
+  <provides>
+    <binary>kqsnake</binary>
+  </provides>
+  <releases>
+    <release version="1.0-3" date="2023-11-22"/>
+  </releases>
+</component>
