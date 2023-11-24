@@ -23,6 +23,8 @@ apps:
       - network
       - desktop
       - desktop-legacy
+      - audio-playback
+      - network-bind
 
 
 parts:
