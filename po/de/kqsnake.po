@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kqsnake\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-21 10:20+0300\n"
-"PO-Revision-Date: 2023-11-21 17:04+0300\n"
+"POT-Creation-Date: 2023-11-25 19:02+0300\n"
+"PO-Revision-Date: 2023-11-25 19:06+0300\n"
 "Last-Translator: Eugene Sorochinskiy <webmaster@darkguard.net>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -17,16 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Eugen Soroshchinskii"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "webmaster@darkguard.net, manager@darkguard.net"
 
 #: cmake-build-debug/kqsnake_autogen/include/ui_configpagefirst.h:114
 #: cmake-build-release/kqsnake_autogen/include/ui_configpagefirst.h:114
@@ -82,29 +72,17 @@ msgstr "Vorfarbe"
 msgid "Foreground Color"
 msgstr "Rückfarbe"
 
-#. i18n: ectx: Menu (game)
-#: kqsnakeui.rc:11
-#, kde-format
-msgid "&Game"
-msgstr "&Spiel"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: kqsnakeui.rc:18
-#, kde-format
-msgid "Main Toolbar"
-msgstr "Hauptsymbolleiste"
-
-#: main.cpp:31
+#: main.cpp:32
 #, kde-format
 msgid "Simple Snake Game realization"
 msgstr "Die einfache Schlangespiel realization"
 
-#: main.cpp:33
+#: main.cpp:34
 #, kde-format
 msgid "Created by: "
 msgstr "Erstellt von: "
 
-#: main.cpp:37
+#: main.cpp:38
 #, kde-format
 msgid "Usage %1 [options]"
 msgstr "Benutzen: %1 [Argumente]"
@@ -134,79 +112,83 @@ msgstr "Unbekannte Argument %1"
 msgid "Launch %1 -h or %1 --help for help"
 msgstr "Starten %1 -h oder %1 --help, um Hilfe zu erhalten"
 
-#: main.cpp:51
+#: main.cpp:50
 #, kde-format
 msgid ""
 "Launch this application without any parameters to see its main functional"
-msgstr ""
-"Starten die Anwendung  ohne Argumente, um die Hauptfunktion zu sehen"
+msgstr "Starten die Anwendung  ohne Argumente, um die Hauptfunktion zu sehen"
 
-#: main.cpp:86
+#: main.cpp:85
 #, kde-format
 msgid "Already Running"
 msgstr "Schon gestartet"
 
-#: main.cpp:87
+#: main.cpp:86
 #, kde-format
 msgid "Application Already Running"
 msgstr "Die Anwendung  ist schon gestartet"
 
-#: main.cpp:94
+#: main.cpp:92
 #, kde-format
 msgid "Snake Game"
 msgstr "Schlangespiel"
 
-#: main.cpp:95
+#: main.cpp:93
 #, kde-format
 msgid "Another Game Of Snake under KDE"
 msgstr "Das andere Schlangespiel mit KDE"
 
-#: main.cpp:97
+#: main.cpp:95
 #, kde-format
 msgid "Control the snake and collect as many apples as you can"
 msgstr "Die Schlange kontrolieren und die Äpfel sammeln"
 
-#: main.cpp:101
+#: main.cpp:99
 #, kde-format
 msgid "Original author"
 msgstr "Autor"
 
-#: mainwindow.cpp:54
+#: mainwindow.cpp:55
 #, kde-format
 msgid "Open settings dialog"
 msgstr "Einstellungfenster aufmachen"
 
-#: mainwindow.cpp:57
+#: mainwindow.cpp:58
 #, kde-format
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: mainwindow.cpp:59
+#: mainwindow.cpp:60
 #, kde-format
 msgid "Clear the field and begin a new game"
 msgstr "Das Feld freiräumen und ein neues Spiel anfangen"
 
-#: mainwindow.cpp:64
+#: mainwindow.cpp:65
 #, kde-format
 msgid "Start/Stop Game"
 msgstr "Start/Stop das Spiel"
 
-#: mainwindow.cpp:65
+#: mainwindow.cpp:66
 #, kde-format
 msgid "Start or stop current game"
 msgstr "Start/Stop  das aktuelle Spiel"
 
-#: mainwindow.cpp:99
+#: mainwindow.cpp:75
+#, kde-format
+msgid "Time step control"
+msgstr "Geschwindigkeitsregler"
+
+#: mainwindow.cpp:103
 #, kde-format
 msgid "General"
 msgstr "Allgemeine"
 
-#: mainwindow.cpp:100
+#: mainwindow.cpp:104
 #, kde-format
 msgid "Colors"
 msgstr "Farben"
 
-#: mainwindow.cpp:113 mainwindow.cpp:114
+#: mainwindow.cpp:117 mainwindow.cpp:118
 #, kde-format
 msgid ""
 "Use right and left arrow keys or A/D keys or mouse buttons to control the "
@@ -215,32 +197,50 @@ msgstr ""
 "Benutzen Sie Links-und-Rechtspfeiltasten oder A/D-Tasten oder Links-und-"
 "Rechtsmausklicke, um die Schlange zu steuern"
 
-#: mainwindow.cpp:115
+#: myslider.cpp:23
 #, kde-format
 msgid "Snake Movement Speed"
 msgstr "Schlangelaufgeschwindigkeit"
 
-#: mainwindow.cpp:116
+#: myslider.cpp:24
 #, kde-format
 msgid "Change Snake Movement Speed dynamically"
 msgstr "Die Schlangegeschwindigkeit verändern beim Spiel"
 
-#: snakegame.cpp:208
+#: snakegame.cpp:205
 #, kde-format
 msgid "You lost"
 msgstr "Verloren"
 
-#: snakegame.cpp:208
+#: snakegame.cpp:205
 #, kde-format
 msgid "Sorry, you lost"
 msgstr "Tut man leid, haben Sie verloren"
 
-#: snakegame.cpp:226
+#: snakegame.cpp:223
 #, kde-format
 msgid "You win"
 msgstr "Gewinn"
 
-#: snakegame.cpp:226
+#: snakegame.cpp:223
 #, kde-format
 msgid "You win!"
 msgstr "Haben Sie gewinnen!"
+
+#, kde-format
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Eugen Soroshchinskii"
+
+#, kde-format
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "webmaster@darkguard.net, manager@darkguard.net"
+
+#, kde-format
+#~ msgid "&Game"
+#~ msgstr "&Spiel"
+
+#, kde-format
+#~ msgid "Main Toolbar"
+#~ msgstr "Hauptsymbolleiste"

@@ -12,7 +12,7 @@
 class SnakeGame : public QWidget {
 Q_OBJECT
 public:
-    SnakeGame(QWidget *parent = nullptr);
+    SnakeGame(int timerInterval, QWidget *parent = nullptr);
     ~SnakeGame() override;
 
     int getScreenCellsX();
@@ -23,7 +23,6 @@ public:
 
     QList<GameObject> *getApples();
 
-    void setTimerInterval(int mTimerInterval);
 
 protected:
     void paintEvent(QPaintEvent *e) override;

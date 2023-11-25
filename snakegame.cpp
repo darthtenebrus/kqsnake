@@ -16,8 +16,9 @@
 
 
 
-SnakeGame::SnakeGame(QWidget *parent) : QWidget(parent), mTimer(new QTimer()) {
+SnakeGame::SnakeGame(int timerInterval, QWidget *parent) : QWidget(parent), mTimer(new QTimer()) {
 
+    m_TimerInterval = DIVISOR / timerInterval;
     initTotalCells();
     renewGame(false);
     connect(mTimer, &QTimer::timeout, this, &SnakeGame::nextMove);
@@ -292,9 +293,6 @@ void SnakeGame::stopGame() {
     cancelTimerInstantly();
 }
 
-void SnakeGame::setTimerInterval(int timerInterval) {
-    m_TimerInterval = DIVISOR / timerInterval;
-}
 
 
 

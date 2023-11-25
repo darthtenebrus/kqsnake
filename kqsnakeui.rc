@@ -21,7 +21,7 @@
         <Separator />
         <Action name="options_configure"/>
         <Separator />
-        <Slider />
+        <Action name="timestep_control" />
     </ToolBar>
 
     <State name="initial_state">

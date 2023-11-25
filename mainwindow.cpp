@@ -28,7 +28,11 @@
 MainWindow::MainWindow(QWidget *parent) :
         KXmlGuiWindow(parent) {
 
-    gameField = new SnakeGame(this);
+
+    mySlider = new MySlider(Qt::Horizontal, toolBar());
+    mySlider->retranslateUi();
+    gameField = new SnakeGame(mySlider->value(), this);
+    connect(mySlider, &QSlider::valueChanged, gameField, &SnakeGame::timerChanged);
 
     gameField->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
 
@@ -40,6 +44,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(gameField, &SnakeGame::changeControls, this, &MainWindow::controlsChanged);
     connect(gameField, &SnakeGame::enableStart, this, &MainWindow::startEnable);
+
     setupToolBar();
 
 }
@@ -61,6 +66,13 @@ void MainWindow::setupToolBar() {
     startStopGame->setWhatsThis(i18n("Start or stop current game"));
     startStopGame->setIcon(QIcon::fromTheme("media-playback-start"));
     connect(startStopGame, &QAction::triggered, gameField, &SnakeGame::startStopTrigger);
+
+    auto *wa = new QWidgetAction(this);
+    wa->setDefaultWidget(mySlider);
+
+    // Add actions for the timestep widget's functions
+    QAction *resWAction = actionCollection()->addAction("timestep_control", wa);
+    resWAction->setText(i18n("Time step control"));
 
     const QSize &wsize = QApplication::desktop()->size() * 0.9;
     setupGUI(wsize);
@@ -117,38 +129,6 @@ void MainWindow::changeEvent(QEvent *event) {
     KXmlGuiWindow::changeEvent(event);
 }
 
-QStringList MainWindow::customTags() const {
 
-    return KXMLGUIBuilder::customTags() << mSliderTagName;
-}
-
-QAction *MainWindow::createCustomElement(QWidget *parent, int index, const QDomElement &element) {
-
-    const QString &tagName = element.tagName().toLower();
-
-    if (tagName == mSliderTagName) {
-        QAction *before = nullptr;
-        if (index > 0 && index < parent->actions().count()) {
-            before = parent->actions().at(index);
-        }
-
-        if (auto *bar = qobject_cast<QToolBar *>(parent)) {
-            auto *timerSlider = new MySlider(Qt::Horizontal, this);
-
-            timerSlider->retranslateUi();
-            connect(timerSlider, &QSlider::valueChanged, gameField, &SnakeGame::timerChanged);
-            gameField->setTimerInterval(timerSlider->value());
-            auto *res = bar->insertWidget(before, timerSlider);
-            return res;
-        }
-
-        auto *blank = new QAction(parent);
-        blank->setVisible(false);
-        parent->insertAction(before, blank);
-        return blank;
-    } else {
-        return KXMLGUIBuilder::createCustomElement(parent, index, element);
-    }
-}
 
 

@@ -17,11 +17,6 @@ Q_OBJECT
 protected:
     void changeEvent(QEvent *event) override;
 
-public:
-    [[nodiscard]]
-    QStringList customTags() const override;
-
-    QAction *createCustomElement(QWidget *parent, int index, const QDomElement &element) override;
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
@@ -29,9 +24,9 @@ public:
 
 private:
     SnakeGame *gameField;
+    MySlider *mySlider;
     void setupToolBar();
     void retranslateUi();
-    QString mSliderTagName = "slider";
 
 private slots:
     void loadSettings(const QString &);
