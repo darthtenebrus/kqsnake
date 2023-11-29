@@ -13,7 +13,7 @@ architectures:
   - build-on: [arm64]
 apps:
   kqsnake:
-    common-id: org.kde.kqsnake.desktop
+    common-id: org.kde.kqsnake
     command: usr/bin/kqsnake
     desktop: org.kde.kqsnake.desktop
     extensions:
